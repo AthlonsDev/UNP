@@ -4,10 +4,14 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "apexcharts": "^5.3.6",
+    "axios": "^1.13.2",
     "react": "^18.2.0",
+    "react-apexcharts": "^1.9.0",
     "react-dom": "^18.2.0",
     "web-vitals": "^3.1.0"
   },
@@ -42,7 +46,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.22",
     "jsdom": "^26.1.0",
+    "tailwindcss": "^4.1.17",
     "vite": "^6.3.6",
     "vitest": "^3.0.7"
   }

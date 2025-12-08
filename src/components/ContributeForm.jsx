@@ -14,7 +14,12 @@ export default function ContributeForm() {
     }
 
     try {
+<<<<<<< HEAD
       await addContribution(url, name)
+=======
+      await addContribution({ url, name })
+
+>>>>>>> f5f42b7a5024a7421c997e0732eab85bbbf1abbc
       // Reset form
       setUrl('')
       setName('')

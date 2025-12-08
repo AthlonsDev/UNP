@@ -10,6 +10,8 @@ import ResourceCard from './components/ResourceCard'
 import { useResources } from './hooks/useResources'
 import { performAISearch } from './hooks/useAISearch'
 
+import { getResources } from './services/api'
+
 function App() {
   const {
     resources,
@@ -38,6 +40,14 @@ function App() {
     setSemanticKeywords([])
     setCurrentStepFilter(null)
   }
+
+  const handleGetResources = async () => {
+    getResources().then(data => {
+      console.log("Resources from App.jsx:", data);
+    }).catch(error => {
+      console.error("Error fetching resources in App.jsx:", error);
+    });
+  };
 
   if (loading) {
     return (

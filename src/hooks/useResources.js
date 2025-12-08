@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { fetchResources } from '../services/api'
+import { getResources } from '../services/api'
 
 export function useResources() {
   const [resources, setResources] = useState([])
@@ -20,7 +20,7 @@ export function useResources() {
   async function loadResources() {
     try {
       setLoading(true)
-      const data = await fetchResources()
+      const data = await getResources()
       setResources(data)
     } catch (err) {
       setError(err.message)

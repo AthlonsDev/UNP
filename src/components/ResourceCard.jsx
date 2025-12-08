@@ -8,13 +8,18 @@ const icons = {
   'Tool': '🔧',
   'Guidance': '📖',
   'Programme': '🚀',
-  'Platform': '🌐'
+  'Platform': '🌐',
+  'Upvote': '👍',
+  'Downvote': '👎',
+  'upArrow': '⬆️',
+  'downArrow': '⬇️'
 }
 
 export default function ResourceCard({ resource, index, keywords }) {
   const isFeatured = index === 0
   const patternUrl = generateSvgBackground(resource.category)
   const icon = icons[resource.category] || '⭐'
+  const [score, setScore] = useState(resource.evaluation.user_score || 0);
 
   const highlightText = (text) => {
     if (keywords.length === 0) return text
@@ -25,30 +30,34 @@ export default function ResourceCard({ resource, index, keywords }) {
 
   const upvote = async () => {
     // alert(`You liked: ${resource.id}`)
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
     var _id = resource.id-1
-    const res = await fetch(`${API_URL}/upvote/${_id-1}?score=1`, {
+    const res = await fetch(`${API_URL}/upvote/${_id}?score=1`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ resourceId: _id-1, userScore: 1 })
+      body: JSON.stringify({ resourceId: _id, userScore: 1 })
     });
-    resource.evaluation.user_score += 1;
+    setScore(score + 1);
+    console.log("Upvoted resource:", _id);
+    // Refresh page data
     await getResources();
   }
 
   const downvote = async () => {
     // alert(`You disliked: ${resource.id}`)
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
-    const res = await fetch(`${API_URL}/downvote/${resource.id}?score=-1`, {
+      var _id = resource.id-1
+
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const res = await fetch(`${API_URL}/downvote/${_id}?score=-1`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ resourceId: resource.id, userScore: -1 })
+      body: JSON.stringify({ resourceId: _id, userScore: -1 })
     });
-    resource.evaluation.user_score -= 1;
+    setScore(score - 1);
     await getResources();
   }
 
@@ -72,16 +81,16 @@ export default function ResourceCard({ resource, index, keywords }) {
             
             🏆 Top Scored
 
-          <button className="absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105"
-            style={{ backgroundColor: 'var(--accent-orange)' }} onClick={upvote}>
-            Up
+          <button className="absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-green-600"
+              onClick={upvote}>
+              {icons['Upvote']}
           </button>
-          <button className="absolute top-7 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105"
-            style={{ backgroundColor: 'var(--accent-orange)' }} onClick={downvote}>
-            Down
+          <button className="absolute top-7 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-red-600"
+             onClick={downvote}>
+            {icons['Downvote']}
           </button>
           <p className='absolute top-15 right-4 text-black font-bold text-xs py-1 px-3 rounded-tr-xl rounded-bl-xl'>
-            Score: {resource.evaluation.user_score}
+            Score: {score}
           </p>
           </div>          
           
@@ -89,16 +98,16 @@ export default function ResourceCard({ resource, index, keywords }) {
 
         {isFeatured || (
           <div>
-            <button className="absolute top-0 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105"
-              style={{ backgroundColor: 'var(--accent-orange)' }} onClick={upvote}>
-              Up
+            <button className="absolute top-0 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-green-600"
+              onClick={upvote}>
+              {icons['Upvote']}
             </button>
-            <button className="absolute top-0 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105"
-              style={{ backgroundColor: 'var(--accent-orange)' }} onClick={downvote}>
-              Down
+            <button className="absolute top-0 right-15 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-red-600"
+              onClick={downvote}>
+              {icons['Downvote']}
             </button>
-            <p className='absolute top-20 right-0 text-black font-bold text-xs py-1 px-3 rounded-tr-xl rounded-bl-xl'>
-              Score: {resource.evaluation.user_score}
+            <p className='absolute top-10 right-4 text-black font-bold text-xs py-1 px-3 rounded-tr-xl rounded-bl-xl'>
+              Score: {score}
             </p>
           </div>
         )}

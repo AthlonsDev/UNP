@@ -1,0 +1,3373 @@
+[
+    {
+        "id": 1,
+        "name": "The Urban Greening Plans Journey ",
+        "link": "https://www.youtube.com/watch?v=D-8pYyOBy3s5",
+        "category": "Guidance",
+        "subcategory": "Podcast",
+        "unpSteps": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Podcast providing an overview of the UGP journey",
+        "justification": "Provides a useful and easy-to-understand overview of what Urban Greening Plans are and the journey cities will go on to create and deliver one",
+        "payment": "Free",
+        "format": "Audio",
+        "summaryBullets": {
+            "for": "Awareness raising ",
+            "outcome": "Capacity building",
+            "user": "Ideal for city officials and stakeholders new to UNPs, providing a high-level, accessible introduction."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 2,
+        "name": "URBAN GreenUP infographic",
+        "link": "https://www.urbangreenup.eu/media-centre/infographics.kl",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            1,
+            3
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Infographic explaining the benefits of NBS and urban greening to raise awareness ",
+        "justification": "A useful tool for communicating the benefits of urban greening and UGPs to politicians and other stakeholders",
+        "payment": "Free",
+        "format": "Image ",
+        "summaryBullets": {
+            "for": "Awareness raising ",
+            "outcome": "Awareness raising ",
+            "user": "Excellent for political briefings and public-facing communication to build support for greening initiatives."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 3,
+        "name": "URBES ",
+        "link": "https://www.youtube.com/watch?v=D-8pYyOBy3s6",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            1,
+            3
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Short video to raise awareness of urban biodiversity and ecosystem services",
+        "justification": "A useful tool for communicating the benefits of urban greening and UGPs to politicians and other stakeholders",
+        "payment": "Free",
+        "format": "Video",
+        "summaryBullets": {
+            "for": "Awareness raising ",
+            "outcome": "Awareness raising ",
+            "user": "A visual and engaging tool for presentations to diverse audiences to explain the core concepts of urban ecosystems."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 4,
+        "name": "Ignition Project ",
+        "link": "https://www.greatermanchester-ca.gov.uk/what-we-do/environment/ignition/",
+        "category": "Programme",
+        "subcategory": "Funding mechanism ",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The project aims to develop innovative financing solutions for investment in Greater Manchester\u2019s natural environment. ",
+        "justification": "Demonstrates how investment in urban greening can be developed through innovative financing mechanisms",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Funding",
+            "outcome": "Funding",
+            "user": "Essential for finance departments and strategic planners in cities looking to develop sustainable, long-term funding for NBS."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 5,
+        "name": "The Nature of Cities ",
+        "link": "https://www.thenatureofcities.com/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An international platform for sharing diverse, transformative ideas about cities as ecosystems of people, nature, and infrastructure.",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "A vital resource for planners, researchers, and practitioners seeking global perspectives and innovative ideas in urban ecology."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 6,
+        "name": "UNEP Generation Restoration",
+        "link": "https://www.decadeonrestoration.org/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The UN Decade on Ecosystem Restoration 2021-2030, a rallying cry for the protection and revival of ecosystems all around the world",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "Connects local city efforts to a global movement, providing a strategic framework and inspiration for large-scale restoration projects."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 7,
+        "name": "The Global Platform for Sustainable Cities (GPSC)",
+        "link": "https://www.thegpsc.org/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "GPSC is a partnership that promotes a holistic approach to sustainable urban development, fostering knowledge sharing and collaboration among cities, organizations, and experts.",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "Aimed at city managers and policy makers seeking integrated solutions and best practices for sustainable urban development."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 8,
+        "name": "European Green Capital Award",
+        "link": "https://environment.ec.europa.eu/topics/urban-environment/european-green-capital-award_en",
+        "category": "Programme",
+        "subcategory": "Accreditation/Standard",
+        "unpSteps": [
+            2
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Recognises and rewards local efforts to improve the environment, and therefore the economy and the quality of life in cities",
+        "justification": "Provides a mechanism for cities to have their urban greening activities accredited at the European level",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Accreditation",
+            "outcome": "Awareness raising ",
+            "user": "For ambitious cities seeking to achieve high-level recognition for their environmental efforts and benchmark their performance."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 9,
+        "name": "NetworkNature",
+        "link": "https://networknature.eu/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A one-stop-shop for all things nature-based solutions (NBS) ",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "The go-to platform for anyone involved in NBS, from researchers to practitioners, offering tools, resources, and community connections."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 10,
+        "name": "ThinkNature",
+        "link": "https://www.think-nature.eu/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A platform that promotes the dialogue and interaction on NBS among a wide range of stakeholders",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "Focuses on stakeholder dialogue, making it particularly useful for those managing co-creation and community engagement processes."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 11,
+        "name": "Oppla",
+        "link": "https://oppla.eu/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A knowledge marketplace, offering a wealth of resources on natural capital, ecosystem services, and nature-based solutions from a diverse range of providers.",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "A marketplace of ideas and tools, excellent for users who want to browse a wide array of solutions from various providers."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 12,
+        "name": "Urban by Nature ",
+        "link": "https://iclei-europe.org/our-expertise/sustainable-resources/urban-by-nature/",
+        "category": "Programme",
+        "subcategory": "Training programme",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A global programme for urban nature pioneers, facilitating peer-to-peer exchange and capacity building on NBS.",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "Designed for 'urban pioneers,' this programme is great for city representatives looking for structured peer-learning and training."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 13,
+        "name": "Urban Biodiversity Hub ",
+        "link": "https://www.ubhub.org/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An online platform connecting a network of cities, researchers and practitioners to share knowledge and experiences in urban biodiversity conservation.",
+        "justification": "Provides a wealth of information, case studies, and inspiration for cities developing UGPs",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "Specifically focused on biodiversity, making it a key resource for ecologists and conservation officers in urban settings."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 14,
+        "name": "The role of public participation and stakeholder engagement in urban greening ",
+        "link": "https://www.youtube.com/watch?v=D-8pYyOBy3s7",
+        "category": "Guidance",
+        "subcategory": "Podcast",
+        "unpSteps": [
+            3,
+            4,
+            6
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Podcast providing an overview of public participation and stakeholder engagement",
+        "justification": "A useful tool for communicating the benefits of urban greening and UGPs to politicians and other stakeholders",
+        "payment": "Free",
+        "format": "Audio",
+        "summaryBullets": {
+            "for": "Guidance",
+            "outcome": "Capacity building",
+            "user": "An easy-to-digest podcast for project managers on the importance and methods of effective public engagement."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 15,
+        "name": "A Practical Guide to Creating and Managing Green Infrastructure ",
+        "link": "https://www.tcpa.org.uk/a-practical-guide-to-creating-and-managing-green-infrastructure",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A guide for local authorities and developers in England on how to deliver green infrastructure as a key component of creating successful places.",
+        "justification": "A comprehensive guide to delivering GI which is a major component of UGPs",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Guidance",
+            "outcome": "Capacity building",
+            "user": "A go-to handbook for UK-based local authorities and developers, providing detailed, practical steps for GI delivery."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 16,
+        "name": "Green Factor Tool",
+        "link": "https://www.greenfactor.london/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            3,
+            5,
+            7,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The Green Factor Tool is a scoring system that evaluates the quality of urban greening in new developments.",
+        "justification": "A tool that can be used to set urban greening targets and measure success",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Target setting ",
+            "outcome": "Monitoring ",
+            "user": "Suited for urban planners and regulatory bodies needing a standardized method to assess and mandate greening in new developments."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 17,
+        "name": "i-Tree ",
+        "link": "https://www.itreetools.org/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            3,
+            5,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A state-of-the-art, peer-reviewed software suite from the USDA Forest Service that provides urban and rural forestry analysis and benefits assessment tools.",
+        "justification": "A comprehensive tool for valuing the benefits of urban trees",
+        "payment": "Free",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Valuation ",
+            "outcome": "Monitoring ",
+            "user": "A powerful tool for foresters, arborists, and planners needing to quantify the ecosystem services and economic value of trees."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 18,
+        "name": "NBS Carbon Storage Calculator",
+        "link": "https://www.researchgate.net/publication/344551121_A_simplified_method_for_calculating_the_carbon_storage_of_Nature-Based_Solutions_in_cities_An_example_from_the_URBAN-GreenUP_project",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            3,
+            5,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A simplified method for calculating the carbon storage of Nature-Based Solutions in cities",
+        "justification": "A useful tool for calculating the carbon storage of NBS which can be used to justify investment",
+        "payment": "Free",
+        "format": "Excel",
+        "summaryBullets": {
+            "for": "Valuation ",
+            "outcome": "Monitoring ",
+            "user": "For sustainability officers and planners needing a practical way to estimate the carbon sequestration benefits of NBS projects."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 19,
+        "name": "Naturvation Urban Nature Atlas",
+        "link": "https://naturvation.eu/atlas",
+        "category": "Tool",
+        "subcategory": "Database",
+        "unpSteps": [
+            3,
+            4
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A systematically collected database of nearly 1000 examples of nature-based solutions from across 100 European cities.",
+        "justification": "Provides a comprehensive database of NBS case studies from across Europe",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "An essential starting point for planners and researchers looking for real-world examples and inspiration for NBS interventions."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 20,
+        "name": "Green pass ",
+        "link": "https://www.greenpass.io/en/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            3,
+            5,
+            7,
+            9
+        ],
+        "languages": [
+            "EN",
+            "DE"
+        ],
+        "description": "A certification and optimization tool for climate-resilient urban planning and architecture",
+        "justification": "A holistic tool for assessing the climate performance of urban development projects",
+        "payment": "Charged",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Certification",
+            "outcome": "Monitoring ",
+            "user": "Aimed at architects, developers, and planners seeking a robust certification for climate-resilient design."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 21,
+        "name": "URBAN GreenUP NBS catalogue",
+        "link": "https://www.urbangreenup.eu/solutions/renaturing-urban-plans.kl",
+        "category": "Tool",
+        "subcategory": "Database",
+        "unpSteps": [
+            3,
+            4
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A catalogue of different types of NBS with information on their characteristics, benefits, and implementation considerations",
+        "justification": "Provides a comprehensive database of NBS case studies from across Europe",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies ",
+            "outcome": "Capacity building",
+            "user": "A practical catalogue for users who need to understand the specifics of different NBS types to select the right ones for their project."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 22,
+        "name": "BioClim",
+        "link": "https://www.bioclim.build/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            3,
+            5,
+            7,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Software to analyze the microclimate effects of vegetation in urban areas",
+        "justification": "Tool for detailed microclimate analysis",
+        "payment": "Charged",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Microclimate analysis",
+            "outcome": "Planning support",
+            "user": "Suits architects and urban climate specialists needing detailed simulations of vegetation's cooling effects."
+        },
+        "evaluation": {
+            "totalScore": 19
+        }
+    },
+    {
+        "id": 23,
+        "name": "CityTree",
+        "link": "https://greencitysolutions.de/en/solutions-en/",
+        "category": "Tool",
+        "subcategory": "Implementation tool",
+        "unpSteps": [
+            3,
+            8
+        ],
+        "languages": [
+            "EN",
+            "DE"
+        ],
+        "description": "Moss-based air filter to combat air pollution",
+        "justification": "Innovative technology for air quality improvement",
+        "payment": "Charged",
+        "format": "Physical infrastructure",
+        "summaryBullets": {
+            "for": "Air purification",
+            "outcome": "Health improvement",
+            "user": "For city managers targeting air pollution hotspots with a high-tech, green infrastructure solution."
+        },
+        "evaluation": {
+            "totalScore": 18
+        }
+    },
+    {
+        "id": 24,
+        "name": "TOC (Trees, Water & People)",
+        "link": "https://treeswaterpeople.org/our-work/tribal-lands-program/",
+        "category": "Programme",
+        "subcategory": "Community-based programme",
+        "unpSteps": [
+            4,
+            6,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Community-based natural resource management and renewable energy solutions",
+        "justification": "Example of a strong community-based programme",
+        "payment": "Free",
+        "format": "Programme",
+        "summaryBullets": {
+            "for": "Community empowerment",
+            "outcome": "Sustainable livelihoods",
+            "user": "A model for NGOs and community organizers aiming to implement grassroots environmental projects."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 25,
+        "name": "Drought-Tolerant Landscaping Guide",
+        "link": "https://www.conserveh2o.org/drought-tolerant-landscaping",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            4,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A guide to creating water-wise gardens and landscapes",
+        "justification": "Practical guidance for water conservation",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Water conservation",
+            "outcome": "Drought resilience",
+            "user": "Essential for landscape designers and homeowners in water-scarce regions."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 26,
+        "name": "ESRI ArcGIS Urban",
+        "link": "https://www.esri.com/en-us/arcgis/products/arcgis-urban/overview",
+        "category": "Tool",
+        "subcategory": "Planning tool",
+        "unpSteps": [
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A 3D experience for urban planning that allows you to visualize projects in your city and see their impacts.",
+        "justification": "Powerful GIS tool for integrated urban planning",
+        "payment": "Charged",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Scenario planning",
+            "outcome": "Informed decision-making",
+            "user": "Aimed at professional urban planning departments requiring advanced 3D visualization and impact assessment capabilities."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 27,
+        "name": "Nature Smart Cities ",
+        "link": "https://naturesmartcities.eu/",
+        "category": "Programme",
+        "subcategory": "Training programme",
+        "unpSteps": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN",
+            "NL",
+            "FR",
+            "DE"
+        ],
+        "description": "Interreg project to help cities develop and implement green infrastructure action plans.",
+        "justification": "Provides a business model and decision support tool for GI.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Business case development",
+            "outcome": "GI investment",
+            "user": "Suits city administrators needing to build a strong economic case for green infrastructure investments."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 28,
+        "name": "INaturalist",
+        "link": "https://www.inaturalist.org/",
+        "category": "Tool",
+        "subcategory": "Engagement tool",
+        "unpSteps": [
+            5,
+            6
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "A citizen science project and online social network of naturalists, citizen scientists, and biologists built on the concept of mapping and sharing observations of biodiversity across the globe.",
+        "justification": "Excellent tool for citizen science and biodiversity monitoring.",
+        "payment": "Free",
+        "format": "App/Online",
+        "summaryBullets": {
+            "for": "Biodiversity data collection",
+            "outcome": "Citizen engagement",
+            "user": "Perfect for engaging the public, schools, and community groups in local biodiversity mapping efforts."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 29,
+        "name": "WWF Biodiversity Risk Filter",
+        "link": "https://riskfilter.org/biodiversity",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A web-based tool that helps companies and financial institutions assess and respond to biodiversity-related risks.",
+        "justification": "Tool for assessing biodiversity risks in supply chains.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Risk assessment",
+            "outcome": "Corporate responsibility",
+            "user": "Designed for corporate sustainability managers and financial institutions to evaluate biodiversity impacts."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 30,
+        "name": "EKLIPSE",
+        "link": "https://www.eklipse-mechanism.eu/",
+        "category": "Platform",
+        "subcategory": "Expert network",
+        "unpSteps": [
+            5,
+            6,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A European mechanism for providing evidence-based knowledge on biodiversity and ecosystem services to policymakers.",
+        "justification": "Connects policymakers with scientific expertise.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Policy-relevant evidence",
+            "outcome": "Informed policy",
+            "user": "For policymakers and their advisors needing robust, synthesized scientific knowledge on biodiversity issues."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 31,
+        "name": "Green Roof Manual",
+        "link": "https://www.wbdg.org/resources/green-roofs",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            7,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A comprehensive guide to the benefits, design, installation, and maintenance of green roofs.",
+        "justification": "Detailed technical guidance for green roof implementation.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Green roof implementation",
+            "outcome": "Sustainable buildings",
+            "user": "An essential technical guide for architects, engineers, and contractors involved in green roof projects."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 32,
+        "name": "Miro",
+        "link": "https://miro.com/",
+        "category": "Tool",
+        "subcategory": "Engagement tool",
+        "unpSteps": [
+            6
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An online collaborative whiteboard platform that enables distributed teams to work together effectively.",
+        "justification": "Excellent tool for remote workshops and stakeholder engagement.",
+        "payment": "Freemium",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Collaborative workshops",
+            "outcome": "Stakeholder alignment",
+            "user": "A versatile tool for facilitators and project managers running virtual or hybrid collaborative sessions."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 33,
+        "name": "CitizenLab",
+        "link": "https://www.citizenlab.co/",
+        "category": "Platform",
+        "subcategory": "Engagement platform",
+        "unpSteps": [
+            6
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "A digital democracy platform for local governments to engage their communities and manage their participation projects.",
+        "justification": "Comprehensive platform for digital citizen participation.",
+        "payment": "Charged",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Digital public participation",
+            "outcome": "Community co-creation",
+            "user": "Designed for local government departments seeking to manage and scale their citizen engagement efforts online."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 34,
+        "name": "Public Sector Decarbonisation Guidance",
+        "link": "https://www.salixfinance.co.uk/guidance-notes",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Guidance for UK public sector bodies on how to decarbonise their estates.",
+        "justification": "Provides a framework for linking greening with decarbonisation goals.",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Decarbonisation strategy",
+            "outcome": "Climate action",
+            "user": "Specifically for UK public sector estate managers working on decarbonisation plans."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 35,
+        "name": "Taskforce on Nature-related Financial Disclosures (TNFD)",
+        "link": "https://tnfd.global/",
+        "category": "Guidance",
+        "subcategory": "Framework",
+        "unpSteps": [
+            7,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A global market-led initiative to develop a risk management and disclosure framework for organizations to report and act on evolving nature-related risks.",
+        "justification": "Provides a corporate framework for nature-related financial disclosure.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Nature-related risk disclosure",
+            "outcome": "Corporate accountability",
+            "user": "Essential for large corporations and financial institutions needing to align with emerging global standards on nature risk."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 36,
+        "name": "Greenkeeper",
+        "link": "https://www.playgreenkeeper.com/en",
+        "category": "Tool",
+        "subcategory": "Implementation tool",
+        "unpSteps": [
+            8,
+            9
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "App for managing golf course maintenance, which can be adapted for park management.",
+        "justification": "Tool for optimizing maintenance of green spaces.",
+        "payment": "Charged",
+        "format": "App",
+        "summaryBullets": {
+            "for": "Green space maintenance",
+            "outcome": "Operational efficiency",
+            "user": "Suits park and grounds managers looking for a digital solution to schedule and track maintenance tasks."
+        },
+        "evaluation": {
+            "totalScore": 19
+        }
+    },
+    {
+        "id": 37,
+        "name": "OpenStreetMap",
+        "link": "https://www.openstreetmap.org/",
+        "category": "Tool",
+        "subcategory": "Database",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "A collaborative project to create a free editable map of the world.",
+        "justification": "Provides free, open-source geospatial data.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Geospatial data",
+            "outcome": "Mapping and analysis",
+            "user": "A foundational data source for GIS analysts, community mappers, and anyone needing free, customizable map data."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 38,
+        "name": "Local Authority Pollinator Toolkit",
+        "link": "https://www.buglife.org.uk/resources/policy-and-legislation/local-authority-pollinator-toolkit/",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            7,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A toolkit for local authorities in the UK to help pollinators.",
+        "justification": "Specific guidance for a key biodiversity group.",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Pollinator conservation",
+            "outcome": "Biodiversity enhancement",
+            "user": "A practical guide for UK local authority ecologists and park managers on creating pollinator-friendly habitats."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 39,
+        "name": "GIO-TRAFx",
+        "link": "https://www.trafx.net/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Automated counters and data services for pedestrian and bicycle traffic.",
+        "justification": "Tool for monitoring the use of greenways and parks.",
+        "payment": "Charged",
+        "format": "Hardware/Software",
+        "summaryBullets": {
+            "for": "Usage monitoring",
+            "outcome": "Data-driven management",
+            "user": "For park managers and transport planners needing accurate data on pedestrian and cyclist numbers."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 40,
+        "name": "UN Decade on Ecosystem Restoration - Monitoring Framework",
+        "link": "https://www.fao.org/in-action/sepal-in-action/monitoring-framework/en/",
+        "category": "Guidance",
+        "subcategory": "Framework",
+        "unpSteps": [
+            9,
+            10
+        ],
+        "languages": [
+            "EN",
+            "FR",
+            "ES"
+        ],
+        "description": "A framework to track progress of the UN Decade, providing standards and tools for monitoring ecosystem restoration.",
+        "justification": "Global framework for monitoring restoration efforts.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Restoration monitoring",
+            "outcome": "Standardized reporting",
+            "user": "For national and local governments aligning their restoration projects with global reporting standards."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 41,
+        "name": "Biodiversity Intactness Index (BII)",
+        "link": "https://www.nhm.ac.uk/our-science/data/biodiversity-intactness-index.html",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An indicator that estimates how much of a region\u2019s natural biodiversity still persists.",
+        "justification": "A high-level indicator for assessing biodiversity status.",
+        "payment": "Free",
+        "format": "Data/Online",
+        "summaryBullets": {
+            "for": "Biodiversity assessment",
+            "outcome": "State of nature reporting",
+            "user": "Suits national and regional environmental agencies for high-level biodiversity reporting and trend analysis."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 42,
+        "name": "UNaLab",
+        "link": "https://unalab.eu/",
+        "category": "Programme",
+        "subcategory": "Demonstration project",
+        "unpSteps": [
+            2,
+            4,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Urban Nature Labs - an H2020 project demonstrating innovative, co-created nature-based solutions in cities.",
+        "justification": "Provides real-world case studies and a co-creation framework.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Case studies",
+            "outcome": "Co-creation capacity",
+            "user": "For city planners interested in the practical application and co-creation process of NBS demonstration projects."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 43,
+        "name": "BiodiverCities by 2030",
+        "link": "https://www.weforum.org/initiatives/biodivercities-by-2030/",
+        "category": "Programme",
+        "subcategory": "Global initiative",
+        "unpSteps": [
+            1,
+            2,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A World Economic Forum initiative to help cities integrate nature as a core part of their development.",
+        "justification": "High-level initiative promoting the integration of nature into urban development.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Strategic integration of nature",
+            "outcome": "Sustainable urban development",
+            "user": "Aimed at city leaders and high-level decision-makers to build the case for nature-positive urban futures."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 44,
+        "name": "European Platform for Urban Greening",
+        "link": "https://platformurbangreening.eu/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Platform to bring together expertise in urban greening from across Europe, focusing on skills and knowledge for professionals.",
+        "justification": "Vocational training and skills-focused platform.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Vocational training",
+            "outcome": "Skilled workforce",
+            "user": "For professionals and students in landscaping and green space management seeking to upgrade their skills."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 45,
+        "name": "The IUCN Global Standard for Nature-based Solutions",
+        "link": "https://www.iucn.org/our-work/nature-based-solutions/iucn-global-standard-nature-based-solutions",
+        "category": "Guidance",
+        "subcategory": "Accreditation/Standard",
+        "unpSteps": [
+            3,
+            7,
+            9
+        ],
+        "languages": [
+            "EN",
+            "FR",
+            "ES"
+        ],
+        "description": "A framework for the verification, design, and scaling up of Nature-based Solutions.",
+        "justification": "A globally recognized standard to ensure the quality and effectiveness of NBS.",
+        "payment": "Free",
+        "format": "Online/PDF",
+        "summaryBullets": {
+            "for": "NBS project validation",
+            "outcome": "Effective and credible NBS",
+            "user": "Essential for project developers, investors, and policymakers needing to design and verify high-quality NBS."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 46,
+        "name": "GrowGreen",
+        "link": "https://www.growgreenproject.eu/",
+        "category": "Programme",
+        "subcategory": "Demonstration project",
+        "unpSteps": [
+            2,
+            4,
+            8
+        ],
+        "languages": [
+            "EN",
+            "ES",
+            "ZH"
+        ],
+        "description": "H2020 project demonstrating NBS in several cities and developing strategies for upscaling.",
+        "justification": "Provides case studies and strategies for NBS implementation and financing.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "NBS demonstration",
+            "outcome": "Upscaling strategies",
+            "user": "For cities looking for proven examples of NBS and guidance on how to replicate and scale them up."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 47,
+        "name": "CIBSE AM14: Non-domestic cooling",
+        "link": "https://www.cibse.org/knowledge/knowledge-items/detail?id=a0q3Y00000IMrmVQAT",
+        "category": "Guidance",
+        "subcategory": "Technical guidance",
+        "unpSteps": [
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Technical guidance on cooling buildings, including the role of green infrastructure.",
+        "justification": "Engineering guidance on how GI contributes to building cooling.",
+        "payment": "Charged",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Building cooling design",
+            "outcome": "Energy efficiency",
+            "user": "Aimed at mechanical engineers and architects designing cooling systems for non-domestic buildings."
+        },
+        "evaluation": {
+            "totalScore": 19
+        }
+    },
+    {
+        "id": 48,
+        "name": "CLEARING HOUSE",
+        "link": "https://clearinghouseproject.eu/",
+        "category": "Programme",
+        "subcategory": "Research project",
+        "unpSteps": [
+            2,
+            5,
+            7
+        ],
+        "languages": [
+            "EN",
+            "ZH"
+        ],
+        "description": "A research project focusing on urban forests as nature-based solutions (UF-NBS).",
+        "justification": "Provides in-depth knowledge and tools related to urban forests.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Urban forestry knowledge",
+            "outcome": "Enhanced urban forest management",
+            "user": "For researchers, foresters, and planners specializing in the management and benefits of urban forests."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 49,
+        "name": "QGIS",
+        "link": "https://qgis.org/en/site/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "A free and open-source geographic information system (GIS).",
+        "justification": "A powerful, free alternative to commercial GIS software for spatial analysis.",
+        "payment": "Free",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Spatial analysis",
+            "outcome": "Mapping and data visualization",
+            "user": "The essential tool for anyone needing to perform geospatial analysis without a budget for commercial software."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 50,
+        "name": "Climate-ADAPT",
+        "link": "https://climate-adapt.eea.europa.eu/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The European platform for climate adaptation knowledge.",
+        "justification": "A central repository of information on climate change adaptation in Europe.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Climate adaptation knowledge",
+            "outcome": "Informed adaptation planning",
+            "user": "A key resource for policymakers and practitioners across Europe working on climate adaptation strategies."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 51,
+        "name": "GoGreenRoutes",
+        "link": "https://gogreenroutes.eu/",
+        "category": "Programme",
+        "subcategory": "Research project",
+        "unpSteps": [
+            2,
+            6,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An H2020 project exploring the links between urban nature, health, and well-being.",
+        "justification": "Focuses on the health and well-being co-benefits of urban greening.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Health and well-being research",
+            "outcome": "Evidence for health benefits",
+            "user": "For public health officials and urban planners interested in the evidence base linking green space and human health."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 52,
+        "name": "Green Surge",
+        "link": "https://greensurge.eu/",
+        "category": "Programme",
+        "subcategory": "Research project",
+        "unpSteps": [
+            2,
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An FP7 project that identified, developed, and tested ways of linking green spaces, biodiversity, and sustainability.",
+        "justification": "Provides foundational research and guidance on urban green infrastructure planning.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Urban green infrastructure research",
+            "outcome": "GI planning guidance",
+            "user": "Offers foundational research and frameworks for planners developing strategic green infrastructure plans."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 53,
+        "name": "EU Pollinators Initiative",
+        "link": "https://environment.ec.europa.eu/topics/nature-and-biodiversity/eu-pollinators-initiative_en",
+        "category": "Programme",
+        "subcategory": "Policy initiative",
+        "unpSteps": [
+            1,
+            7
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "The European Commission's initiative to address the decline of pollinators.",
+        "justification": "Sets the policy context for local action on pollinators.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Pollinator policy",
+            "outcome": "Coordinated action",
+            "user": "For national and local policymakers needing to understand and contribute to the EU's strategy on pollinators."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 54,
+        "name": "Global Mangrove Watch",
+        "link": "https://www.globalmangrovewatch.org/",
+        "category": "Platform",
+        "subcategory": "Data platform",
+        "unpSteps": [
+            5,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An online platform that provides the remote sensing data and tools for monitoring the world\u2019s mangroves.",
+        "justification": "Specialized tool for a key coastal ecosystem.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Mangrove monitoring",
+            "outcome": "Coastal ecosystem management",
+            "user": "A crucial tool for coastal managers and conservationists in tropical and subtropical regions."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 55,
+        "name": "Building with Nature",
+        "link": "https://www.buildingwithnature.org.uk/",
+        "category": "Guidance",
+        "subcategory": "Accreditation/Standard",
+        "unpSteps": [
+            3,
+            7,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A UK-based benchmark and accreditation system for high-quality green infrastructure.",
+        "justification": "Provides a standard for quality GI in new developments.",
+        "payment": "Charged",
+        "format": "Accreditation scheme",
+        "summaryBullets": {
+            "for": "Green infrastructure quality assurance",
+            "outcome": "High-quality developments",
+            "user": "For UK developers, planners, and local authorities seeking a recognized standard for excellent green infrastructure."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 56,
+        "name": "Natural Capital Planning Tool (NCPT)",
+        "link": "https://www.naturalcapitalplanningtool.org.uk/",
+        "category": "Tool",
+        "subcategory": "Planning tool",
+        "unpSteps": [
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A free, web-based tool for local authorities in England to assess the natural capital impacts of planning proposals.",
+        "justification": "Helps integrate natural capital assessment into planning decisions.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Natural capital assessment",
+            "outcome": "Informed planning decisions",
+            "user": "Designed for planning officers in England to help evaluate the environmental impacts of development plans."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 57,
+        "name": "Conexkt",
+        "link": "https://www.conextk.com/",
+        "category": "Tool",
+        "subcategory": "Engagement tool",
+        "unpSteps": [
+            6
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A platform for mapping stakeholders and visualizing their relationships.",
+        "justification": "Useful for understanding and managing complex stakeholder networks.",
+        "payment": "Charged",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Stakeholder mapping",
+            "outcome": "Strategic engagement",
+            "user": "Aimed at project managers and community organizers who need to analyze and navigate complex stakeholder landscapes."
+        },
+        "evaluation": {
+            "totalScore": 19
+        }
+    },
+    {
+        "id": 58,
+        "name": "BREEAM",
+        "link": "https://bregroup.com/products/breeam/",
+        "category": "Guidance",
+        "subcategory": "Accreditation/Standard",
+        "unpSteps": [
+            3,
+            7,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The world's leading sustainability assessment method for masterplanning projects, infrastructure and buildings.",
+        "justification": "A comprehensive, internationally recognized standard for sustainable buildings and communities.",
+        "payment": "Charged",
+        "format": "Accreditation scheme",
+        "summaryBullets": {
+            "for": "Sustainability assessment",
+            "outcome": "Certified sustainable buildings",
+            "user": "For developers, architects, and clients seeking a globally recognized certification for building sustainability."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 59,
+        "name": "ENCORE",
+        "link": "https://encore.naturalcapital.finance/en",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A tool to help financial institutions understand and integrate natural capital risks and opportunities into their activities.",
+        "justification": "Connects environmental change with its economic consequences.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Natural capital risk assessment",
+            "outcome": "Sustainable finance",
+            "user": "Aimed at the finance industry to help analysts and portfolio managers assess nature-related risks."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 60,
+        "name": "REGREEN",
+        "link": "https://www.regreen-project.eu/",
+        "category": "Programme",
+        "subcategory": "Research project",
+        "unpSteps": [
+            2,
+            5,
+            8
+        ],
+        "languages": [
+            "EN",
+            "DK"
+        ],
+        "description": "An H2020 project focusing on fostering urban liveability through nature-based solutions.",
+        "justification": "Provides tools and insights for co-creating NBS for liveable cities.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Liveability and NBS",
+            "outcome": "Co-created urban spaces",
+            "user": "For city planners and community groups focused on improving urban liveability through co-created nature-based solutions."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 61,
+        "name": "The Dasgupta Review",
+        "link": "https://www.gov.uk/government/publications/final-report-the-economics-of-biodiversity-the-dasgupta-review",
+        "category": "Guidance",
+        "subcategory": "Report",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An independent, global review on the Economics of Biodiversity led by Professor Sir Partha Dasgupta.",
+        "justification": "A foundational document making the economic case for biodiversity.",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Economic case for biodiversity",
+            "outcome": "Policy change",
+            "user": "Essential reading for policymakers, economists, and leaders to understand the economic imperative of protecting nature."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 62,
+        "name": "Local Green Space designation",
+        "link": "https://www.gov.uk/guidance/open-space-sports-and-recreation-facilities-public-rights-of-way-and-local-green-space",
+        "category": "Tool",
+        "subcategory": "Policy tool",
+        "unpSteps": [
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A UK policy tool that allows communities to nominate local green areas for special protection.",
+        "justification": "A mechanism for community-led protection of green spaces.",
+        "payment": "Free",
+        "format": "Policy",
+        "summaryBullets": {
+            "for": "Green space protection",
+            "outcome": "Community empowerment",
+            "user": "For community groups and parish councils in the UK wanting to legally protect valued local green spaces."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 63,
+        "name": "Global Biodiversity Information Facility (GBIF)",
+        "link": "https://www.gbif.org/",
+        "category": "Platform",
+        "subcategory": "Data platform",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "An international network and data infrastructure funded by the world's governments and aimed at providing anyone, anywhere, open access to data about all types of life on Earth.",
+        "justification": "The largest source of open-access biodiversity data.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Biodiversity data access",
+            "outcome": "Scientific research",
+            "user": "An indispensable resource for researchers, conservationists, and policymakers needing access to global biodiversity data."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 64,
+        "name": "Commonplace",
+        "link": "https://www.commonplace.is/",
+        "category": "Platform",
+        "subcategory": "Engagement platform",
+        "unpSteps": [
+            6
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An online platform for community engagement and consultation, focused on placemaking.",
+        "justification": "A user-friendly platform for gathering community feedback on development projects.",
+        "payment": "Charged",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Community consultation",
+            "outcome": "Placemaking",
+            "user": "For developers and local authorities who need to run effective, map-based consultations for planning and regeneration projects."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 65,
+        "name": "Perfect Pollinator Plants",
+        "link": "https://www.rhs.org.uk/science/conservation-biodiversity/wildlife/plants-for-pollinators",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Guidance from the Royal Horticultural Society on which plants to choose to support pollinators.",
+        "justification": "A practical, evidence-based plant list for supporting pollinators.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Plant selection",
+            "outcome": "Pollinator support",
+            "user": "A go-to guide for gardeners, landscape designers, and park managers wanting to create pollinator-friendly planting schemes."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 66,
+        "name": "Living Roofs and Walls Technical Report",
+        "link": "https://livingroofs.org/wp-content/uploads/2016/04/livingroofsandwallstechnicalreport.pdf",
+        "category": "Guidance",
+        "subcategory": "Technical guidance",
+        "unpSteps": [
+            7,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A technical report supporting the London Plan policy on living roofs and walls.",
+        "justification": "Detailed technical support for implementing green roofs and walls.",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Green roof/wall implementation",
+            "outcome": "Policy compliance",
+            "user": "Specifically for those working on projects in London, providing the technical detail needed to comply with the London Plan."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 67,
+        "name": "Integrated Valuation of Ecosystem Services and Trade-offs (InVEST)",
+        "link": "https://naturalcapitalproject.stanford.edu/software/invest",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A suite of free, open-source software models used to map and value the goods and services from nature that sustain and fulfill human life.",
+        "justification": "A powerful tool for modeling and valuing ecosystem services.",
+        "payment": "Free",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Ecosystem service modelling",
+            "outcome": "Informed decision-making",
+            "user": "For GIS-savvy environmental planners and researchers needing to model and quantify ecosystem service trade-offs."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 68,
+        "name": "Urban Tree Manual",
+        "link": "https://www.forestresearch.gov.uk/research/urban-tree-manual/",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A manual providing advice on selecting and procuring urban trees.",
+        "justification": "Practical guidance on tree selection for urban environments.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Tree selection and procurement",
+            "outcome": "Healthy urban trees",
+            "user": "An essential guide for landscape architects, urban foresters, and procurement officers involved in urban tree planting."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 69,
+        "name": "GPlates",
+        "link": "https://www.gplates.org/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Open-source software for the interactive visualisation of plate-tectonics.",
+        "justification": "Highly specialized tool for deep-time earth science, not directly relevant to UNPs but an example of open-source science tools.",
+        "payment": "Free",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Plate tectonic visualization",
+            "outcome": "Geological research",
+            "user": "Exclusively for geologists and earth scientists studying plate tectonics."
+        },
+        "evaluation": {
+            "totalScore": 17
+        }
+    },
+    {
+        "id": 70,
+        "name": "Life Cycle Assessment (LCA) tools",
+        "link": "https://eplca.jrc.ec.europa.eu/LCDN/developerEF.xhtml",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Tools and methodologies for assessing the environmental impacts associated with all the stages of a product's life.",
+        "justification": "Can be used to assess the environmental footprint of green infrastructure projects.",
+        "payment": "Various",
+        "format": "Software",
+        "summaryBullets": {
+            "for": "Environmental impact assessment",
+            "outcome": "Sustainable procurement",
+            "user": "For sustainability professionals and engineers conducting detailed life cycle assessments of products or projects."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 71,
+        "name": "Water-Sensitive Urban Design (WSUD)",
+        "link": "https://www.melbournewater.com.au/building-and-works/developer-guides-and-resources/water-sensitive-urban-design",
+        "category": "Guidance",
+        "subcategory": "Framework",
+        "unpSteps": [
+            7,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A holistic approach to urban water management that integrates the water cycle into urban design.",
+        "justification": "A comprehensive framework for sustainable urban water management.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Sustainable water management",
+            "outcome": "Urban resilience",
+            "user": "A key framework for water engineers, urban planners, and landscape architects designing integrated water systems."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 72,
+        "name": "Survey123 for ArcGIS",
+        "link": "https://www.esri.com/en-us/arcgis/products/arcgis-survey123/overview",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5,
+            6,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A form-centric solution for creating, sharing and analyzing surveys.",
+        "justification": "A powerful tool for creating smart surveys for field data collection.",
+        "payment": "Charged (part of ArcGIS)",
+        "format": "App/Online",
+        "summaryBullets": {
+            "for": "Field data collection",
+            "outcome": "Efficient data capture",
+            "user": "For organizations using the ESRI ecosystem to conduct field surveys and data collection."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 73,
+        "name": "SWOT Analysis Tool",
+        "link": "https://www.liveplan.com/blog/what-is-a-swot-analysis-and-how-to-do-it-with-examples/",
+        "category": "Tool",
+        "subcategory": "Planning tool",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A strategic planning technique used to help a person or organization identify strengths, weaknesses, opportunities, and threats related to business competition or project planning.",
+        "justification": "A simple and effective framework for strategic analysis.",
+        "payment": "Free",
+        "format": "Methodology",
+        "summaryBullets": {
+            "for": "Strategic planning",
+            "outcome": "Informed strategy",
+            "user": "A universally applicable tool for any team or individual at the start of a strategic planning process."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 74,
+        "name": "Nature Conservancy's Carbon Planner",
+        "link": "https://www.nature.org/en-us/what-we-do/our-insights/perspectives/a-new-tool-to-map-the-climate-value-of-nature/",
+        "category": "Tool",
+        "subcategory": "Planning tool",
+        "unpSteps": [
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A tool to identify areas where nature-based solutions can have the biggest impact on climate mitigation.",
+        "justification": "Helps prioritize investments in natural climate solutions.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Climate mitigation planning",
+            "outcome": "Targeted climate action",
+            "user": "For conservation planners and policymakers looking to identify high-impact areas for natural climate solutions."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 75,
+        "name": "Google Earth Engine",
+        "link": "https://earthengine.google.com/",
+        "category": "Platform",
+        "subcategory": "Data platform",
+        "unpSteps": [
+            5,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A platform for petabyte-scale scientific analysis and visualization of geospatial datasets.",
+        "justification": "A powerful cloud-based platform for large-scale environmental monitoring.",
+        "payment": "Free for research",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Planetary-scale geospatial analysis",
+            "outcome": "Global environmental monitoring",
+            "user": "Aimed at researchers and data scientists with coding skills needing to process massive geospatial datasets."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 76,
+        "name": "Healthy Urbanism",
+        "link": "https://www.bre.co.uk/healthy-urbanism",
+        "category": "Guidance",
+        "subcategory": "Framework",
+        "unpSteps": [
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A framework and tool from BRE for assessing and improving the health and wellbeing impacts of urban development.",
+        "justification": "Integrates health and wellbeing into the core of urban planning.",
+        "payment": "Charged",
+        "format": "Framework/Tool",
+        "summaryBullets": {
+            "for": "Health impact assessment",
+            "outcome": "Healthier communities",
+            "user": "For planners, developers, and public health professionals seeking to create healthier urban environments."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 77,
+        "name": "EU Green Deal",
+        "link": "https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_en",
+        "category": "Programme",
+        "subcategory": "Policy initiative",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "The EU's overarching strategy to make Europe the first climate-neutral continent.",
+        "justification": "The highest-level policy driver for all urban greening and sustainability efforts in the EU.",
+        "payment": "Free",
+        "format": "Policy",
+        "summaryBullets": {
+            "for": "EU climate and environmental policy",
+            "outcome": "Climate neutrality",
+            "user": "Essential context for all policymakers and public bodies operating within the European Union."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 78,
+        "name": "CitiesWithNature",
+        "link": "https://www.citieswithnature.org/",
+        "category": "Platform",
+        "subcategory": "Network",
+        "unpSteps": [
+            1,
+            2,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A global platform for cities to connect, share, and learn about mainstreaming nature into their planning and development.",
+        "justification": "A key network for cities committed to working with nature.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "City networking and peer learning",
+            "outcome": "Shared knowledge",
+            "user": "For city representatives and officials wanting to join a global community of practice on urban nature."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 79,
+        "name": "Sustainable Urban Drainage Systems (SUDS) Manual",
+        "link": "https://www.ciria.org/suds_manual_c753.aspx",
+        "category": "Guidance",
+        "subcategory": "Technical guidance",
+        "unpSteps": [
+            7,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The most comprehensive and up-to-date guidance on the planning, design, construction, and maintenance of Sustainable Drainage Systems (SuDS) in the UK.",
+        "justification": "The definitive technical guide for SuDS implementation.",
+        "payment": "Charged",
+        "format": "PDF/Hardcopy",
+        "summaryBullets": {
+            "for": "SuDS design and implementation",
+            "outcome": "Effective water management",
+            "user": "The essential reference for civil engineers, landscape architects, and developers implementing SuDS in the UK."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 80,
+        "name": "MAES (Mapping and Assessment of Ecosystems and their Services)",
+        "link": "https://ec.europa.eu/environment/nature/knowledge/ecosystem_assessment/index_en.htm",
+        "category": "Programme",
+        "subcategory": "Policy initiative",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An initiative under the EU Biodiversity Strategy to map and assess the state of ecosystems and their services in the EU.",
+        "justification": "Provides the methodological framework for national ecosystem assessments.",
+        "payment": "Free",
+        "format": "Policy/Methodology",
+        "summaryBullets": {
+            "for": "Ecosystem assessment methodology",
+            "outcome": "Standardized ecosystem accounting",
+            "user": "Primarily for national and regional government bodies responsible for conducting ecosystem assessments."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 81,
+        "name": "Forest Europe",
+        "link": "https://foresteurope.org/",
+        "category": "Platform",
+        "subcategory": "Policy platform",
+        "unpSteps": [
+            1,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The pan-European voluntary high-level political process for the protection and sustainable management of the continent\u2019s forests.",
+        "justification": "High-level policy process for forests, relevant to urban forestry strategy.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Forest policy cooperation",
+            "outcome": "Sustainable forest management",
+            "user": "For national forestry departments and policymakers involved in pan-European forest strategy."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 82,
+        "name": "Biodiversity Net Gain",
+        "link": "https://www.gov.uk/government/collections/biodiversity-net-gain",
+        "category": "Tool",
+        "subcategory": "Policy tool",
+        "unpSteps": [
+            3,
+            7,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A UK policy that requires developers to ensure they leave biodiversity in a better state than before.",
+        "justification": "A mandatory policy tool in the UK for quantifying and delivering biodiversity improvements.",
+        "payment": "Free (guidance), Charged (implementation)",
+        "format": "Policy/Methodology",
+        "summaryBullets": {
+            "for": "Delivering biodiversity improvements",
+            "outcome": "Nature-positive development",
+            "user": "Mandatory for most developers and local planning authorities in England to understand and implement."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 83,
+        "name": "LIFE Programme",
+        "link": "https://cinea.ec.europa.eu/programmes/life_en",
+        "category": "Programme",
+        "subcategory": "Funding mechanism ",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The EU's funding instrument for the environment and climate action.",
+        "justification": "A major source of funding for environmental and nature conservation projects.",
+        "payment": "Free (to apply)",
+        "format": "Funding Programme",
+        "summaryBullets": {
+            "for": "Environmental project funding",
+            "outcome": "Project implementation",
+            "user": "For any organization (public, private, NGO) in the EU seeking funding for environmental, nature conservation, and climate action projects."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 84,
+        "name": "DGNB System",
+        "link": "https://www.dgnb-system.de/en/",
+        "category": "Guidance",
+        "subcategory": "Accreditation/Standard",
+        "unpSteps": [
+            3,
+            7,
+            9
+        ],
+        "languages": [
+            "DE",
+            "EN"
+        ],
+        "description": "A German certification system for sustainable building.",
+        "justification": "A comprehensive sustainability certification system with a strong focus in Germany.",
+        "payment": "Charged",
+        "format": "Accreditation scheme",
+        "summaryBullets": {
+            "for": "Sustainable building certification",
+            "outcome": "Certified sustainable buildings",
+            "user": "Primarily for architects, developers, and clients in Germany and Europe seeking a holistic sustainability certification."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 85,
+        "name": "Horizon Europe",
+        "category": "Programme",
+        "subcategory": "Funding mechanism ",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The EU's key funding programme for research and innovation.",
+        "justification": "The primary source of EU funding for R&I projects, including many related to urban greening and NBS.",
+        "payment": "Free (to apply)",
+        "format": "Funding Programme",
+        "summaryBullets": {
+            "for": "Research and innovation funding",
+            "outcome": "Scientific and technological advancement",
+            "user": "For universities, research institutes, businesses, and other organizations involved in cutting-edge research and innovation."
+        },
+        "evaluation": {
+            "totalScore": 25
+        },
+        "link": "https://research-and-innovation.ec.europa.eu/funding/funding-opportunities/funding-programmes-and-open-calls/horizon-europe_en"
+    },
+    {
+        "id": 86,
+        "name": "Global Covenant of Mayors for Climate & Energy",
+        "link": "https://www.globalcovenantofmayors.org/",
+        "category": "Platform",
+        "subcategory": "Network",
+        "unpSteps": [
+            1,
+            2,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The largest global alliance for city climate leadership, built upon the commitment of over 10,000 cities and local governments.",
+        "justification": "A major global network for cities committed to climate action.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "City climate action",
+            "outcome": "Global collaboration",
+            "user": "For mayors and city administrations wanting to commit to climate action and join a global network for support and reporting."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 87,
+        "name": "Urban Innovation Actions (UIA)",
+        "link": "https://www.uia-initiative.eu/en",
+        "category": "Programme",
+        "subcategory": "Funding mechanism ",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An EU initiative that provides urban areas throughout Europe with resources to test new and unproven solutions to address urban challenges.",
+        "justification": "Funding for innovative and experimental urban projects.",
+        "payment": "Free (to apply)",
+        "format": "Funding Programme",
+        "summaryBullets": {
+            "for": "Funding for urban innovation",
+            "outcome": "Tested solutions to urban challenges",
+            "user": "For ambitious city authorities wanting to pilot bold and innovative solutions to their most pressing challenges."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 88,
+        "name": "Landscape Institute's Digital Tools for Landscape",
+        "link": "https://www.landscapeinstitute.org/policy/digital-tools-for-landscape/",
+        "category": "Guidance",
+        "subcategory": "Report",
+        "unpSteps": [
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A report reviewing the digital tools available for landscape professionals.",
+        "justification": "A useful overview of the digital technology landscape for the profession.",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Digital tool review",
+            "outcome": "Informed technology adoption",
+            "user": "Aimed at landscape architects and related professionals looking to understand and adopt new digital tools."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 89,
+        "name": "URBACT",
+        "link": "https://urbact.eu/",
+        "category": "Programme",
+        "subcategory": "Network",
+        "unpSteps": [
+            2,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A European exchange and learning programme promoting sustainable urban development, co-financed by the EU.",
+        "justification": "Fosters peer-learning and knowledge exchange between European cities.",
+        "payment": "Free",
+        "format": "Programme",
+        "summaryBullets": {
+            "for": "Inter-city knowledge exchange",
+            "outcome": "Improved urban policies",
+            "user": "For city practitioners wanting to learn from and solve problems with peers from other European cities."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 90,
+        "name": "Interreg Europe",
+        "link": "https://www.interregeurope.eu/",
+        "category": "Programme",
+        "subcategory": "Funding mechanism ",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An EU-funded programme that helps regional and local governments across Europe to develop and deliver better policy.",
+        "justification": "Funds projects for interregional cooperation and policy learning.",
+        "payment": "Free (to apply)",
+        "format": "Funding Programme",
+        "summaryBullets": {
+            "for": "Interregional cooperation funding",
+            "outcome": "Policy improvement",
+            "user": "For public authorities seeking to improve their regional development policies through cooperation with partners in other regions."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 91,
+        "name": "EU Biodiversity Strategy for 2030",
+        "link": "https://environment.ec.europa.eu/strategy/biodiversity-strategy-2030_en",
+        "category": "Programme",
+        "subcategory": "Policy initiative",
+        "unpSteps": [
+            1,
+            3
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "A comprehensive, ambitious, long-term plan to protect nature and reverse the degradation of ecosystems.",
+        "justification": "The key EU policy document driving biodiversity action, including the requirement for Urban Greening Plans.",
+        "payment": "Free",
+        "format": "Policy",
+        "summaryBullets": {
+            "for": "EU biodiversity policy",
+            "outcome": "Nature recovery",
+            "user": "Essential context for all policymakers and public bodies, as it sets the specific targets that UNPs must help deliver."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 92,
+        "name": "COST Actions",
+        "link": "https://www.cost.eu/",
+        "category": "Programme",
+        "subcategory": "Network",
+        "unpSteps": [
+            2
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Funding for research and innovation networks.",
+        "justification": "Supports networking among researchers, enabling them to collaborate on topics of their choice.",
+        "payment": "Free (to participate)",
+        "format": "Funding Programme",
+        "summaryBullets": {
+            "for": "Research networking",
+            "outcome": "Scientific collaboration",
+            "user": "Primarily for researchers and innovators looking to build or join collaborative networks across Europe and beyond."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 93,
+        "name": "The Place Standard Tool",
+        "link": "https://www.placestandard.scot/",
+        "category": "Tool",
+        "subcategory": "Engagement tool",
+        "unpSteps": [
+            5,
+            6
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A tool to support the delivery of high-quality places in Scotland, providing a framework to structure conversations about place.",
+        "justification": "A simple and effective tool for assessing place quality and facilitating community discussions.",
+        "payment": "Free",
+        "format": "Online/PDF",
+        "summaryBullets": {
+            "for": "Place quality assessment",
+            "outcome": "Community-led placemaking",
+            "user": "A great tool for communities, planners, and public bodies in Scotland (and adaptable elsewhere) to discuss and evaluate their local environment."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 94,
+        "name": "JPI Urban Europe",
+        "link": "https://jpi-urbaneurope.eu/",
+        "category": "Programme",
+        "subcategory": "Research project",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A research and innovation hub for urban transitions.",
+        "justification": "Coordinates research and innovation on urban challenges at a European level.",
+        "payment": "Free (to apply for calls)",
+        "format": "Funding Programme",
+        "summaryBullets": {
+            "for": "Urban transition research",
+            "outcome": "Knowledge for sustainable cities",
+            "user": "For researchers, cities, and businesses involved in addressing complex urban challenges through R&I."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 95,
+        "name": "EIT Climate-KIC",
+        "link": "https://www.climate-kic.org/",
+        "category": "Programme",
+        "subcategory": "Network",
+        "unpSteps": [
+            1,
+            2
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Europe\u2019s leading climate innovation agency and community.",
+        "justification": "Supports systemic change and innovation for climate action.",
+        "payment": "Various",
+        "format": "Network/Accelerator",
+        "summaryBullets": {
+            "for": "Climate innovation support",
+            "outcome": "Systems transformation",
+            "user": "For innovators, entrepreneurs, and city leaders looking for support, funding, and collaboration to drive climate action."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 96,
+        "name": "C40 Cities",
+        "link": "https://www.c40.org/",
+        "category": "Platform",
+        "subcategory": "Network",
+        "unpSteps": [
+            1,
+            2,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A network of mayors of nearly 100 world-leading cities collaborating to confront the climate crisis.",
+        "justification": "A leading global network for city climate leadership, focused on large metropolises.",
+        "payment": "Free (for member cities)",
+        "format": "Network",
+        "summaryBullets": {
+            "for": "City climate leadership",
+            "outcome": "Accelerated climate action",
+            "user": "For mayoral offices and senior administrators in the world's largest cities committed to ambitious climate action."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 97,
+        "name": "ICLEI - Local Governments for Sustainability",
+        "link": "https://iclei.org/",
+        "category": "Platform",
+        "subcategory": "Network",
+        "unpSteps": [
+            1,
+            2,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A global network of more than 2500 local and regional governments committed to sustainable urban development.",
+        "justification": "A major global network supporting cities of all sizes on their sustainability journey.",
+        "payment": "Membership-based",
+        "format": "Network",
+        "summaryBullets": {
+            "for": "Local sustainability support",
+            "outcome": "Sustainable urban development",
+            "user": "For local and regional governments of all sizes seeking guidance, tools, and advocacy support on sustainability."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 98,
+        "name": "Eurocities",
+        "link": "https://eurocities.eu/",
+        "category": "Platform",
+        "subcategory": "Network",
+        "unpSteps": [
+            1,
+            2,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The network of major European cities.",
+        "justification": "A key network for large European cities to share knowledge and influence EU policy.",
+        "payment": "Membership-based",
+        "format": "Network",
+        "summaryBullets": {
+            "for": "European city collaboration",
+            "outcome": "Policy influence",
+            "user": "For the administrations of major European cities looking to collaborate and engage with EU institutions."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 99,
+        "name": "Urban Agenda for the EU",
+        "link": "https://www.urban-agenda.eu/",
+        "category": "Programme",
+        "subcategory": "Policy initiative",
+        "unpSteps": [
+            1,
+            2
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A multi-level governance method to promote cooperation between Member States, cities, the European Commission and other stakeholders.",
+        "justification": "A collaborative process to improve EU legislation, funding, and knowledge for cities.",
+        "payment": "Free",
+        "format": "Policy framework",
+        "summaryBullets": {
+            "for": "Multi-level governance on urban issues",
+            "outcome": "Better regulation and funding",
+            "user": "For policymakers at the city, national, and EU level involved in shaping the future of urban development policy."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 100,
+        "name": "ESPON",
+        "link": "https://www.espon.eu/",
+        "category": "Programme",
+        "subcategory": "Research project",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The European Territorial Observation Network, providing pan-European territorial data, analysis and maps.",
+        "justification": "A key source of data and evidence on European territorial trends.",
+        "payment": "Free",
+        "format": "Data/Research platform",
+        "summaryBullets": {
+            "for": "Territorial evidence and analysis",
+            "outcome": "Informed regional policy",
+            "user": "For policymakers and researchers needing comparative data and analysis across European regions and cities."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 101,
+        "name": "Open Geospatial Consortium (OGC)",
+        "link": "https://www.ogc.org/",
+        "category": "Guidance",
+        "subcategory": "Accreditation/Standard",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A global consortium developing and promoting open standards for geospatial data and services.",
+        "justification": "Drives the interoperability of geospatial data, which is fundamental to many planning tools.",
+        "payment": "Membership-based",
+        "format": "Standards body",
+        "summaryBullets": {
+            "for": "Geospatial standards",
+            "outcome": "Data interoperability",
+            "user": "For software developers, data providers, and large organizations working with geospatial technology."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 102,
+        "name": "INSPIRE Geoportal",
+        "link": "https://inspire-geoportal.ec.europa.eu/",
+        "category": "Platform",
+        "subcategory": "Data platform",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The central European access point to spatial data from EU Member States under the INSPIRE directive.",
+        "justification": "A key data infrastructure for harmonized spatial data across Europe.",
+        "payment": "Free",
+        "format": "Data portal",
+        "summaryBullets": {
+            "for": "EU spatial data infrastructure",
+            "outcome": "Harmonized geospatial data",
+            "user": "For public authorities and researchers needing access to standardized, trans-boundary environmental spatial data in the EU."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 103,
+        "name": "Copernicus Land Monitoring Service",
+        "link": "https://land.copernicus.eu/",
+        "category": "Platform",
+        "subcategory": "Data platform",
+        "unpSteps": [
+            5,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Provides geographical information on land cover and on variables related, for instance, to the vegetation state, the water cycle or the earth's surface energy balance.",
+        "justification": "A major source of free, satellite-based land cover and environmental data for Europe.",
+        "payment": "Free",
+        "format": "Data portal",
+        "summaryBullets": {
+            "for": "Land cover and environmental data",
+            "outcome": "Environmental monitoring",
+            "user": "An essential resource for environmental agencies, land use planners, and researchers needing authoritative land data for Europe."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 104,
+        "name": "GEOSS Portal",
+        "link": "https://www.geoportal.org/",
+        "category": "Platform",
+        "subcategory": "Data platform",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A single internet access point for Earth observation data from all over the world.",
+        "justification": "A global portal to a wide range of Earth observation data.",
+        "payment": "Free",
+        "format": "Data portal",
+        "summaryBullets": {
+            "for": "Global Earth observation data",
+            "outcome": "Integrated environmental science",
+            "user": "For scientists and researchers needing to discover and access a diverse range of Earth observation datasets from global providers."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 105,
+        "name": "ArcGIS StoryMaps",
+        "link": "https://storymaps.arcgis.com/",
+        "category": "Tool",
+        "subcategory": "Engagement tool",
+        "unpSteps": [
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A tool to create inspiring, immersive stories by combining maps with narrative text, images, and multimedia content.",
+        "justification": "A powerful tool for communicating plans and project outcomes.",
+        "payment": "Charged (part of ArcGIS)",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Spatial storytelling",
+            "outcome": "Effective communication",
+            "user": "For communicators, educators, and planners wanting to create compelling, map-based narratives for a public audience."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 106,
+        "name": "Tableau Public",
+        "link": "https://public.tableau.com/en-us/s/",
+        "category": "Tool",
+        "subcategory": "Engagement tool",
+        "unpSteps": [
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A free platform to explore, create and publicly share data visualizations.",
+        "justification": "A popular tool for creating interactive charts and dashboards.",
+        "payment": "Free",
+        "format": "Software/Online",
+        "summaryBullets": {
+            "for": "Data visualization and sharing",
+            "outcome": "Data-driven stories",
+            "user": "For data analysts, journalists, and anyone wanting to create and share rich, interactive data visualizations online."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 107,
+        "name": "Canva",
+        "link": "https://www.canva.com/",
+        "category": "Tool",
+        "subcategory": "Engagement tool",
+        "unpSteps": [
+            10
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "An online design and publishing tool.",
+        "justification": "An easy-to-use tool for creating professional-looking graphics, presentations, and reports.",
+        "payment": "Freemium",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Graphic design",
+            "outcome": "Visual communication",
+            "user": "Accessible to everyone, from non-designers to professionals, for creating a wide range of visual content."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 108,
+        "name": "Engaged Journalism Accelerator",
+        "link": "https://www.engagedjournalism.com/",
+        "category": "Programme",
+        "subcategory": "Network",
+        "unpSteps": [
+            6,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An initiative to support and champion engaged journalism in European newsrooms.",
+        "justification": "Provides models and inspiration for community engagement and communication.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Community engagement models",
+            "outcome": "Stronger community ties",
+            "user": "For journalists, communicators, and community managers looking for best practices in community engagement."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 109,
+        "name": "Nature-based Solutions Initiative",
+        "link": "https://www.naturebasedsolutionsinitiative.org/",
+        "category": "Platform",
+        "subcategory": "Learning Platform",
+        "unpSteps": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An interdisciplinary programme of research, education and policy advice based at the University of Oxford.",
+        "justification": "A leading academic hub for NBS, providing evidence, policy advice, and educational resources.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "NBS evidence and policy design",
+            "outcome": "Science-based NBS",
+            "user": "Aimed at policymakers, practitioners, and researchers seeking robust scientific evidence and analysis on NBS."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 110,
+        "name": "City-Business Climate Alliance (CBCA)",
+        "link": "https://www.c40.org/programmes/city-business-climate-alliance/",
+        "category": "Programme",
+        "subcategory": "Network",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An alliance that brings together city and business leaders to accelerate climate action.",
+        "justification": "A model for public-private collaboration on climate goals.",
+        "payment": "Free (for members)",
+        "format": "Network",
+        "summaryBullets": {
+            "for": "Public-private climate collaboration",
+            "outcome": "Accelerated climate action",
+            "user": "For city governments and and businesses looking to form local partnerships to deliver on climate commitments."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 111,
+        "name": "Green City Accord",
+        "link": "https://environment.ec.europa.eu/topics/urban-environment/green-city-accord_en",
+        "category": "Programme",
+        "subcategory": "Policy initiative",
+        "unpSteps": [
+            1,
+            2,
+            10
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A movement of European mayors committed to making cities greener, cleaner and healthier.",
+        "justification": "A commitment framework for European cities on a range of environmental targets.",
+        "payment": "Free",
+        "format": "Commitment framework",
+        "summaryBullets": {
+            "for": "Urban environmental commitments",
+            "outcome": "Greener cities",
+            "user": "For European mayors and city councils wanting to commit to and report on ambitious environmental targets."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 112,
+        "name": "TCPA Garden City Principles",
+        "link": "https://www.tcpa.org.uk/the-garden-city-principles",
+        "category": "Guidance",
+        "subcategory": "Framework",
+        "unpSteps": [
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A set of principles for creating new, sustainable communities.",
+        "justification": "A foundational framework for new community planning that integrates green space and social value.",
+        "payment": "Free",
+        "format": "Framework",
+        "summaryBullets": {
+            "for": "New community planning",
+            "outcome": "Sustainable settlements",
+            "user": "For planners, developers, and local authorities involved in the masterplanning of new towns and large-scale developments."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 113,
+        "name": "Partnerships for Forests",
+        "link": "https://partnershipsforforests.com/",
+        "category": "Programme",
+        "subcategory": "Funding mechanism ",
+        "unpSteps": [
+            1
+        ],
+        "languages": [
+            "EN",
+            "ES",
+            "PT",
+            "ID"
+        ],
+        "description": "An incubator programme that supports and develops forest-positive businesses and partnerships.",
+        "justification": "A model for financing sustainable forestry and agricultural commodity projects.",
+        "payment": "Free (to apply)",
+        "format": "Incubator/Funder",
+        "summaryBullets": {
+            "for": "Sustainable forest business incubation",
+            "outcome": "Forest-positive economies",
+            "user": "For entrepreneurs and businesses with innovative ideas for protecting and managing forests sustainably."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 114,
+        "name": "NBS EduWORLD",
+        "link": "https://nbseduworld.eu/",
+        "category": "Programme",
+        "subcategory": "Training programme",
+        "unpSteps": [
+            2
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A project to create a comprehensive NBS education ecosystem.",
+        "justification": "Developing educational resources and curricula for NBS.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "NBS education",
+            "outcome": "Skilled NBS practitioners",
+            "user": "Primarily for educators, trainers, and academic institutions looking to develop or integrate NBS into their teaching."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 115,
+        "name": "European Topic Centre on Urban, Land and Soil systems (ETC-ULS)",
+        "link": "https://www.etc.europa.eu/etc-uls",
+        "category": "Platform",
+        "subcategory": "Expert network",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A centre of expertise that assists the European Environment Agency (EEA) with data and analysis on urban issues.",
+        "justification": "Provides the evidence base for the EEA's work on urban environments.",
+        "payment": "Free",
+        "format": "Expert Centre",
+        "summaryBullets": {
+            "for": "Urban environmental data and analysis",
+            "outcome": "EEA reporting",
+            "user": "For those needing the detailed data and reports that underpin the European Environment Agency's assessments."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 116,
+        "name": "Google Environmental Insights Explorer",
+        "link": "https://insightsexplorer.withgoogle.com/",
+        "category": "Tool",
+        "subcategory": "Data collection/Processing tool",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Provides data and insights on carbon emissions and renewable energy potential for thousands of cities.",
+        "justification": "An accessible source of data for city-level climate action planning.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "City-level emissions data",
+            "outcome": "Climate action planning",
+            "user": "For city staff, researchers, and advocates needing easily accessible data on emissions and solar potential."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "id": 117,
+        "name": "Bat Conservation Trust - Encouraging bats",
+        "link": "https://www.bats.org.uk/advice/gardening-for-bats",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Guidance on how to make gardens and green spaces more friendly for bats.",
+        "justification": "Practical advice for supporting a specific, protected group of species.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Bat conservation",
+            "outcome": "Habitat creation",
+            "user": "A simple guide for gardeners, homeowners, and park managers on how to support local bat populations."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 118,
+        "name": "World Bank Open Data",
+        "link": "https://data.worldbank.org/",
+        "category": "Platform",
+        "subcategory": "Data platform",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "Free and open access to global development data.",
+        "justification": "A vast repository of socioeconomic and development data.",
+        "payment": "Free",
+        "format": "Online",
+        "summaryBullets": {
+            "for": "Global development data",
+            "outcome": "Socioeconomic analysis",
+            "user": "An essential resource for economists, researchers, and policymakers working on development issues."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 119,
+        "name": "SITES (Sweden's Infrastructure for Ecosystem Science)",
+        "link": "https://www.sites.se/",
+        "category": "Platform",
+        "subcategory": "Research infrastructure",
+        "unpSteps": [
+            9
+        ],
+        "languages": [
+            "EN",
+            "SE"
+        ],
+        "description": "A national research infrastructure for terrestrial and limnological field research.",
+        "justification": "A model for long-term ecological monitoring infrastructure.",
+        "payment": "Free (for data access)",
+        "format": "Research Network",
+        "summaryBullets": {
+            "for": "Long-term ecological monitoring",
+            "outcome": "Ecosystem science",
+            "user": "Primarily for ecologists and environmental scientists needing access to long-term monitoring data and research sites in Sweden."
+        },
+        "evaluation": {
+            "totalScore": 20
+        }
+    },
+    {
+        "id": 120,
+        "name": "Open Air Laboratories (OPAL)",
+        "link": "https://www.imperial.ac.uk/opal/",
+        "category": "Programme",
+        "subcategory": "Community-based programme",
+        "unpSteps": [
+            6,
+            9
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A UK-wide citizen science initiative that allows you to get hands-on with nature, whatever your age, background or ability.",
+        "justification": "A highly successful model for large-scale citizen science and environmental education.",
+        "payment": "Free",
+        "format": "Programme",
+        "summaryBullets": {
+            "for": "Citizen science surveys",
+            "outcome": "Environmental education",
+            "user": "A great resource for educators, community groups, and families wanting to participate in national environmental surveys."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 121,
+        "name": "Global Adaptation Mapping Initiative (GAMI)",
+        "link": "https://globaladaptationresearch.org/",
+        "category": "Programme",
+        "subcategory": "Research project",
+        "unpSteps": [
+            5
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "An initiative to systematically map the landscape of climate change adaptation research.",
+        "justification": "Provides a systematic review of adaptation literature.",
+        "payment": "Free",
+        "format": "Online database",
+        "summaryBullets": {
+            "for": "Climate adaptation research synthesis",
+            "outcome": "Evidence mapping",
+            "user": "For academics and policy analysts needing a systematic overview of the state of adaptation research."
+        },
+        "evaluation": {
+            "totalScore": 21
+        }
+    },
+    {
+        "id": 122,
+        "name": "Healthy Streets",
+        "link": "https://www.healthystreets.com/",
+        "category": "Guidance",
+        "subcategory": "Framework",
+        "unpSteps": [
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A framework of 10 evidence-based indicators for creating healthier, more inclusive streets.",
+        "justification": "A human-centred framework for street design.",
+        "payment": "Free (framework), Charged (services)",
+        "format": "Framework",
+        "summaryBullets": {
+            "for": "Healthy street design",
+            "outcome": "Improved public health",
+            "user": "For transport planners, urban designers, and public health practitioners looking to create people-friendly streets."
+        },
+        "evaluation": {
+            "totalScore": 24
+        }
+    },
+    {
+        "id": 123,
+        "name": "UN-Habitat",
+        "link": "https://unhabitat.org/",
+        "category": "Platform",
+        "subcategory": "Global initiative",
+        "unpSteps": [
+            1,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The United Nations programme for human settlements and sustainable urban development.",
+        "justification": "A key global agency setting the agenda for sustainable urbanization.",
+        "payment": "Free",
+        "format": "Agency",
+        "summaryBullets": {
+            "for": "Sustainable urbanization policy",
+            "outcome": "Better urban futures",
+            "user": "For national and local governments, and development professionals seeking alignment with global urban development goals."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 124,
+        "name": "TCPA Guide to Community-led housing",
+        "link": "https://www.tcpa.org.uk/new-communities-group-resources",
+        "category": "Guidance",
+        "subcategory": "Guidance Document/Handbook",
+        "unpSteps": [
+            6,
+            8
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "A guide for communities on how to develop their own housing projects.",
+        "justification": "Empowers communities to take the lead in their own development.",
+        "payment": "Free",
+        "format": "PDF",
+        "summaryBullets": {
+            "for": "Community-led housing",
+            "outcome": "Community empowerment",
+            "user": "For community groups and individuals interested in exploring and developing community-led housing schemes."
+        },
+        "evaluation": {
+            "totalScore": 22
+        }
+    },
+    {
+        "id": 125,
+        "name": "Food and Agriculture Organization (FAO) of the UN",
+        "link": "https://www.fao.org/home/en",
+        "category": "Platform",
+        "subcategory": "Global initiative",
+        "unpSteps": [
+            1,
+            7
+        ],
+        "languages": [
+            "Multilingual"
+        ],
+        "description": "A specialized agency of the United Nations that leads international efforts to defeat hunger and improve nutrition and food security.",
+        "justification": "A key global agency for food systems, with growing work on urban forestry and agriculture.",
+        "payment": "Free",
+        "format": "Agency",
+        "summaryBullets": {
+            "for": "Food security and agriculture",
+            "outcome": "Zero hunger",
+            "user": "For policymakers and practitioners working on food systems, from rural agriculture to urban farming."
+        },
+        "evaluation": {
+            "totalScore": 25
+        }
+    },
+    {
+        "id": 126,
+        "name": "Global Platform for Disaster Risk Reduction",
+        "link": "https://www.undrr.org/global-platform-disaster-risk-reduction",
+        "category": "Platform",
+        "subcategory": "Global initiative",
+        "unpSteps": [
+            5,
+            7
+        ],
+        "languages": [
+            "EN"
+        ],
+        "description": "The main global forum to assess and discuss progress on the implementation of the Sendai Framework for Disaster Risk Reduction.",
+        "justification": "A key global platform for DRR, where the role of ecosystem-based solutions is increasingly important.",
+        "payment": "Free",
+        "format": "Forum",
+        "summaryBullets": {
+            "for": "Disaster risk reduction (DRR)",
+            "outcome": "Global resilience",
+            "user": "For national disaster management agencies and policymakers involved in DRR strategy and implementation."
+        },
+        "evaluation": {
+            "totalScore": 23
+        }
+    },
+    {
+        "name": "Sample Tool",
+        "link": "https://example.com",
+        "timestamp": "2024-01-01T00:00:00Z"
+    }
+]

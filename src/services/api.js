@@ -1,3 +1,18 @@
+// import { axios } from 'axios';
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/";
+
+export async function postContribution(features) {
+  const response = await fetch(`${API_URL}/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ features }),
+  });
+  return await response.json();
+}
+
+
+
 const RESOURCE_DATA_PATH = '/Tools.json'
 
 let cachedData = null
@@ -40,11 +55,10 @@ export async function addContribution(url, name) {
       link: url,
       timestamp: new Date().toISOString()
     }
-    
-    // Store in localStorage (since we can't write to JSON directly)
-    const contributions = JSON.parse(localStorage.getItem('contributions') || '[]')
-    contributions.push(newEntry)
-    localStorage.setItem('contributions', JSON.stringify(contributions))
+
+    postContribution(newEntry)
+
+    console.log('New data: ', cachedData)
     
     return newEntry
   } catch (error) {

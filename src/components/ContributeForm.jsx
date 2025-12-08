@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { addContribution } from '../services/api'
 
 export default function ContributeForm() {
   const [url, setUrl] = useState('')
@@ -13,21 +14,8 @@ export default function ContributeForm() {
     }
 
     try {
-      // Get existing contributions from localStorage
-      const contributions = JSON.parse(localStorage.getItem('contributions') || '[]')
-      
-      const newEntry = {
-        id: Date.now(), // Use timestamp as ID
-        url,
-        name,
-        timestamp: new Date().toISOString()
-      }
-      
-      contributions.push(newEntry)
-      localStorage.setItem('contributions', JSON.stringify(contributions))
-      
-      alert(`Thank you! ${name} has been added. Total contributions: ${contributions.length}`)
-      
+      await addContribution({ url, name })
+
       // Reset form
       setUrl('')
       setName('')

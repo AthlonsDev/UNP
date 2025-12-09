@@ -6,7 +6,7 @@ export async function performAISearch(query) {
   }
 
   try {
-    const prompt2 = 'extract information from given URL, based on the keys in the Tools.json data structure, and return the information as a JSON object. The keys are: id, url, name, category, subcategory, languages, payment, description, summaryBullets, unpSteps, evaluation[totalScore, user_score], link, timestamp. Ensure the returned JSON object strictly adheres to this structure.'
+    const prompt_JSON = 'extract information from given URL, based on the keys in the Tools.json data structure, and return the information as a JSON object. The keys are: id, url, name, category, subcategory, languages, payment, description, summaryBullets, unpSteps, evaluation[totalScore, user_score], link, timestamp. Ensure the returned JSON object strictly adheres to this structure.'
     const prompt = `Extract key search terms from the following query that would be useful for finding relevant 'Urban Nature Plan' tools, programmes, platforms, or guidance documents. List them as a JSON array of strings. Focus on core concepts, functions, and thematic areas.
 Query: '${query}'`
 
@@ -20,6 +20,7 @@ Query: '${query}'`
         }
       }
     }
+
 
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`
 
@@ -38,6 +39,7 @@ Query: '${query}'`
       // Fallback to simple split
       return query.toLowerCase().split(' ')
     }
+
   } catch (error) {
     console.error('AI search error:', error)
     // Fallback to simple split

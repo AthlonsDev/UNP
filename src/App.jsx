@@ -35,6 +35,11 @@ function App() {
     return keywords
   }
 
+  const handleAIContributions = async (url) => {
+    const contributionData = await performAIContributions(url)
+    return contributionData
+  }
+
   const handleClearFilters = () => {
     setFilters({ category: '', language: '', payment: '' })
     setSemanticKeywords([])

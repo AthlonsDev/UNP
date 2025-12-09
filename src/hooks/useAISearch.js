@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyB830qh_EJJhAw7Ihu5C-dOWd4bOfgC374" // Move to .env in production
+const API_KEY = "AIzaSyCoOw-xfas4_coDHFbo3nKyPHtSDk7HdGU" // Move to .env in production
 
 export async function performAISearch(query) {
   if (!query.trim()) {

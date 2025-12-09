@@ -1,3 +1,6 @@
+import { performAIContributions } from "../hooks/useAIContributions";
+
+
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
@@ -38,6 +41,14 @@ var randId = function() {
 };
 
 export async function addContribution(url, name) {
+
+    const AIEntry = await performAIContributions(url);
+    if (AIEntry && AIEntry.id) {
+      console.log("AI Contribution Entry:", AIEntry);
+      // const response = await updateResources(AIEntry);
+      // return response;
+    }
+
     const newEntry = {
       id: randId(),
       url,

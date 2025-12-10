@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
 
-const API_KEY = "AIzaSyB830qh_EJJhAw7Ihu5C-dOWd4bOfgC374" // Move to .env in production
+const API_KEY = "AIzaSyCoOw-xfas4_coDHFbo3nKyPHtSDk7HdGU" // Move to .env in production
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 

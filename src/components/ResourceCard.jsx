@@ -10,9 +10,7 @@ const icons = {
   'Programme': '🚀',
   'Platform': '🌐',
   'Upvote': '👍',
-  'Downvote': '👎',
-  'upArrow': '⬆️',
-  'downArrow': '⬇️'
+  'Downvote': '👎'
 }
 
 export default function ResourceCard({ resource, index, keywords }) {

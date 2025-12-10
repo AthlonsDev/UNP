@@ -11,14 +11,50 @@ export async function performAIContributions(query) {
     return []
   }
 
+  // {
+  //     "url": "URL of the resource",
+  //     "name": "Name of the resource",
+  //     "category": "Tool or Guidance or Programme or Platform",
+  //     "description": "Brief description of the resource",
+  //     "subcategory": "Learning platform, Project management tool, podcast, etc.",
+  //     "languages": language of the resource)",
+  //     "payment": "Payment model (e.g., Free, Paid, Freemium)",
+  //     "summaryBullets": {
+  //       "for": "Who is this resource for?",
+  //       "outcome": "What outcomes can be expected?",
+  //       "user": "Type of user who would benefit"
+  //     },
+  //     "unpSteps": ["Relevant", "UNP", "steps"],
+  //     "evaluation": {
+  //       "totalScore": 0,
+  //       "user_score": 0
+  //     }
+  //   }
+  //   .
+
   try {
     const prompt_JSON = `extract information from given URL, based on the keys in the Tools.json data structure, and return the information as a JSON object. The keys are: id, url, name, category, subcategory, languages, payment, description, summaryBullets, unpSteps, evaluation[totalScore, user_score], link, timestamp. Ensure the returned JSON object strictly adheres to this structure.
+    .
     URL: ${query}`;
 
     const matchSchema = z.object({
       url:z.string(),
       name:z.string(),
       category:z.string(),
+      description:z.string(),
+      subcategory:z.string(),
+      languages:z.array(z.string()),
+      payment:z.string(),
+      summaryBullets:z.object({
+        for:z.string(),
+        outcome:z.string(),
+        user:z.string()
+      }),
+      unpSteps:z.array(z.string()),
+      evaluation:z.object({
+        totalScore:0,
+        user_score:0,
+      }).optional()
     })
 
 

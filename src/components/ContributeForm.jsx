@@ -14,7 +14,7 @@ export default function ContributeForm() {
     }
 
     try {
-      await addContribution(url, name)
+      await addContribution(url)
       // Reset form
       setUrl('')
       setName('')

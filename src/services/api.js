@@ -40,30 +40,30 @@ var randId = function() {
   return 'id-' + Math.random();
 };
 
-export async function addContribution(url, name) {
+export async function addContribution(url) {
 
     const AIEntry = await performAIContributions(url);
-    if (AIEntry && AIEntry.id) {
-      console.log("AI Contribution Entry:", AIEntry);
-      // const response = await updateResources(AIEntry);
-      // return response;
+    if (AIEntry) {
+      console.log("AI Contribution Entry added:", AIEntry);
+      const response = await updateResources(AIEntry);
+      return response;
     }
 
-    const newEntry = {
-      id: randId(),
-      url,
-      name,
-      category: "Tool",
-      subcategory: "User Contributed",
-      languages: ["EN"],
-      payment: "Free",
-      description: "",
-      summaryBullets: { for: "", outcome: "", user: "" },
-      unpSteps: [],
-      evaluation: { totalScore: 0, user_score: 0 },
-      link: url,
-      timestamp: new Date().toISOString()
-    };
+    // const newEntry = {
+    //   id: randId(),
+    //   url,
+    //   name,
+    //   category: "Tool",
+    //   subcategory: "User Contributed",
+    //   languages: ["EN"],
+    //   payment: "Free",
+    //   description: "",
+    //   summaryBullets: { for: "", outcome: "", user: "" },
+    //   unpSteps: [],
+    //   evaluation: { totalScore: 0, user_score: 0 },
+    //   link: url,
+    //   timestamp: new Date().toISOString()
+    // };
     const response = await updateResources(newEntry);
     return response;
 

@@ -33,7 +33,7 @@ export async function performAIContributions(query) {
   //   .
 
   try {
-    const prompt_JSON = `extract information from given URL, based on the keys in the Tools.json data structure, and return the information as a JSON object. The keys are: id, url, name, category, subcategory, languages, payment, description, summaryBullets, unpSteps, evaluation[totalScore, user_score], link, timestamp. Ensure the returned JSON object strictly adheres to this structure.
+    const prompt_JSON = `extract information from given URL, based on the keys in the Tools.json data structure, and return the information as a JSON object. The keys are: id, url, name, category(Tool or Guidance or Programme or Platform), subcategory(Learning platform, Project management tool, podcast, etc.), languages (detect the main language), payment, description, summaryBullets, unpSteps, evaluation ({totalScore, user_score} set them both to 0), link, timestamp. Ensure the returned JSON object strictly adheres to this structure.
     .
     URL: ${query}`;
 

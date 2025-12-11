@@ -73,8 +73,8 @@ export default function Filters({
           <button
             onClick={handleAISearch}
             disabled={isSearching}
-            className="text-white px-4 py-2 rounded-r-md hover:bg-opacity-80 transition-colors font-bold flex items-center justify-center"
-            style={{ backgroundColor: 'var(--primary-accent)' }}
+            className="text-white px-4 py-2 rounded-r-md hover:bg-opacity-80 transition-colors font-bold flex items-center justify-center hover:cursor-pointer hover:bg-sky-700 bg-sky-500"
+            // style={{ backgroundColor: 'var(--primary-accent)' }}
           >
             Search
             {isSearching && (
@@ -156,7 +156,7 @@ export default function Filters({
         </p>
         <button
           onClick={onClearFilters}
-          className="bg-gray-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-600 transition-colors"
+          className="bg-gray-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-600 transition-colors hover:cursor-pointer"
         >
           Clear Filters
         </button>

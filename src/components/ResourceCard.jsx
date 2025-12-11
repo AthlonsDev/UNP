@@ -79,11 +79,11 @@ export default function ResourceCard({ resource, index, keywords }) {
             
             🏆 Top Scored
 
-          <button className="absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-green-600"
+          <button className="absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer bg-green-900 hover:bg-green-600"
               onClick={upvote}>
               {icons['Upvote']}
           </button>
-          <button className="absolute top-7 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-red-600"
+          <button className="absolute top-7 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer bg-red-900 hover:bg-red-600"
              onClick={downvote}>
             {icons['Downvote']}
           </button>

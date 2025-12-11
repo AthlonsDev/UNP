@@ -10,30 +10,26 @@ export async function performAIContributions(query) {
   if (!query.trim()) {
     return []
   }
-
-  // {
-  //     "url": "URL of the resource",
-  //     "name": "Name of the resource",
-  //     "category": "Tool or Guidance or Programme or Platform",
-  //     "description": "Brief description of the resource",
-  //     "subcategory": "Learning platform, Project management tool, podcast, etc.",
-  //     "languages": language of the resource)",
-  //     "payment": "Payment model (e.g., Free, Paid, Freemium)",
-  //     "summaryBullets": {
-  //       "for": "Who is this resource for?",
-  //       "outcome": "What outcomes can be expected?",
-  //       "user": "Type of user who would benefit"
-  //     },
-  //     "unpSteps": ["Relevant", "UNP", "steps"],
-  //     "evaluation": {
-  //       "totalScore": 0,
-  //       "user_score": 0
-  //     }
-  //   }
-  //   .
+  const steps = [
+    { id: 1, title: 'Commitment' },
+    { id: 2, title: 'Governance' },
+    { id: 3, title: 'Vision' },
+    { id: 4, title: 'Stakeholders' },
+    { id: 5, title: 'Analysis' },
+    { id: 6, title: 'Co-develop' },
+    { id: 7, title: 'Action Plan' },
+    { id: 8, title: 'Implement' },
+    { id: 9, title: 'Monitor' },
+    { id: 10, title: 'Review' }
+  ]
 
   try {
-    const prompt_JSON = `extract information from given URL, based on the keys in the Tools.json data structure, and return the information as a JSON object. The keys are: id, url, name, category(Tool or Guidance or Programme or Platform), subcategory(Learning platform, Project management tool, podcast, etc.), languages (detect the main language), payment, description, summaryBullets, unpSteps, evaluation ({totalScore, user_score} set them both to 0), link, timestamp. Ensure the returned JSON object strictly adheres to this structure.
+    const prompt_JSON = `extract information from given URL, based on the keys in the Tools.json data structure, and return the information as a JSON object.
+     The keys are: id, url, name, category(Tool or Guidance or Programme or Platform), subcategory(Learning platform, Project management tool, podcast, etc.),
+      languages (detect the main language), payment, description, summaryBullets,
+      unpSteps (assign id of steps based on list of applicable Urban Nature Plan steps from the following: ${steps.map(s => s.title).join(', ')}),
+      evaluation (set to null), link, timestamp. 
+      Ensure the returned JSON object strictly adheres to this structure.
     .
     URL: ${query}`;
 
@@ -83,6 +79,7 @@ export async function performAIContributions(query) {
 
 
   } catch (error) {
+    console.log("get list of models", await ai.models.list());
     console.error('AI search error:', error)
     // Fallback to simple split
     return query.toLowerCase().split(' ')

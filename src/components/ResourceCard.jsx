@@ -3,6 +3,7 @@ import { generateSvgBackground } from '../utils/svgPatterns.js'
 import { getResources } from '../services/api.js'
 import React from 'react'
 import { useState } from 'react'
+import { set } from 'zod'
 
 const icons = {
   'Tool': '🔧',
@@ -18,6 +19,9 @@ export default function ResourceCard({ resource, index, keywords }) {
   const patternUrl = generateSvgBackground(resource.category)
   const icon = icons[resource.category] || '⭐'
   const [score, setScore] = useState(resource.evaluation.user_score || 0);
+  const [hasVoted, setHasVoted] = useState(0); // set id of voted resource
+  const [voteType, setVoteType] = useState(null); // 'upvote', 'downvote', or null
+
 
   const highlightText = (text) => {
     if (keywords.length === 0) return text
@@ -38,6 +42,8 @@ export default function ResourceCard({ resource, index, keywords }) {
       body: JSON.stringify({ resourceId: _id, userScore: 1 })
     });
     setScore(score + 1);
+    setHasVoted(_id);
+    setVoteType('upvote');
     console.log("Upvoted resource:", _id);
     // Refresh page data
     await getResources();
@@ -56,6 +62,8 @@ export default function ResourceCard({ resource, index, keywords }) {
       body: JSON.stringify({ resourceId: _id, userScore: -1 })
     });
     setScore(score - 1);
+    setHasVoted(_id);
+    setVoteType('downvote');
     await getResources();
   }
 
@@ -79,14 +87,16 @@ export default function ResourceCard({ resource, index, keywords }) {
             
             🏆 Top Scored
 
-          <button className="absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer bg-green-900 hover:bg-green-600"
-              onClick={upvote}>
+            <button className={`absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'upvote' ? 'bg-green-600' : ''}`}
+              onClick={upvote}
+              disabled={voteType === "upvote"}>
               {icons['Upvote']}
-          </button>
-          <button className="absolute top-7 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer bg-red-900 hover:bg-red-600"
-             onClick={downvote}>
-            {icons['Downvote']}
-          </button>
+            </button>
+            <button className={`absolute top-7 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'downvote' ? 'bg-red-600' : ''}`}
+              onClick={downvote}
+              disabled={voteType === "downvote"}>
+              {icons['Downvote']}
+            </button>
           <p className='absolute top-15 right-4 text-black font-bold text-xs py-1 px-3 rounded-tr-xl rounded-bl-xl'>
             Score: {score}
           </p>
@@ -96,12 +106,14 @@ export default function ResourceCard({ resource, index, keywords }) {
 
         {isFeatured || (
           <div>
-            <button className="absolute top-0 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-green-600"
-              onClick={upvote}>
+            <button className={`absolute top-0 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'upvote' ? 'bg-green-600': ''}`}
+              onClick={upvote}
+              disabled={voteType === "upvote"}>
               {icons['Upvote']}
             </button>
-            <button className="absolute top-0 right-15 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer hover:bg-red-600"
-              onClick={downvote}>
+            <button className={`absolute top-0 right-12 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'downvote' ? 'bg-red-600': ''}`}
+              onClick={downvote}
+              disabled={voteType === "downvote"}>
               {icons['Downvote']}
             </button>
             <p className='absolute top-10 right-4 text-black font-bold text-xs py-1 px-3 rounded-tr-xl rounded-bl-xl'>

@@ -132,6 +132,7 @@ export default function Filters({
             {languageMap && Object.entries(languageMap).map(([code, name]) => (
               <option key={code} value={name}>{name}</option>
             ))}
+            onSelect={(e) => handleSuggestionClick(suggestion)}
           </select>
 
         </div>

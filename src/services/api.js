@@ -35,21 +35,21 @@ export async function updateUserScore(resourceId, userScore) {
   return await response.json();
 }
 
-let cachedData = null
-var randId = function() {
-  return 'id-' + Math.random();
-};
+// let cachedData = null
+// var randId = function() {
+//   return 'id-' + Math.random();
+// };
 
-export async function addContribution(url) {
+// export async function addContribution(url) {
 
-    const AIEntry = await performAIContributions(url);
-    if (AIEntry) {
-      // console.log("AI Contribution Entry added:", AIEntry);
-      const response = await updateResources(AIEntry);
-      return response;
-    }
+//     const AIEntry = await performAIContributions(url);
+//     if (AIEntry) {
+//       // console.log("AI Contribution Entry added:", AIEntry);
+//       const response = await updateResources(AIEntry);
+//       return response;
+//     }
 
-    const response = await updateResources(newEntry);
-    return response;
+//     const response = await updateResources(newEntry);
+//     return response;
 
-  }
+//   }

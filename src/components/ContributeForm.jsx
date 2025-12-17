@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { addContribution } from '../services/api'
 import '../App.css'
-import { set } from 'zod'
-
+import { updateResources } from '../services/api'
 
 export default function ContributeForm() {
   const [url, setUrl] = useState('')
@@ -20,10 +19,13 @@ export default function ContributeForm() {
     try {
       // await addContribution(url)
       setLoading(true)
-      const response = await addContribution(url);
-      if (response)
+      const response = await updateResources(url);
+      if (response) {
         setLoading(false);
-      // setUrl('')
+        alert('Contribution submitted successfully!')
+      }
+      setUrl('')
+      
     } catch (error) {
       console.error('Error saving contribution:', error)
       alert('An error occurred. Please try again.')

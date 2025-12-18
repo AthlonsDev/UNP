@@ -1,7 +1,8 @@
 import { performAIContributions } from "../hooks/useAIContributions";
+import axios from "axios";
 
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
   return await response.json();
@@ -14,15 +15,16 @@ export async function getResources() {
 }
 
 export async function updateResources(data) {
+  // response to send string instead of object
   const response = await fetch(`${API_URL}/update_data`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify({ 'url': data })
   });
   return await response.json();
-}
+};
 
 export async function updateUserScore(resourceId, userScore) {
   const response = await fetch(`${API_URL}/update_score`, {
@@ -40,16 +42,16 @@ export async function updateUserScore(resourceId, userScore) {
 //   return 'id-' + Math.random();
 // };
 
-// export async function addContribution(url) {
+export async function addContribution(url) {
 
-//     const AIEntry = await performAIContributions(url);
-//     if (AIEntry) {
-//       // console.log("AI Contribution Entry added:", AIEntry);
-//       const response = await updateResources(AIEntry);
-//       return response;
-//     }
+    const AIEntry = await performAIContributions(url);
+    if (AIEntry) {
+      // console.log("AI Contribution Entry added:", AIEntry);
+      const response = await updateResources(AIEntry);
+      return response;
+    }
 
-//     const response = await updateResources(newEntry);
-//     return response;
+    const response = await updateResources(newEntry);
+    return response;
 
-//   }
+  }

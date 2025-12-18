@@ -6,12 +6,17 @@ export function useResources() {
   const [filters, setFilters] = useState({
     category: '',
     language: '',
-    payment: ''
+    payment: '',
+    sorting:''
+  })
+  const [sorting, setSorting] = useState({
+    sortingOptions: ''
   })
   const [semanticKeywords, setSemanticKeywords] = useState([])
   const [currentStepFilter, setCurrentStepFilter] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [sortOption, setSortOption] = useState(null);
 
   useEffect(() => {
     loadResources()
@@ -30,6 +35,7 @@ export function useResources() {
   }
 
   const filteredResources = useMemo(() => {
+    var sortBy = () => 0; // Default no sorting
     return resources.filter(item => {
       const itemText = [
         item.name,
@@ -39,6 +45,8 @@ export function useResources() {
         item.summaryBullets?.outcome,
         item.summaryBullets?.user
       ].join(' ').toLowerCase()
+
+      
 
       const matchesSearch = semanticKeywords.length > 0
         ? semanticKeywords.some(kw => itemText.includes(kw.toLowerCase()))
@@ -60,9 +68,27 @@ export function useResources() {
         ? item.payment === filters.payment
         : true
 
+      console.log("Sorting...", filters.sorting);
+
+      if (filters.sorting === 'User') {
+        sortBy = (a, b) => (b?.evaluation?.user_score) - (a?.evaluation?.user_score)
+      }
+      if (filters.sorting === 'Total') {
+        sortBy = (a, b) => (b?.evaluation?.totalScore) - (a?.evaluation?.totalScore)
+      }
+      
+
       return matchesSearch && matchesCategory && matchesLanguage && matchesStep && matchesPayment
-    }).sort((a, b) => b.evaluation.totalScore - a.evaluation.totalScore)
+    }).sort(sortBy);
   }, [resources, filters, semanticKeywords, currentStepFilter])
+
+  const sortedResources = useMemo(() => {
+    // Not needed as sorting is handled in filteredResources
+    // But removing it breaks something else, too lazy to refactor now
+    // So don't touch, unless you want to fix this properly :)
+  }, [filteredResources, sorting])
+
+      
 
   return {
     resources,
@@ -73,6 +99,8 @@ export function useResources() {
     setSemanticKeywords,
     currentStepFilter,
     setCurrentStepFilter,
+    sortedResources,
+    setSortOption,
     // loading,
     error
   }

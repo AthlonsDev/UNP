@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { addContribution } from '../services/api'
 import '../App.css'
 import { updateResources } from '../services/api'
+import { set } from 'zod'
 
 export default function ContributeForm() {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [success, setSuccess] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -19,16 +21,22 @@ export default function ContributeForm() {
     try {
       // await addContribution(url)
       setLoading(true)
+      console.log("Submitting contribution with URL:", url);
       const response = await updateResources(url);
       if (response) {
         setLoading(false);
-        alert('Contribution submitted successfully!')
+        setSuccess(true);
+        setError(false);
+        // alert('Contribution submitted successfully!')
       }
       setUrl('')
       
     } catch (error) {
       console.error('Error saving contribution:', error)
       alert('An error occurred. Please try again.')
+      setLoading(false);
+      setSuccess(false);
+      setError(true);
     }
   }
 
@@ -42,7 +50,7 @@ export default function ContributeForm() {
           <div className="space-y-4">
             <input
               type="url"
-              value={url}
+              value={url} 
               onChange={(e) => setUrl(e.target.value)}
               placeholder="Enter URL"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
@@ -59,11 +67,13 @@ export default function ContributeForm() {
             <div class="justify-center mt-4 flex">
               <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900">
               </div>
-              {/* <!-- From Uiverse.io by xXJollyHAKERXx -->  */}
-              {/* <div class="spinner">
-                  <div class="spinner1"></div>
-              </div> */}
             </div>
+          }
+          {success &&
+            <p className="text-green-600 font-bold mt-4">Contribution submitted successfully!</p>
+          }
+          {error &&
+            <p className="text-red-600 font-bold mt-4">An error occurred. Please try again.</p>
           }
         </form>
       </div>

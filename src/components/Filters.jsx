@@ -9,7 +9,9 @@ export default function Filters({
   totalCount,
   filteredCount,
   onAISearch,
-  onClearFilters
+  onClearFilters,
+  sorting,
+  setSortOption
 }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearching, setIsSearching] = useState(false)
@@ -45,7 +47,7 @@ export default function Filters({
     } finally {
       setIsSearching(false)
     }
-  }
+  } 
 
   const handleSuggestionClick = (suggestion) => {
     setSearchQuery(suggestion)
@@ -110,10 +112,10 @@ export default function Filters({
             Resource Type
           </label>
           { <select
-            // value={filters.category}
-            // onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-            // className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-accent focus:ring-primary-accent sm:text-sm py-2 px-3"
-            // style={{ backgroundColor: 'var(--filter-highlight-bg)' }}
+            value={filters.category}
+            onChange={(e) => setFilters({ ...filters, category: e.target.value })}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-accent focus:ring-primary-accent sm:text-sm py-2 px-3"
+            style={{ backgroundColor: 'var(--filter-highlight-bg)' }}
           >
             <option value="">All Types</option>
             <option value="Tool">Tool</option>
@@ -127,12 +129,17 @@ export default function Filters({
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Language
           </label>
-          <select>
-            <option value="">All</option>
-            {languageMap && Object.entries(languageMap).map(([code, name]) => (
-              <option key={code} value={name}>{name}</option>
+          <select
+            value={filters.language}
+            onChange={(e) => setFilters({ ...filters, language: e.target.value })}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-accent focus:ring-primary-accent sm:text-sm py-2 px-3"
+            style={{ backgroundColor: 'var(--filter-highlight-bg)' }}
+          >
+            <option value="">All Languages</option>
+            {Object.entries(languageMap).map(([code, name]) => (
+              <option key={code} value={code}>{name}</option>
             ))}
-            onSelect={(e) => handleSuggestionClick(suggestion)}
+            
           </select>
 
         </div>
@@ -141,11 +148,32 @@ export default function Filters({
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Cost
           </label>
-          <select
+          { <select
+            value={filters.payment}
+            onChange={(e) => setFilters({ ...filters, payment: e.target.value })}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-accent focus:ring-primary-accent sm:text-sm py-2 px-3"
+            style={{ backgroundColor: 'var(--filter-highlight-bg)' }}
           >
             <option value="">All</option>
             <option value="Free">Free</option>
             <option value="Charged">Charged</option>
+          </select>}
+
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Sort By
+          </label>
+          <select
+            value={filters.sorting}
+            onChange={(e) => setFilters({ ...filters, sorting: e.target.value })}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-accent focus:ring-primary-accent sm:text-sm py-2 px-3"
+            style={{ backgroundColor: 'var(--filter-highlight-bg)' }}
+          >
+            <option value="Any">Any</option>
+            <option value="Total">Total Score</option>
+            <option value="User">User Score</option>
           </select>
         </div>
       </div>

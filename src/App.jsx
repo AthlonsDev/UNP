@@ -26,7 +26,10 @@ function App() {
     languages,
     loading,
     error,
-    reloadResources
+    reloadResources,
+    sortedResources,
+    setSortOption,
+    sortOption
   } = useResources()
 
   const handleAISearch = async (query) => {
@@ -35,10 +38,10 @@ function App() {
     return keywords
   }
 
-  const handleAIContributions = async (url) => {
-    const contributionData = await performAIContributions(url)
-    return contributionData
-  }
+  // const handleAIContributions = async (url) => {
+  //   const contributionData = await performAIContributions(url)
+  //   return contributionData
+  // }
 
   const handleClearFilters = () => {
     setFilters({ category: '', language: '', payment: '' })
@@ -99,6 +102,8 @@ function App() {
         onClearFilters={handleClearFilters}
         categories={categories}
         languages={languages}
+        sorting={sortOption}
+        setSortOption={setSortOption}
       />
       
       <UNPDiagram 
@@ -138,6 +143,7 @@ function App() {
               </p>
             </div>
           )}
+          
         </div>
       </main>
     </div>

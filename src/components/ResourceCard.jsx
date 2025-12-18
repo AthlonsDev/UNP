@@ -3,7 +3,7 @@ import { generateSvgBackground } from '../utils/svgPatterns.js'
 import { getResources } from '../services/api.js'
 import React from 'react'
 import { useState } from 'react'
-import { set } from 'zod'
+import { int, set } from 'zod'
 
 const icons = {
   'Tool': '🔧',
@@ -28,6 +28,16 @@ export default function ResourceCard({ resource, index, keywords }) {
     
     const regex = new RegExp(`(${keywords.join('|')})`, 'gi')
     return text.replace(regex, (match) => `<span class="highlight">${match}</span>`)
+  }
+
+  const sortResourcesByScore = (int) => {
+    if (resource.evaluation.totalScore >= 0) {
+      // sort resources as descending based on totalScore
+      return setResources(prevResources => 
+        [...prevResources].sort((a, b) => b.evaluation.totalScore - a.evaluation.totalScore)
+      )
+
+    }
   }
 
   const upvote = async () => {
@@ -68,10 +78,12 @@ export default function ResourceCard({ resource, index, keywords }) {
   }
 
   return (
+
     <div 
       className="resource-card card-component card-enter"
       style={{ animationDelay: `${index * 50}ms` }}
     >
+
       <div 
         className="card-bg-pattern" 
         style={{ backgroundImage: `url('${patternUrl}')`}}

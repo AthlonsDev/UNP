@@ -21,7 +21,7 @@ export async function updateResources(data) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ 'url': data })
+    body: JSON.stringify({ 'data': data })
   });
   return await response.json();
 };
@@ -48,10 +48,27 @@ export async function downvoteScore(id) {
   return await res.json();
 }
 
-// let cachedData = null
-// var randId = function() {
-//   return 'id-' + Math.random();
-// };
+export async function fillForm(query) {
+  const response = await fetch(`${API_URL}/fill_form`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 'url': query })
+  });
+  return await response.json();
+}
+
+
+
+
+
+
+
+
+
+
+
 
 export async function addContribution(url) {
 

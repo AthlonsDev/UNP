@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { addContribution } from '../services/api'
+import { fillForm } from '../services/api'
 import '../App.css'
 import { updateResources } from '../services/api'
 import { set } from 'zod'
+
 
 export default function ManualContributeForm() {
   const [url, setUrl] = useState('')
@@ -34,7 +35,7 @@ export default function ManualContributeForm() {
       // await addContribution(url)
       setLoading(true)
       console.log("Submitting contribution with URL:", url);
-      const response = await updateResources(url);
+      const response = await updateResources(info);
       if (response) {
         setLoading(false);
         setSuccess(true);
@@ -42,6 +43,17 @@ export default function ManualContributeForm() {
         // alert('Contribution submitted successfully!')
       }
       setUrl('')
+      setInfo({
+        name: '',
+        description: '',
+        justification: '',
+        category: '',
+        subcategory: '',
+        format: '',
+        payment: '',
+        unp_steps: '',
+        languages: ''
+      })
       
     } catch (error) {
       console.error('Error saving contribution:', error)
@@ -50,6 +62,16 @@ export default function ManualContributeForm() {
       setSuccess(false);
       setError(true);
     }
+  }
+
+  const handleAIGen = async (e) => {
+    e.preventDefault()
+    console.log("Generating details for URL:", url);
+    // Call AI service to generate details based on URL
+    const generatedDetails = await fillForm(url);
+    console.log("Generated details:", generatedDetails);
+    setInfo(generatedDetails);
+    // Populate info state with generated details
   }
 
   return (
@@ -75,6 +97,7 @@ export default function ManualContributeForm() {
             <button
                 type="submit"
                 className="px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+                onClick={handleAIGen}
             >
                 Generate Details
             </button>
@@ -149,17 +172,20 @@ export default function ManualContributeForm() {
               required
             />
           </div>
+          <label className='font-bold'>UNP Steps</label>
             <div className="space-y-4">
             <input
               type="text"
-              value={info.unpSteps} 
-              onChange={(e) => setInfo({ ...info, unpSteps: e.target.value })}
+              value={info.unp_steps} 
+              onChange={(e) => setInfo({ ...info, unp_steps: e.target.value })}
               placeholder="Enter UNP Steps"
               className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
               required
             />
           </div>
             <div className="space-y-4">
+            {/* set label to the left adding bold font */}
+            <label className='font-bold'>Languages</label>
             <input
               type="text"
               value={info.languages} 

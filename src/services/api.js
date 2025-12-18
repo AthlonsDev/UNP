@@ -10,7 +10,7 @@ export async function getRoot() {
 
 export async function getResources() {
   const response = await fetch(`${API_URL}/get_data`);
-  console.log("Fetched resources:", response);
+  // console.log("Fetched resources:", response);
   return await response.json();
 }
 

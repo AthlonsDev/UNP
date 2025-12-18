@@ -2,7 +2,7 @@ import { generateSvgBackground } from '../utils/svgPatterns.js'
 // import { updateUserScore } from '../services/api.js'
 import { getResources, upvoteScore, downvoteScore } from '../services/api.js'
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { int, set } from 'zod'
 
 const icons = {
@@ -15,7 +15,7 @@ const icons = {
 }
 
 export default function ResourceCard({ resource, index, keywords }) {
-  const isFeatured = index === 0
+  const [isFeatured, setIsFeatured] = useState(false);
   const patternUrl = generateSvgBackground(resource.category)
   const icon = icons[resource.category] || '⭐'
   const [score, setScore] = useState(resource.evaluation.user_score || 0);
@@ -30,15 +30,15 @@ export default function ResourceCard({ resource, index, keywords }) {
     return text.replace(regex, (match) => `<span class="highlight">${match}</span>`)
   }
 
-  const sortResourcesByScore = (int) => {
-    if (resource.evaluation.totalScore >= 0) {
-      // sort resources as descending based on totalScore
-      return setResources(prevResources => 
-        [...prevResources].sort((a, b) => b.evaluation.totalScore - a.evaluation.totalScore)
-      )
-
+  useEffect(() => {
+    if (resource.featured === "featured") {
+      setIsFeatured(true);
+      console.log("Featured resource:", resource.name);
+    } else {
+      setIsFeatured(false);
+      console.log("Regular resource:", resource.name);
     }
-  }
+  }, [resource]);
 
   const upvote = async () => {
     // alert(`You liked: ${resource.id}`)
@@ -82,7 +82,7 @@ export default function ResourceCard({ resource, index, keywords }) {
             style={{ backgroundColor: 'var(--dark-green-badge)' }}
           >
             
-            🏆 Top Scored
+            🏆 Featured
 
             <button className={`absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'upvote' ? 'bg-green-600' : ''}`}
               onClick={upvote}

@@ -76,6 +76,14 @@ export function useResources() {
       if (filters.sorting === 'Total') {
         sortBy = (a, b) => (b?.evaluation?.totalScore) - (a?.evaluation?.totalScore)
       }
+      // place featured items on top when no sorting is selected
+      if (filters.sorting === 'Any' || filters.sorting === '') {
+        sortBy = (a, b) => {
+          if (a.featured === "featured" && b.featured !== "featured") return -1;
+          if (a.featured !== "featured" && b.featured === "featured") return 1;
+          return 0;
+        }
+      }
       
 
       return matchesSearch && matchesCategory && matchesLanguage && matchesStep && matchesPayment

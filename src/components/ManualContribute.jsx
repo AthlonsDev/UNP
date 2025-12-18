@@ -4,11 +4,23 @@ import '../App.css'
 import { updateResources } from '../services/api'
 import { set } from 'zod'
 
-export default function ContributeForm() {
+export default function ManualContributeForm() {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(false)
+
+  const [info, setInfo] = useState({
+    name: '',
+    description: '',
+    justification: '',
+    category: '',
+    subcategory: '',
+    format: '',
+    payment: '',
+    unp_steps: '',
+    languages: ''
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -57,7 +69,103 @@ export default function ContributeForm() {
               value={url} 
               onChange={(e) => setUrl(e.target.value)}
               placeholder="Enter URL"
+              className="w-half px-21 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+            <button
+                type="submit"
+                className="px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+            >
+                Generate Details
+            </button>
+          </div>
+          <div className="space-y-4">
+            <input
+              type="text"
+              value={info.name} 
+              onChange={(e) => setInfo({ ...info, name: e.target.value })}
+              placeholder="Enter Name"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+          <div className="space-y-4">
+            <input
+              type="text"
+              value={info.description} 
+              onChange={(e) => setInfo({ ...info, description: e.target.value })}
+              placeholder="Enter Description"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+          <div className="space-y-4">
+            <input
+              type="text"
+              value={info.justification} 
+              onChange={(e) => setInfo({ ...info, justification: e.target.value })}
+              placeholder="Enter justification"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+          <div className="space-y-4">
+            <input
+              type="text"
+              value={info.category} 
+              onChange={(e) => setInfo({ ...info, category: e.target.value })}
+              placeholder="Enter category"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+            <div className="space-y-4">
+            <input
+              type="text"
+              value={info.subcategory} 
+              onChange={(e) => setInfo({ ...info, subcategory: e.target.value })}
+              placeholder="Enter subcategory"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+            <div className="space-y-4">
+            <input
+              type="text"
+              value={info.format} 
+              onChange={(e) => setInfo({ ...info, format: e.target.value })}
+              placeholder="Enter format"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+            <div className="space-y-4">
+            <input
+              type="text"
+              value={info.payment} 
+              onChange={(e) => setInfo({ ...info, payment: e.target.value })}
+              placeholder="Enter payment"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+            <div className="space-y-4">
+            <input
+              type="text"
+              value={info.unpSteps} 
+              onChange={(e) => setInfo({ ...info, unpSteps: e.target.value })}
+              placeholder="Enter UNP Steps"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              required
+            />
+          </div>
+            <div className="space-y-4">
+            <input
+              type="text"
+              value={info.languages} 
+              onChange={(e) => setInfo({ ...info, languages: e.target.value })}
+              placeholder="Enter Languages"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
               required
             />
           </div>

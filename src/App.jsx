@@ -9,6 +9,7 @@ import KnowledgeSnippet from './components/KnowledgeSnippet'
 import ResourceCard from './components/ResourceCard'
 import { useResources } from './hooks/useResources'
 import { performAISearch } from './hooks/useAISearch'
+import ManualContributeForm from './components/ManualContribute.jsx'
 
 import { getResources } from './services/api'
 
@@ -89,6 +90,7 @@ function App() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <Header />
       
+      <ManualContributeForm onContributionAdded={reloadResources} />
       <ContributeForm onContributionAdded={reloadResources} />
       
       <Filters 
@@ -143,7 +145,7 @@ function App() {
               </p>
             </div>
           )}
-          
+
         </div>
       </main>
     </div>

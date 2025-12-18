@@ -46,6 +46,10 @@ export default function ContributeForm() {
         <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--primary-accent)' }}>
           Contribute
         </h2>
+        <h3>
+            Know a useful resource that's missing? Share it with us by entering the Web Address below.
+            It will be reviewed by our AI system and added to our collection!
+        </h3>
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
           <div className="space-y-4">
             <input

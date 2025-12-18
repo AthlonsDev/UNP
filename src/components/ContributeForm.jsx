@@ -59,7 +59,7 @@ export default function ContributeForm() {
           </div>
           <button
             type="submit"
-            className="mt-4 px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-600"
+            className="mt-4 px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
           >
             Submit
           </button>

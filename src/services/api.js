@@ -26,15 +26,26 @@ export async function updateResources(data) {
   return await response.json();
 };
 
-export async function updateUserScore(resourceId, userScore) {
-  const response = await fetch(`${API_URL}/update_score`, {
+export async function upvoteScore(id) {
+  const res = await fetch(`${API_URL}/upvote/${id}?score=1`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ resourceId, userScore })
+    body: JSON.stringify({ resourceId: id, userScore: 1 })
   });
-  return await response.json();
+  return await res.json();
+}
+
+export async function downvoteScore(id) {
+  const res = await fetch(`${API_URL}/downvote/${id}?score=-1`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ resourceId: id, userScore: -1 })
+  });
+  return await res.json();
 }
 
 // let cachedData = null

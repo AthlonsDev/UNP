@@ -1,6 +1,6 @@
 import { generateSvgBackground } from '../utils/svgPatterns.js'
 // import { updateUserScore } from '../services/api.js'
-import { getResources } from '../services/api.js'
+import { getResources, upvoteScore, downvoteScore } from '../services/api.js'
 import React from 'react'
 import { useState } from 'react'
 import { int, set } from 'zod'
@@ -42,15 +42,8 @@ export default function ResourceCard({ resource, index, keywords }) {
 
   const upvote = async () => {
     // alert(`You liked: ${resource.id}`)
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
     var _id = resource.id-1
-    const res = await fetch(`${API_URL}/upvote/${_id}?score=1`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ resourceId: _id, userScore: 1 })
-    });
+    const res = await upvoteScore(_id);
     setScore(score + 1);
     setHasVoted(_id);
     setVoteType('upvote');
@@ -61,16 +54,8 @@ export default function ResourceCard({ resource, index, keywords }) {
 
   const downvote = async () => {
     // alert(`You disliked: ${resource.id}`)
-      var _id = resource.id-1
-
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-    const res = await fetch(`${API_URL}/downvote/${_id}?score=-1`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ resourceId: _id, userScore: -1 })
-    });
+    var _id = resource.id-1
+    const res = await downvoteScore(_id);
     setScore(score - 1);
     setHasVoted(_id);
     setVoteType('downvote');

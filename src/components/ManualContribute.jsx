@@ -67,6 +67,7 @@ export default function ManualContributeForm() {
     e.preventDefault()
     console.log("Generating details for URL:", url);
     // Call AI service to generate details based on URL
+    setLoading(true);
     const generatedDetails = await fillForm(url);
     console.log("Generated details:", generatedDetails);
     setInfo(generatedDetails);

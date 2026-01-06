@@ -2,7 +2,7 @@ import { performAIContributions } from "../hooks/useAIContributions";
 import axios from "axios";
 
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
   return await response.json();

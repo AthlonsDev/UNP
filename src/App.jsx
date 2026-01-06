@@ -34,7 +34,7 @@ function App() {
     sortOption,
   } = useResources()
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleAISearch = async (query) => {
     const keywords = await performAISearch(query)

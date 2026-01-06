@@ -10,6 +10,7 @@ import ResourceCard from './components/ResourceCard'
 import { useResources } from './hooks/useResources'
 import { performAISearch } from './hooks/useAISearch'
 import ManualContributeForm from './components/ManualContribute.jsx'
+import Auth from './components/auth.jsx'
 
 import { getResources } from './services/api'
 
@@ -30,8 +31,10 @@ function App() {
     reloadResources,
     sortedResources,
     setSortOption,
-    sortOption
+    sortOption,
   } = useResources()
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleAISearch = async (query) => {
     const keywords = await performAISearch(query)
@@ -57,6 +60,22 @@ function App() {
       console.error("Error fetching resources in App.jsx:", error);
     });
   };
+
+  const toggleContributeForm = () => {
+    const formElement = document.getElementById('contributeformcontainer');
+    if (formElement) {
+      formElement.classList.toggle('hidden');
+    }
+
+  };
+
+  const toggleLogin = () => {
+    const authElement = document.getElementById('authcontainer');
+    if (authElement) {
+      authElement.classList.toggle('hidden');
+    }
+  }
+
 
   if (loading) {
     return (
@@ -88,10 +107,33 @@ function App() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* <Header /> */}
+      <div className='absolute top-0 right-0 z-10'>
+        {isLoggedIn &&
+          <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+            onClick={toggleContributeForm}
+            id='toggle-contribute-form-button'
+            >
+            +
+          </button>
+        }
+        <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+          onClick={toggleLogin}
+          id='login-button'>
+          L
+        </button>
+
+      </div>
+
       <Header />
-      
-      <ManualContributeForm onContributionAdded={reloadResources} />
-      <ContributeForm onContributionAdded={reloadResources} />
+
+      <div id='contributeformcontainer' className="mb-8 hidden">
+        <ManualContributeForm onContributionAdded={reloadResources} />
+      </div>
+
+      <div id='authcontainer' className="mb-8 hidden">
+        <Auth />
+      </div>
       
       <Filters 
         filters={filters}

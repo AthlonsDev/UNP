@@ -59,6 +59,17 @@ export async function fillForm(query) {
   return await response.json();
 }
 
+export async function authUser(username, password) {
+  const response = await fetch(`${API_URL}/auth`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ 'username': username, 'password': password})
+  });
+    return await response.json();
+}
+
 
 
 

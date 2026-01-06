@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { fillForm } from '../services/api'
 import '../App.css'
 import { updateResources } from '../services/api'
-import { set } from 'zod'
 
 
 export default function ManualContributeForm() {
@@ -10,6 +9,7 @@ export default function ManualContributeForm() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(false)
+  const loadingMessage = "Generating details using AI. This may take a moment..."
 
   const [info, setInfo] = useState({
     name: '',
@@ -19,7 +19,7 @@ export default function ManualContributeForm() {
     subcategory: '',
     format: '',
     payment: '',
-    unp_steps: '',
+    unpSteps: '',
     languages: ''
   })
 
@@ -40,7 +40,6 @@ export default function ManualContributeForm() {
         setLoading(false);
         setSuccess(true);
         setError(false);
-        // alert('Contribution submitted successfully!')
       }
       setUrl('')
       setInfo({
@@ -51,7 +50,7 @@ export default function ManualContributeForm() {
         subcategory: '',
         format: '',
         payment: '',
-        unp_steps: '',
+        unpSteps: '',
         languages: ''
       })
       
@@ -71,7 +70,7 @@ export default function ManualContributeForm() {
     const generatedDetails = await fillForm(url);
     console.log("Generated details:", generatedDetails);
     setInfo(generatedDetails);
-    // Populate info state with generated details
+    setLoading(false);
   }
 
   return (
@@ -91,17 +90,29 @@ export default function ManualContributeForm() {
               value={url} 
               onChange={(e) => setUrl(e.target.value)}
               placeholder="Enter URL"
-              className="w-half px-21 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-half px-21 py-2 border border-gray-300  focus:ring-2 focus:ring-primary-accent focus:border-transparent"
               required
             />
             <button
                 type="submit"
-                className="px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+                className="px-6 py-2 font-bold text-white  hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
                 onClick={handleAIGen}
             >
                 Generate Details
             </button>
           </div>
+          {loading &&
+            <div class="justify-center mt-4 flex">
+              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-red-900">
+              </div>
+            </div>
+          }
+          {loading &&
+            <div className='w-half'>
+              <p className="ml-4 text-gray-700">{loadingMessage}</p>
+            </div>
+          }
+          <label className='font-bold'>Name</label>
           <div className="space-y-4">
             <input
               type="text"
@@ -112,26 +123,28 @@ export default function ManualContributeForm() {
               required
             />
           </div>
+          <label className='font-bold'>Description</label>
           <div className="space-y-4">
-            <input
-              type="text"
-              value={info.description} 
+            <textarea name="name" id="" placeholder='Enter Name' className="field-sizing-content md:field-sizing-content w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
               onChange={(e) => setInfo({ ...info, description: e.target.value })}
-              placeholder="Enter Description"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              rows={2}
+              value={info.description}
               required
-            />
+            >
+              {/* {info.description} */}
+            </textarea>
           </div>
+          <label className='font-bold'>Justification</label>
           <div className="space-y-4">
-            <input
-              type="text"
-              value={info.justification} 
+            <textarea name="name" id="" placeholder='Enter Name' className="field-sizing-content md:field-sizing-content w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
               onChange={(e) => setInfo({ ...info, justification: e.target.value })}
-              placeholder="Enter justification"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              rows={2}
+              value={info.justification}
               required
-            />
+            >
+            </textarea>
           </div>
+          <label className='font-bold'>Category</label>
           <div className="space-y-4">
             <input
               type="text"
@@ -142,7 +155,8 @@ export default function ManualContributeForm() {
               required
             />
           </div>
-            <div className="space-y-4">
+          <label className='font-bold'>Subcategory</label>
+          <div className="space-y-4">
             <input
               type="text"
               value={info.subcategory} 
@@ -152,6 +166,7 @@ export default function ManualContributeForm() {
               required
             />
           </div>
+            <label className='font-bold'>Format</label>
             <div className="space-y-4">
             <input
               type="text"
@@ -162,6 +177,7 @@ export default function ManualContributeForm() {
               required
             />
           </div>
+            <label className='font-bold'>Payment</label>
             <div className="space-y-4">
             <input
               type="text"
@@ -176,8 +192,8 @@ export default function ManualContributeForm() {
             <div className="space-y-4">
             <input
               type="text"
-              value={info.unp_steps} 
-              onChange={(e) => setInfo({ ...info, unp_steps: e.target.value })}
+              value={info.unpSteps} 
+              onChange={(e) => setInfo({ ...info, unpSteps: e.target.value })}
               placeholder="Enter UNP Steps"
               className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
               required

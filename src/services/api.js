@@ -2,7 +2,7 @@ import { performAIContributions } from "../hooks/useAIContributions";
 import axios from "axios";
 
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8001";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
   return await response.json();
@@ -11,6 +11,11 @@ export async function getRoot() {
 export async function getResources() {
   const response = await fetch(`${API_URL}/get_data`);
   // console.log("Fetched resources:", response);
+  return await response.json();
+}
+
+export async function checkBadURL() {
+  const response = await fetch(`${API_URL}/link_check`);
   return await response.json();
 }
 

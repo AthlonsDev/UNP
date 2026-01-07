@@ -11,6 +11,7 @@ import { useResources } from './hooks/useResources'
 import { performAISearch } from './hooks/useAISearch'
 import ManualContributeForm from './components/ManualContribute.jsx'
 import Auth from './components/auth.jsx'
+import LinkHealthCheck from './components/LinkCheck';
 
 import { getResources } from './services/api'
 
@@ -68,7 +69,6 @@ function App() {
     if (formElement) {
       formElement.classList.toggle('hidden');
     }
-
   };
 
   const toggleLogin = () => {
@@ -125,6 +125,10 @@ function App() {
           L
         </button>
 
+      </div>
+
+      <div className='absolute top-0 left-0 z-10'>
+        <LinkHealthCheck />
       </div>
 
       <Header />

@@ -34,7 +34,7 @@ function App() {
     sortOption,
   } = useResources()
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleAISearch = async (query) => {
     const keywords = await performAISearch(query)
@@ -42,10 +42,12 @@ function App() {
     return keywords
   }
 
-  // const handleAIContributions = async (url) => {
-  //   const contributionData = await performAIContributions(url)
-  //   return contributionData
-  // }
+  const handleCallback = (data) => {
+    console.log("Callback data from Auth component:", data);
+    if (data && data.isLoggedIn !== undefined) {
+      setIsLoggedIn(data.isLoggedIn);
+    }
+  };
 
   const handleClearFilters = () => {
     setFilters({ category: '', language: '', payment: '' })
@@ -132,7 +134,7 @@ function App() {
       </div>
 
       <div id='authcontainer' className="mb-8 hidden">
-        <Auth />
+        <Auth onAuthChange={handleCallback} />
       </div>
       
       <Filters 

@@ -3,7 +3,7 @@ import '../App.css'
 import { authUser } from '../services/api'
 
 
-export default function Auth() {
+export default function Auth({ onAuthChange }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,6 +14,8 @@ export default function Auth() {
     if (response) {
       setIsLoggedIn(true);
       console.log("Login successful");
+      onAuthChange({ isLoggedIn: true });
+
     } else {
       // Handle login failure (e.g., show error message)
         console.log("Login failed:", response.message);
@@ -21,10 +23,14 @@ export default function Auth() {
     console.log("Logging in with:", username, password);
   };
 
+
+
   const handleLogout = () => {
     // Implement logout logic here
     setIsLoggedIn(false);
   };
+
+  // const { onAuthChange } 
 
 return (
     <div className="auth-container flex justify-center p-6 border border-gray-300 rounded-md bg-white">

@@ -9,7 +9,7 @@ export default function Auth({ onAuthChange }) {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    // Implement login logic here
+
     const response = await authUser(username, password);
     if (response) {
       setIsLoggedIn(true);
@@ -30,10 +30,11 @@ export default function Auth({ onAuthChange }) {
     setIsLoggedIn(false);
   };
 
-  // const { onAuthChange } 
 
 return (
-    <div className="auth-container flex justify-center p-6 border border-gray-300 rounded-md bg-white">
+  <>
+    <div className="grid grid-cols-1 gap-4 p-6 border border-gray-300 rounded-md bg-white">
+      
         <input 
         type="text"
         value={username}
@@ -41,6 +42,7 @@ return (
         placeholder="Username"
         className="mr-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
         />
+
         <input 
         type="password"
         value={password}
@@ -53,6 +55,16 @@ return (
             LogIn
         </button>
     </div>
+      <div className='text-center mt-4'>
+        {isLoggedIn && 
+          (
+            <label className="mt-4 px-6 py-2 font-bold text-green-800 rounded-md bg-white">
+              Login Successful 
+            </label>
+          )
+        }
+      </div>
+    </>
   );
 }
 

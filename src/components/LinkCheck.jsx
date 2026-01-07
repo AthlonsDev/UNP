@@ -9,7 +9,7 @@ export default function LinkHealthCheck() {
   useEffect(() => {
     // Initial link check on component mount
     console.log("Performing initial link check...");
-    handleCheckLinks();
+    // handleCheckLinks();
   }, []);
 
   const handleCheckLinks = async () => {
@@ -42,8 +42,8 @@ export default function LinkHealthCheck() {
         >
             {isLoading &&
                 <div className="justify-center mt-4 flex">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-900">
-                </div>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-900">
+                  </div>
                 </div>
             }
             {!isLoading && badURLs.length > 0 && `${icons['Error: ']} ${badURLs.length}`}

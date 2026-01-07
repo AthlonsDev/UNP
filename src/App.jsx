@@ -111,21 +111,19 @@ function App() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* <Header /> */}
       <div className='absolute top-0 right-0 z-10'>
-        {isLoggedIn &&
-          <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
-            onClick={toggleContributeForm}
-            id='toggle-contribute-form-button'
-            >
-            +
-          </button>
-        }
+
         <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
           onClick={toggleLogin}
           id='login-button'>
           L
         </button>
 
+
       </div>
+
+        <div id='authcontainer' className="absolute top-15 right-0 z-10 hidden">
+          <Auth onAuthChange={handleCallback} />
+        </div>
 
       <div className='absolute top-0 left-0 z-10'>
         <LinkHealthCheck />
@@ -133,14 +131,20 @@ function App() {
 
       <Header />
 
+      <div className='text-center'>
+      {isLoggedIn &&
+        <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+          onClick={toggleContributeForm}
+          id='toggle-contribute-form-button'
+        >
+          +
+        </button>
+      }
+      </div>
       <div id='contributeformcontainer' className="mb-8 hidden">
         <ManualContributeForm onContributionAdded={reloadResources} />
       </div>
 
-      <div id='authcontainer' className="mb-8 hidden">
-        <Auth onAuthChange={handleCallback} />
-      </div>
-      
       <Filters 
         filters={filters}
         setFilters={setFilters}

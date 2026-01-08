@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { fillForm } from '../services/api'
 import '../App.css'
 import { updateResources } from '../services/api'
+import { HintCard } from './HintCard.jsx'
 
 
 export default function ManualContributeForm() {
@@ -72,6 +73,10 @@ export default function ManualContributeForm() {
     console.log("Generated details:", generatedDetails);
     setInfo(generatedDetails);
     setLoading(false);
+  }
+
+  const showInfo = () => {
+
   }
 
   return (
@@ -190,6 +195,8 @@ export default function ManualContributeForm() {
             />
           </div>
           <label className='font-bold'>UNP Steps</label>
+          <button type="button" className='md-4 px-2 hover: cursor-pointer rounded-full fill-current border border-black font-bold'
+          onClick={<HintCard />}>i</button>
             <div className="space-y-4">
             <input
               type="text"

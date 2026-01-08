@@ -54,16 +54,18 @@ return (
         <button onClick={handleLogin} className="mt-4 px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500">
             LogIn
         </button>
+        <div className='text-center mt-4'>
+          {isLoggedIn && 
+            (
+              <label className="mt-4 px-6 py-2 font-bold text-green-800 rounded-md bg-white">
+                Login Successful 
+              </label>
+            )
+          }
+        </div>
+
     </div>
-      <div className='text-center mt-4'>
-        {isLoggedIn && 
-          (
-            <label className="mt-4 px-6 py-2 font-bold text-green-800 rounded-md bg-white">
-              Login Successful 
-            </label>
-          )
-        }
-      </div>
+
     </>
   );
 }

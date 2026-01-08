@@ -35,7 +35,7 @@ function App() {
     sortOption,
   } = useResources()
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [toggle, setToggle] = useState(false);
   const [toggleForm, setToggleForm] = useState(false);
 
@@ -96,9 +96,9 @@ function App() {
 
   const hideLogin = () => {
     const authElement = document.getElementById('authcontainer');
-    if (authElement && !toggle) {
+    if (authElement && toggle) {
       authElement.classList.add('hidden');
-      setToggle(true);
+      setToggle(false);
     }
   }
 
@@ -133,7 +133,7 @@ function App() {
 
   return (
     <>
-    <div id='login-container' className='absolute top-0 right-0 z-10'>
+    <div id='login-container' className='place-self-end z-10'>
 
       <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 "
         onClick={toggleLogin}
@@ -143,7 +143,7 @@ function App() {
 
     </div>
 
-    <div id='authcontainer' className={`absolute top-15 right-0 z-10 ${!toggle ? '' : 'hidden'}`}>
+    <div id='authcontainer' className={`place-self-end flex z-20 ${toggle ? '' : 'hidden'}`}>
       <Auth onAuthChange={handleCallback} />
     </div>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8" onClick={hideLogin}>
@@ -167,7 +167,7 @@ function App() {
         </button> */}
 
       {isLoggedIn &&
-        <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+        <button className="mt-4 mb-2 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 shadow-sm"
           onClick={toggleContributeForm}
           id='toggle-contribute-form-button'
         >

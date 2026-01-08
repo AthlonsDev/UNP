@@ -10,6 +10,7 @@ export default function ManualContributeForm() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(false)
+  const [isHelp, setIsHelp] = useState(false);
   const loadingMessage = "Generating details using AI. This may take a moment..."
 
   const [info, setInfo] = useState({
@@ -75,12 +76,8 @@ export default function ManualContributeForm() {
     setLoading(false);
   }
 
-  const showInfo = () => {
-
-  }
-
   return (
-    <section className="card-component p-6 mb-12">
+    <section className="card-component card-enter p-6 mb-12 shadow-md">
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--primary-accent)' }}>
             Submit New Resource
@@ -96,12 +93,12 @@ export default function ManualContributeForm() {
               value={url} 
               onChange={(e) => setUrl(e.target.value)}
               placeholder="Enter URL"
-              className="w-half px-21 py-2 border border-gray-300  focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-half px-21 py-2 border border-gray-300  focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
             <button
                 type="submit"
-                className="px-6 py-2 font-bold text-white  hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500"
+                className="px-6 py-2 font-bold text-white  hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 shadow-sm hover:shadow-lg transition-shadow duration-300"
                 onClick={handleAIGen}
             >
                 Generate Details
@@ -125,13 +122,13 @@ export default function ManualContributeForm() {
               value={info.name} 
               onChange={(e) => setInfo({ ...info, name: e.target.value })}
               placeholder="Enter Name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
           </div>
           <label className='font-bold'>Description</label>
           <div className="space-y-4">
-            <textarea name="name" id="" placeholder='Enter Name' className="field-sizing-content md:field-sizing-content w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+            <textarea name="name" id="" placeholder='Enter Description' className="field-sizing-content md:field-sizing-content w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               onChange={(e) => setInfo({ ...info, description: e.target.value })}
               rows={2}
               value={info.description}
@@ -142,7 +139,7 @@ export default function ManualContributeForm() {
           </div>
           <label className='font-bold'>Justification</label>
           <div className="space-y-4">
-            <textarea name="name" id="" placeholder='Enter Name' className="field-sizing-content md:field-sizing-content w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+            <textarea name="name" id="" placeholder='Enter Justification' className="field-sizing-content md:field-sizing-content w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               onChange={(e) => setInfo({ ...info, justification: e.target.value })}
               rows={2}
               value={info.justification}
@@ -157,7 +154,7 @@ export default function ManualContributeForm() {
               value={info.category} 
               onChange={(e) => setInfo({ ...info, category: e.target.value })}
               placeholder="Enter category"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
           </div>
@@ -168,7 +165,7 @@ export default function ManualContributeForm() {
               value={info.subcategory} 
               onChange={(e) => setInfo({ ...info, subcategory: e.target.value })}
               placeholder="Enter subcategory"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
           </div>
@@ -179,7 +176,7 @@ export default function ManualContributeForm() {
               value={info.format} 
               onChange={(e) => setInfo({ ...info, format: e.target.value })}
               placeholder="Enter format"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
           </div>
@@ -190,22 +187,28 @@ export default function ManualContributeForm() {
               value={info.payment} 
               onChange={(e) => setInfo({ ...info, payment: e.target.value })}
               placeholder="Enter payment"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
           </div>
           <label className='font-bold'>UNP Steps</label>
-          <button type="button" className='md-4 px-2 hover: cursor-pointer rounded-full fill-current border border-black font-bold'
-          onClick={<HintCard />}>i</button>
-            <div className="space-y-4">
+          <button type="button" className='ml-2 mt-2 md-4 px-2 hover: cursor-pointer rounded-full fill-current border border-black border-2 font-bold shadow-sm'
+          onClick={() => setIsHelp(!isHelp)}>?</button>
+            {isHelp &&
+              <div className='inline float-end place-self-end relative opacity-80 z-10'>
+                <HintCard />
+              </div>
+            }
+            <div className="space-y-4 z-5">
             <input
               type="text"
               value={info.unpSteps} 
               onChange={(e) => setInfo({ ...info, unpSteps: e.target.value })}
               placeholder="Enter UNP Steps"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
+            
           </div>
             <div className="space-y-4">
             {/* set label to the left adding bold font */}
@@ -215,7 +218,7 @@ export default function ManualContributeForm() {
               value={info.languages} 
               onChange={(e) => setInfo({ ...info, languages: e.target.value })}
               placeholder="Enter Languages"
-              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+              className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
               required
             />
           </div>
@@ -227,7 +230,7 @@ export default function ManualContributeForm() {
           </button>
           {loading &&
             <div class="justify-center mt-4 flex">
-              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900">
+              <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 shadow-sm">
               </div>
             </div>
           }

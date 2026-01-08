@@ -33,14 +33,15 @@ export default function Auth({ onAuthChange }) {
 
 return (
   <>
-    <div className="grid grid-cols-1 gap-4 p-6 border border-gray-300 rounded-md bg-white">
-      
+    <div className="grid grid-cols-1 gap-4 p-6 border border-gray-300 rounded-md card-component shadow-md">
         <input 
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
-        className="mr-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+        hidden={isLoggedIn}
+        className="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
+        
         />
 
         <input 
@@ -48,11 +49,12 @@ return (
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
-        className="mr-2 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent"
+        hidden={isLoggedIn}
+        className="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-accent focus:border-transparent shadow-sm hover:shadow-lg transition-shadow duration-300"
          />
-
-        <button onClick={handleLogin} className="mt-4 px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500">
-            LogIn
+        
+        <button onClick={handleLogin} className="mt-4 px-6 py-2 font-bold text-white rounded-md hover:opacity-80 transition-opacity shadow-sm hover:cursor-pointer hover:bg-sky-900 bg-sky-500 hover:scale-105 transition-scale duration-300">
+          {isLoggedIn ? 'Log Out' : 'Login'}
         </button>
         <div className='text-center mt-4'>
           {isLoggedIn && 

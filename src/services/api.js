@@ -20,7 +20,6 @@ export async function checkBadURL() {
 }
 
 export async function updateResources(data) {
-  // response to send string instead of object
   const response = await fetch(`${API_URL}/update_data`, {
     method: 'POST',
     headers: {
@@ -64,6 +63,17 @@ export async function fillForm(query) {
   return await response.json();
 }
 
+export async function updateLink(data) {
+  const response = await fetch(`${API_URL}/update_links`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 'url': data })
+  });
+  return await response.json();
+}
+
 export async function authUser(username, password) {
   const response = await fetch(`${API_URL}/auth`, {
     method: 'POST',
@@ -74,6 +84,7 @@ export async function authUser(username, password) {
   });
     return await response.json();
 }
+
 
 
 

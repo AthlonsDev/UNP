@@ -1,6 +1,7 @@
 import { checkBadURL } from "../services/api";
 import { useState, useEffect } from "react";
 import '../App.css';
+import { updateLink } from "../services/api";
 
 export default function LinkHealthCheck() {
   const [badURLs, setBadURLs] = useState([]);
@@ -9,22 +10,42 @@ export default function LinkHealthCheck() {
   useEffect(() => {
     // Initial link check on component mount
     console.log("Performing initial link check...");
-    // handleCheckLinks();
+    handleCheckLinks();
+    
   }, []);
 
   const handleCheckLinks = async () => {
     setIsLoading(true);
+
     const result = await checkBadURL();
     setIsLoading(false);
     console.log("results from link check:", result);
-    setBadURLs(result || []);
+    setBadURLs(result || []); 
+    setIsLoading(false);
+
+    // setBadURLs(["https://example.com/broken-link1"]);
+    // console.log("Bad URLs:", badURLs.length);
+    // if (badURLs.length > 0){toggleLinkLabel();}
   };
 
   const toggleLinkLabel = () => {
-        const authElement = document.getElementById('link-status-label');
+    const authElement = document.getElementById('link-status-label');
     if (authElement) {
       authElement.classList.toggle('hidden');
     }
+    // handleUpdateLinks("https://example.com/new-link");
+  };
+
+  const handleUpdateLinks = async (link) => {
+    setIsLoading(true);
+    console.log("Updating links with:", link);
+    const result = await updateLink(link);
+    setIsLoading(false);
+    console.log("results from updating links:", result);
+    // Optionally re-check links after update
+    // await handleCheckLinks();
+    setBadURLs([]);
+
   };
 
   const icons = {
@@ -39,7 +60,7 @@ export default function LinkHealthCheck() {
         <button className="px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 shadow-sm"
         style={{ opacity: badURLs.length === 0 ? 0.3 : 1}}
         disabled={isLoading}
-        onClick={toggleLinkLabel}
+        onClick={() => handleUpdateLinks("https://example.com/new-link")}
         >
             {isLoading &&
                 <div className="justify-center flex">
@@ -51,9 +72,9 @@ export default function LinkHealthCheck() {
             {!isLoading && badURLs.length === 0 && `${icons['Success: ']}`}
 
         </button>
-        {badURLs.length > 0 &&
-          <label id='link-status-label' className="px-6 py-2 text-white rounded-md hidden bg-red-600">
-              {badURLs.length > 0 ? `${badURLs}` : ''}
+        {badURLs.length > -1 &&
+          <label id='link-status-label' className={`px-6 py-2 text-white rounded-md ${badURLs.length > 0 ? 'bg-red-600' : 'bg-green-600' } ml-4`}>
+              {badURLs.length > 0 ? `${badURLs}` : `All Links Working! ${icons['Success: ']}`}
           </label>
         }
     </div>

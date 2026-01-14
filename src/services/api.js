@@ -2,7 +2,7 @@ import { performAIContributions } from "../hooks/useAIContributions";
 import axios from "axios";
 
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
   return await response.json();
@@ -14,14 +14,18 @@ export async function getResources() {
   return await response.json();
 }
 
+export async function checkBadURL() {
+  const response = await fetch(`${API_URL}/link_check`);
+  return await response.json();
+}
+
 export async function updateResources(data) {
-  // response to send string instead of object
   const response = await fetch(`${API_URL}/update_data`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ 'url': data })
+    body: JSON.stringify({ 'data': data })
   });
   return await response.json();
 };
@@ -48,10 +52,50 @@ export async function downvoteScore(id) {
   return await res.json();
 }
 
-// let cachedData = null
-// var randId = function() {
-//   return 'id-' + Math.random();
-// };
+export async function fillForm(query) {
+  const response = await fetch(`${API_URL}/fill_form`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 'url': query })
+  });
+  return await response.json();
+}
+
+export async function updateLink(data) {
+  const response = await fetch(`${API_URL}/update_links`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 'url': data })
+  });
+  return await response.json();
+}
+
+export async function authUser(username, password) {
+  const response = await fetch(`${API_URL}/auth`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ 'username': username, 'password': password})
+  });
+    return await response.json();
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 export async function addContribution(url) {
 

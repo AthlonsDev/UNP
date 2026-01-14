@@ -11,7 +11,11 @@ const icons = {
   'Programme': '🚀',
   'Platform': '🌐',
   'Upvote': '👍',
-  'Downvote': '👎'
+  'Downvote': '👎',
+  'Success: ': '✅',
+  'Warning: ': '⚠️',
+  'Error: ': '❌',
+  'Account': '👤',
 }
 
 export default function ResourceCard({ resource, index, keywords }) {
@@ -33,10 +37,10 @@ export default function ResourceCard({ resource, index, keywords }) {
   useEffect(() => {
     if (resource.featured === "featured") {
       setIsFeatured(true);
-      console.log("Featured resource:", resource.name);
+      // console.log("Featured resource:", resource.name);
     } else {
       setIsFeatured(false);
-      console.log("Regular resource:", resource.name);
+      // console.log("Regular resource:", resource.name);
     }
   }, [resource]);
 

@@ -20,6 +20,7 @@
     --border-color: #E5E7EB;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --filter-highlight-bg: #f9fafb;
+
 }
 
 body {
@@ -77,10 +78,17 @@ body {
 .card-enter {
     animation: card-enter 0.5s ease forwards;
 }
+.card-exit {
+    animation: card-exit 0.5s ease forwards;
+}
 
 @keyframes card-enter {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-exit {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
 }
 
 .highlight {

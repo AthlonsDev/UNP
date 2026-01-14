@@ -9,9 +9,11 @@ export default function ManualContributeForm() {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [genError, setGenError] = useState(false)
   const [success, setSuccess] = useState(false)
   const [isHelp, setIsHelp] = useState(false);
   const loadingMessage = "Generating details using AI. This may take a moment..."
+  const errorGenMessage = "AI generation failed. Please check the URL and try again."
 
   const [info, setInfo] = useState({
     name: '',
@@ -70,8 +72,14 @@ export default function ManualContributeForm() {
     console.log("Generating details for URL:", url);
     // Call AI service to generate details based on URL
     setLoading(true);
+    setGenError(false)
     const generatedDetails = await fillForm(url);
     console.log("Generated details:", generatedDetails);
+    if (generatedDetails === null) {
+      setLoading(false);
+      setGenError(true);
+      return;
+    }
     setInfo(generatedDetails);
     setLoading(false);
   }
@@ -113,6 +121,11 @@ export default function ManualContributeForm() {
           {loading &&
             <div className='w-half'>
               <p className="ml-4 text-gray-700">{loadingMessage}</p>
+            </div>
+          }
+          {!loading && genError &&
+            <div className='w-half'>
+              <p className="ml-4 text-red-600 font-bold">{errorGenMessage}</p>
             </div>
           }
           <label className='font-bold'>Name</label>
@@ -193,9 +206,9 @@ export default function ManualContributeForm() {
           </div>
           <label className='font-bold'>UNP Steps</label>
           <button type="button" className='ml-2 mt-2 md-4 px-2 hover: cursor-pointer rounded-full fill-current border border-black border-2 font-bold shadow-sm'
-          onClick={() => setIsHelp(!isHelp)}>?</button>
+          onMouseEnter={() => setIsHelp(true)} onMouseLeave={() => setIsHelp(false)}>?</button>
             {isHelp &&
-              <div className='inline float-end place-self-end relative opacity-80 z-10'>
+              <div className=' absolute right-2/6 bottom-1/4 place-self-end opacity-80 z-10'>
                 <HintCard />
               </div>
             }

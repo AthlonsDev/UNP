@@ -6,6 +6,8 @@ import { updateLink } from "../services/api";
 export default function LinkHealthCheck() {
   const [badURLs, setBadURLs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [linkUpdated, setLinkUpdated] = useState(false);
+  const [showLinkInfo, setShowLinkInfo] = useState(false);
 
   useEffect(() => {
     // Initial link check on component mount
@@ -45,6 +47,7 @@ export default function LinkHealthCheck() {
     // Optionally re-check links after update
     // await handleCheckLinks();
     setBadURLs([]);
+    setLinkUpdated(true);
 
   };
 
@@ -52,15 +55,17 @@ export default function LinkHealthCheck() {
     'Success: ': '✅',
     'Warning: ': '⚠️',
     'Error: ': '❌',
+    'loading': '⏳',
   }
 
   return (
+    <>
     <div>
         {/* {handleCheckLinks()} */}
         <button className="px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 shadow-sm"
         style={{ opacity: badURLs.length === 0 ? 0.3 : 1}}
         disabled={isLoading}
-        onClick={() => handleUpdateLinks("https://example.com/new-link")}
+        onClick={() => handleUpdateLinks({badURLs})}
         >
             {isLoading &&
                 <div className="justify-center flex">
@@ -72,13 +77,8 @@ export default function LinkHealthCheck() {
             {!isLoading && badURLs.length === 0 && `${icons['Success: ']}`}
 
         </button>
-        {badURLs.length > -1 &&
-          <label id='link-status-label' className={`px-6 py-2 text-white rounded-md ${badURLs.length > 0 ? 'bg-red-600' : 'bg-green-600' } ml-4`}>
-              {badURLs.length > 0 ? `${badURLs}` : `All Links Working! ${icons['Success: ']}`}
-          </label>
-        }
     </div>
-
+    </>
   )
 
 }

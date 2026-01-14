@@ -135,20 +135,20 @@ function App() {
     <>
     <div id='login-container' className='place-self-end z-10'>
 
-      <button className="mt-4 px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 "
+      <button className=" px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 "
         onClick={toggleLogin}
         id='login-button'>
-        L
+        👤
       </button>
 
     </div>
 
     <div id='authcontainer' className={`place-self-end flex z-20 ${toggle ? '' : 'hidden'}`}>
-      <Auth onAuthChange={handleCallback} />
+      <div className='absolute top-15 right-0 z-10'>
+        <Auth onAuthChange={handleCallback} />
+      </div>
     </div>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8" onClick={hideLogin}>
-      {/* <Header /> */}
-
 
       <div className='absolute top-0 left-0 z-10'>
         <LinkHealthCheck />

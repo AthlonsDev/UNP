@@ -33,7 +33,7 @@ export default function Auth({ onAuthChange }) {
 
 return (
   <>
-    <div className="grid grid-cols-1 gap-4 p-6 border border-gray-300 rounded-md card-component shadow-md">
+    <div className="grid grid-cols-1 gap-4 p-6 border border-gray-300 rounded-md card-component flex flex-col h-full relative shadow-md">
         <input 
         type="text"
         value={username}

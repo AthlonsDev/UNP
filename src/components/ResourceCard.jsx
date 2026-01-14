@@ -15,6 +15,7 @@ const icons = {
   'Success: ': '✅',
   'Warning: ': '⚠️',
   'Error: ': '❌',
+  'Account': '👤',
 }
 
 export default function ResourceCard({ resource, index, keywords }) {

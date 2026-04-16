@@ -2,7 +2,7 @@ import { performAIContributions } from "../hooks/useAIContributions";
 import axios from "axios";
 
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
   return await response.json();
@@ -69,10 +69,12 @@ export async function updateLink(data) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ 'url': data })
+    body: JSON.stringify({ 'urls': data })
   });
   return await response.json();
 }
+
+
 
 export async function authUser(username, password) {
   const response = await fetch(`${API_URL}/auth`, {
@@ -85,8 +87,11 @@ export async function authUser(username, password) {
     return await response.json();
 }
 
-
-
+// For testing purposes only, to be removed later
+export async function getNewLinks() {
+  const response = await fetch(`${API_URL}/replace_link`);
+  return await response.json();
+}
 
 
 

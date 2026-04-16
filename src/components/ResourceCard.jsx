@@ -16,6 +16,7 @@ const icons = {
   'Warning: ': '⚠️',
   'Error: ': '❌',
   'Account': '👤',
+  'email': '📧',
 }
 
 export default function ResourceCard({ resource, index, keywords }) {
@@ -79,13 +80,26 @@ export default function ResourceCard({ resource, index, keywords }) {
       />
       
       <div className="p-6 flex flex-col h-full relative">
+        <div>
+            {/* <button className={`absolute top-0 left-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'upvote' ? 'bg-green-600' : ''}`}
+              onClick={upvote}
+              disabled={voteType === "upvote"}>
+              {icons['email']}
+            
+            </button> */}
+            <button className={`absolute top-0 left-5 p-2 inline-block text-center text-xs py-2 hover:bg-red-100 hover:bg-opacity-50 rounded-md hover:cursor-pointer`}>
+             {icons['email']} Report Broken Link
+            </button>
+        </div>
+            
         
         {isFeatured && (
           <div 
             className="absolute top-0 right-0 text-white font-bold text-xs py-1 px-3 rounded-tr-xl rounded-bl-xl"
             style={{ backgroundColor: 'var(--dark-green-badge)' }}
           >
-            
+
+
             🏆 Featured
 
             <button className={`absolute top-7 right-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'upvote' ? 'bg-green-600' : ''}`}

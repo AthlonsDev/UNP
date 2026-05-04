@@ -1,5 +1,4 @@
-const API_KEY = "AIzaSyCFj1InAQdMBV7t09XmlzHRp2rLG-RU1jk" // Move to .env in production
-
+import { AISearch } from '../services/api';
 export async function performAISearch(query) {
   if (!query.trim()) {
     return []
@@ -9,33 +8,11 @@ export async function performAISearch(query) {
     const prompt = `Extract key search terms from the following query that would be useful for finding relevant 'Urban Nature Plan' tools, programmes, platforms, or guidance documents. List them as a JSON array of strings. Focus on core concepts, functions, and thematic areas.
 Query: '${query}'`
 
-    const payload = {
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
-      generationConfig: {
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: "ARRAY",
-          items: { type: "STRING" }
-        }
-      }
-    }
-
-
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`
-
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-
-    const result = await response.json()
-
-    if (result.candidates && result.candidates.length > 0) {
-      const jsonString = result.candidates[0].content.parts[0].text
-      return JSON.parse(jsonString)
+    const aiResponse = await AISearch(prompt)
+    if (aiResponse && aiResponse.terms) {
+      return aiResponse.terms
     } else {
-      // Fallback to simple split
+      console.warn('AI search returned unexpected format:', aiResponse)
       return query.toLowerCase().split(' ')
     }
 

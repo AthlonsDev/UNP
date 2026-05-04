@@ -2,7 +2,7 @@ import { performAIContributions } from "../hooks/useAIContributions";
 import axios from "axios";
 
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
   return await response.json();
@@ -26,6 +26,17 @@ export async function updateResources(data) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ 'data': data })
+  });
+  return await response.json();
+};
+
+export async function AISearch(prompt) {
+  const response = await fetch(`${API_URL}/ai_search`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 'prompt': prompt })
   });
   return await response.json();
 };

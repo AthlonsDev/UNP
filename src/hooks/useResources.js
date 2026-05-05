@@ -68,7 +68,7 @@ export function useResources() {
         ? item.payment === filters.payment
         : true
 
-      console.log("Sorting...", filters.sorting);
+      // console.log("Sorting...", filters.sorting);
 
       if (filters.sorting === 'User') {
         sortBy = (a, b) => (b?.evaluation?.user_score) - (a?.evaluation?.user_score)

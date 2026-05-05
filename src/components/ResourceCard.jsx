@@ -94,7 +94,7 @@ export default function ResourceCard({ resource, index, keywords }) {
               {icons['email']}
             
             </button> */}
-            <button className={`absolute top-0 left-5 p-2 inline-block text-center text-xs py-2 hover:bg-red-100 hover:bg-opacity-50 rounded-md hover:cursor-pointer`}
+            <button className={`absolute top-0 left-5 p-2 inline-block text-center text-xs py-2 hover:text-red-500 ${isReported ? 'text-red-500 font-bold' : ''} hover:bg-opacity-50 rounded-md hover:cursor-pointer`}
               onClick={() => handleReport(resource.id)}>
               {icons['email']} {isReported ? 'Reported' : 'Report Broken Link'}
             </button>

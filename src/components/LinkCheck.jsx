@@ -1,38 +1,45 @@
-import { checkBadURL } from "../services/api";
+import { checkBadURL, getBadLinks } from "../services/api";
 import { useState, useEffect } from "react";
 import '../App.css';
 import { updateLink, getNewLinks } from "../services/api";
 
 export default function LinkHealthCheck() {
   const [badURLs, setBadURLs] = useState([]);
+  const [unreachURLs, setUnreachURLs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [linkUpdated, setLinkUpdated] = useState(false);
   const [showLinkInfo, setShowLinkInfo] = useState(false);
+  const [showDeadLinks, setShowDeadLinks] = useState(false);
+  const [showUnreachLinks, setShowUnreachLinks] = useState(false);
+  const badLinksArr = [];
+  const unreachableLinksArr = [];
 
   useEffect(() => {
     // Initial link check on component mount
     console.log("Performing initial link check...");
+    const handleCheckLinks = async () => {
+        setIsLoading(true);
+      
+        const result = await getBadLinks();
+        console.log("Bad links from API:", result);
+        setIsLoading(false);
+        for ( const [key, value] of Object.entries(result.dead || {})) {
+            badLinksArr.push({ column: key, data_type: value });
+            // console.log(`bad link: ${key} in column: ${value}`);
+        }
+        for ( const [key, value] of Object.entries(result.unreachable || {})) {
+            unreachableLinksArr.push({ column: key, data_type: value });
+            // console.log(`unreachable link: ${key} in column: ${value}`);
+        }
+
+        setBadURLs(badLinksArr);
+        setUnreachURLs(unreachableLinksArr);
+        setIsLoading(false);
+      };
     handleCheckLinks();
-    
   }, []);
 
-  const handleCheckLinks = async () => {
-    setIsLoading(true);
-
-    const result = await checkBadURL();
-    setIsLoading(false);
-    console.log("results from link check:", result);
-    setBadURLs(result || []); 
-    setIsLoading(false);
-
-    // add a UI section to show all the broken links
-    // after clicking the button, the list gets updated with working links
-    // this is just for show, the actual update happens automatically in the background and the user won't see it
-
-    // setBadURLs(["https://example.com/broken-link1"]);
-    // console.log("Bad URLs:", badURLs.length);
-    // if (badURLs.length > 0){toggleLinkLabel();}
-  };
+  
 
   const toggleLinkLabel = () => {
     const authElement = document.getElementById('link-status-label');
@@ -58,6 +65,7 @@ export default function LinkHealthCheck() {
     'Warning: ': '⚠️',
     'Error: ': '❌',
     'loading': '⏳',
+    'Warning': '⚠️',
   }
 
   return (
@@ -68,9 +76,9 @@ export default function LinkHealthCheck() {
           style={{ opacity: badURLs.length === 0 ? 0.3 : 1}}
           disabled={isLoading}
           // onClick={() => toggleLinkLabel()}
-          onMouseEnter={() => setShowLinkInfo(true)}
-          onMouseLeave={() => setShowLinkInfo(false)}
-          onClick={() => handleUpdateLinks()}
+          onMouseEnter={() => setShowDeadLinks(!showDeadLinks)}
+          // onMouseLeave={() => setShowLinkInfo(false)}
+          // onClick={() => handleUpdateLinks()}
         >
             {isLoading &&
                 <div className="justify-center flex">
@@ -82,12 +90,50 @@ export default function LinkHealthCheck() {
             {!isLoading && linkUpdated && `${icons['Success: ']}`}
 
         </button>
-        <div id="link-status-label" className={`mt-2 text-sm ${linkUpdated ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} max-h-40 overflow-y-auto ${showLinkInfo ? '' : 'hidden'}`}>
-            {badURLs.map((url, index) => (
-                <div key={index} className="flex items-center">
-                    <span className="mr-2">{linkUpdated ? icons['Success: '] : icons['Error: ']} {url}</span>
+        <button className="px-6 py-2 ml-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 shadow-sm"
+          style={{ opacity: badURLs.length === 0 ? 0.3 : 1}}
+          disabled={isLoading}
+          // onClick={() => toggleLinkLabel()}
+          onMouseEnter={() => setShowUnreachLinks(!showUnreachLinks)}
+          // onMouseLeave={() => setShowUnreachLinks(false)}
+          // onClick={() => handleUpdateLinks()}
+        >
+            {isLoading &&
+                <div className="justify-center flex">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-900">
+                  </div>
                 </div>
-            ))}
+            }
+            {!isLoading && !linkUpdated && `${icons['Warning: ']} ${unreachURLs.length}`}
+            {!isLoading && linkUpdated && `${icons['Success: ']}`}
+
+        </button>
+        <div id="link-status-label" className={`mt-2 text-sm ${linkUpdated ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} max-h-40 overflow-y-auto`}>
+            {/* {badURLs.map((url, index) => (
+                <div key={index} className="flex items-center">
+                    <p className="mr-2">{linkUpdated ? icons['Success: '] : icons['Error: ']} {url}</p>
+                </div>
+            ))} */}
+            {showDeadLinks && (
+              <div>
+                <p className="font-bold">Bad URLs:</p>
+                {badURLs.length > 0 ? badURLs.map((item, index) => (
+                  <div key={index} className="flex items-center">
+                      <p className="mr-2">{item.column} ({item.data_type})</p>
+                  </div>
+                )) : <p>No bad URLs found.</p>}
+              </div>
+            )}
+            {showUnreachLinks && (
+              <div>
+                <p className="font-bold">Unreachable URLs:</p>
+                {unreachURLs.length > 0 ? unreachURLs.map((item, index) => (
+                  <div key={index} className="flex items-center">
+                      <p className="mr-2">{item.column} ({item.data_type})</p>
+                  </div>
+                )) : <p>No unreachable URLs found.</p>}
+              </div>
+            )}
         </div>
     </div>
     </>

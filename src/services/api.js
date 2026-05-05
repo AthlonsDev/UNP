@@ -115,6 +115,10 @@ export async function getNewLinks() {
   return await response.json();
 }
 
+export async function getBadLinks() {
+  const response = await fetch(`${API_URL}/bad_links`);
+  return await response.json();
+}
 
 
 

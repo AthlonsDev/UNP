@@ -100,13 +100,11 @@ export default function ResourceCard({ resource, index, keywords }) {
             </button>
         </div>
             
-        
         {isFeatured && (
           <div 
             className="absolute top-0 right-0 text-white font-bold text-xs py-1 px-3 rounded-tr-xl rounded-bl-xl"
             style={{ backgroundColor: 'var(--dark-green-badge)' }}
           >
-
 
             🏆 Featured
 

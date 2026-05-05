@@ -200,8 +200,8 @@ function App() {
         setCurrentStepFilter={setCurrentStepFilter}
       />
       
-      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <aside className="lg:col-span-1 sticky top-8 self-start">
+      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-screen">
+        <aside className="lg:col-span-1 sticky top-8 self-start overflow-y-auto">
           <Charts 
             resources={resources}
             filteredResources={filteredResources}
@@ -211,7 +211,7 @@ function App() {
         <div className="lg:col-span-2">
           <KnowledgeSnippet keywords={semanticKeywords} />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[2000px]">
             {filteredResources.map((resource, index) => (
               <ResourceCard 
                 key={resource.id}
@@ -223,7 +223,7 @@ function App() {
           </div>
           
           {filteredResources.length === 0 && (
-            <div className="text-center py-16 card-component">
+            <div className="text-center py-16 card-component overflow-y-auto">
               <p className="text-2xl font-semibold" style={{ color: 'var(--primary-accent)' }}>
                 No Resources Found
               </p>

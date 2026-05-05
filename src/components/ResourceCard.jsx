@@ -1,6 +1,6 @@
 import { generateSvgBackground } from '../utils/svgPatterns.js'
 // import { updateUserScore } from '../services/api.js'
-import { getResources, upvoteScore, downvoteScore } from '../services/api.js'
+import { getResources, upvoteScore, downvoteScore, reportLink } from '../services/api.js'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { int, set } from 'zod'
@@ -26,7 +26,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   const [score, setScore] = useState(resource.evaluation.user_score || 0);
   const [hasVoted, setHasVoted] = useState(0); // set id of voted resource
   const [voteType, setVoteType] = useState(null); // 'upvote', 'downvote', or null
-
+  const [isReported, setIsReported] = useState(false); // 'reported' or null
 
   const highlightText = (text) => {
     if (keywords.length === 0) return text
@@ -67,6 +67,13 @@ export default function ResourceCard({ resource, index, keywords }) {
     await getResources();
   }
 
+  const handleReport = async (id) => {
+    const res = await reportLink(id);
+    alert('Thank you for reporting. We will review the link shortly.');
+    console.log("Reported resource:", id);
+    setIsReported(true);
+  }
+
   return (
 
     <div 
@@ -87,8 +94,9 @@ export default function ResourceCard({ resource, index, keywords }) {
               {icons['email']}
             
             </button> */}
-            <button className={`absolute top-0 left-5 p-2 inline-block text-center text-xs py-2 hover:bg-red-100 hover:bg-opacity-50 rounded-md hover:cursor-pointer`}>
-             {icons['email']} Report Broken Link
+            <button className={`absolute top-0 left-5 p-2 inline-block text-center text-xs py-2 hover:bg-red-100 hover:bg-opacity-50 rounded-md hover:cursor-pointer`}
+              onClick={() => handleReport(resource.id)}>
+              {icons['email']} {isReported ? 'Reported' : 'Report Broken Link'}
             </button>
         </div>
             

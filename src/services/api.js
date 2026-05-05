@@ -41,6 +41,17 @@ export async function AISearch(prompt) {
   return await response.json();
 };
 
+export async function reportLink(id) {
+  const res = await fetch(`${API_URL}/report/${id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ resourceId: id })
+  });
+  return await res.json();
+}
+
 export async function upvoteScore(id) {
   const res = await fetch(`${API_URL}/upvote/${id}?score=1`, {
     method: 'POST',

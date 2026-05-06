@@ -27,6 +27,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   const [hasVoted, setHasVoted] = useState(0); // set id of voted resource
   const [voteType, setVoteType] = useState(null); // 'upvote', 'downvote', or null
   const [isReported, setIsReported] = useState(false); // 'reported' or null
+  const [flagged, setFlagged] = useState(false); // 'flagged' or null
 
   const highlightText = (text) => {
     if (keywords.length === 0) return text
@@ -42,6 +43,9 @@ export default function ResourceCard({ resource, index, keywords }) {
     } else {
       setIsFeatured(false);
       // console.log("Regular resource:", resource.name);
+    }
+    if (resource.link_reported > 0) {
+      setFlagged(true);
     }
   }, [resource]);
 
@@ -72,6 +76,11 @@ export default function ResourceCard({ resource, index, keywords }) {
     alert('Thank you for reporting. We will review the link shortly.');
     console.log("Reported resource:", id);
     setIsReported(true);
+    setFlagged(true);
+    // Refresh page data
+    await getResources();
+
+    
   }
 
   return (
@@ -88,16 +97,17 @@ export default function ResourceCard({ resource, index, keywords }) {
       
       <div className="p-6 flex flex-col h-full relative">
         <div>
-            {/* <button className={`absolute top-0 left-0 inline-block text-center font-bold text-white py-2 px-4 rounded-md hover:bg-opacity-80 transition-transform transform hover:scale-105 hover:cursor-pointer ${voteType === 'upvote' ? 'bg-green-600' : ''}`}
-              onClick={upvote}
-              disabled={voteType === "upvote"}>
-              {icons['email']}
-            
-            </button> */}
-            <button className={`absolute top-0 left-5 p-2 inline-block text-center text-xs py-2 hover:text-red-500 ${isReported ? 'text-red-500 font-bold' : ''} hover:bg-opacity-50 rounded-md hover:cursor-pointer`}
-              onClick={() => handleReport(resource.id)}>
-              {icons['email']} {isReported ? 'Reported' : 'Report Broken Link'}
-            </button>
+          <button className={`absolute top-0 left-2 p-2 inline-block text-center text-xs py-2 hover:text-red-500 ${isReported ? 'text-red-500 font-bold' : ''} hover:bg-opacity-50 rounded-md hover:cursor-pointer`}
+            onClick={() => handleReport(resource.id)}>
+            {icons['email']} {isReported ? 'Reported' : 'Report Broken Link'}
+
+          </button>
+          <div className='hover:cursor-default'>
+            {flagged && ` ${icons['Warning: ']}`}
+          </div>
+        </div>
+
+        <div>
         </div>
             
         {isFeatured && (
@@ -148,6 +158,7 @@ export default function ResourceCard({ resource, index, keywords }) {
           style={{ color: 'var(--primary-accent)' }}
           dangerouslySetInnerHTML={{ __html: `${icon} ${highlightText(resource.name)}` }}
         />
+
         
         <div className="my-2">
           <span className="text-sm font-semibold">{resource.category}</span>

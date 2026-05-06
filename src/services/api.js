@@ -115,6 +115,17 @@ export async function getNewLinks() {
   return await response.json();
 }
 
+export async function replaceLink(link) {
+    const response = await fetch(`${API_URL}/replace_link`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ 'url': link })
+    });
+    return await response.json();
+}
+
 export async function getBadLinks() {
   const response = await fetch(`${API_URL}/bad_links`);
   return await response.json();

@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import '../App.css';
 import { updateLink, getNewLinks, replaceLink } from "../services/api";
 
+
+// This component is just for demo purposes, but it show the process of spotting and replacing dead links
+// Actual logic will be done in the background, except the user reporting.
 export default function LinkHealthCheck() {
   const [badURLs, setBadURLs] = useState([]);
   const [unreachURLs, setUnreachURLs] = useState([]);

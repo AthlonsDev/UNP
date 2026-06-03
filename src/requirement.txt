@@ -1,0 +1,21 @@
+## Runtime dependencies
+react
+react-dom
+@google/genai
+axios
+apexcharts
+web-vitals
+zod
+zod-to-json-schema
+
+## Build and test dependencies
+vite
+@vitejs/plugin-react
+@tailwindcss/vite
+tailwindcss
+autoprefixer
+jsdom
+vitest
+@testing-library/react
+@testing-library/jest-dom
+@testing-library/user-event

@@ -1,70 +1,100 @@
-# GitHub Codespaces ♥️ React
+# UNP+ Frontend
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+UNP+ Frontend is the user-facing web application for the UNP+ project. It provides the interface for discovering, filtering, reviewing, and contributing nature-based solution resources in one place.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+The purpose of the project is to gather nature-based solutions into a single web app so users can explore the available tools, programmes, platforms, and guidance without jumping across separate sources. This repository contains only the frontend experience: all AI-assisted processing and backend data handling happen through API calls to the backend service.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+## What this app does
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+- Presents a searchable catalogue of UNP+ resources.
+- Filters resources by category, language, payment type, and Urban Nature Plan step.
+- Uses semantic search to turn a natural language query into relevant keywords.
+- Shows resource insights through charts and summary cards.
+- Supports manual contribution of new resources through the UI.
+- Connects to backend endpoints for resource retrieval, AI-assisted enrichment, voting, reporting, and link checking.
+- Provides login-gated actions in the interface.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- React 18
+- Vite
+- Tailwind CSS
+- ApexCharts
+- Axios
+- Zod
+- Google GenAI client for AI-related backend integration
+- Testing Library and Vitest for tests
 
-### `npm start`
+## Project Structure
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+- `src/App.jsx` - main application layout and page state.
+- `src/components/` - UI sections such as filters, charts, resource cards, auth, and contribution forms.
+- `src/hooks/` - data and AI helper hooks.
+- `src/services/api.js` - backend API calls.
+- `src/utils/` - constants, knowledge snippets, and SVG pattern helpers.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+## Getting Started
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js 18 or newer
+- npm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Install dependencies
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app will start with Vite, usually at `http://localhost:5173`.
 
-## Learn More
+### Build for production
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+```bash
+npm run build
+```
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+### Run tests
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run test
+```
 
-### Code Splitting
+## Backend Integration
 
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
+This frontend expects a backend API to be available. By default, it calls:
 
-### Analyzing the Bundle Size
+```text
+http://localhost:8000
+```
 
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
+If your backend is hosted elsewhere, set the environment variable below before starting the app:
 
-### Making a Progressive Web App
+```bash
+VITE_API_URL=https://your-backend.example.com
+```
 
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
+## Main User Flows
 
-### Advanced Configuration
+1. Browse the resource catalogue.
+2. Filter and sort the available UNP+ entries.
+3. Search with keywords or use semantic search for broader queries.
+4. Inspect charts and knowledge snippets for quick context.
+5. Log in to unlock contribution features.
+6. Submit new resources or report bad links through the UI.
 
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
+## Notes
 
-### Deployment
+- AI processing is not executed in this frontend repository.
+- The frontend only sends requests to the backend, which performs the AI and data operations.
+- Some interface features depend on backend responses being available.
 
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
+## License
 
-### Troubleshooting
-
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+See [LICENSE](LICENSE) for licensing details.

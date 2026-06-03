@@ -96,6 +96,17 @@ export async function updateLink(data) {
   return await response.json();
 }
 
+export async function sumRes(data) {
+  const response = await fetch(`${API_URL}/summarize`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 'url': data })
+  });
+  return await response.json();
+}
+
 
 
 export async function authUser(username, password) {

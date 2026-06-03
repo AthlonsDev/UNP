@@ -4,6 +4,7 @@ import { getResources, upvoteScore, downvoteScore, reportLink } from '../service
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { int, set } from 'zod'
+import Summary from './Summary.jsx'
 
 const icons = {
   'Tool': '🔧',
@@ -29,6 +30,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   const [isReported, setIsReported] = useState(false); // 'reported' or null
   const [flagged, setFlagged] = useState(false); // 'flagged' or null
 
+  
   const highlightText = (text) => {
     if (keywords.length === 0) return text
     
@@ -47,6 +49,7 @@ export default function ResourceCard({ resource, index, keywords }) {
     if (resource.link_reported > 0) {
       setFlagged(true);
     }
+
   }, [resource]);
 
   const upvote = async () => {
@@ -94,8 +97,12 @@ export default function ResourceCard({ resource, index, keywords }) {
         className="card-bg-pattern" 
         style={{ backgroundImage: `url('${patternUrl}')`}}
       />
+
+      <div>
+        <Summary link={resource.link} />
+      </div>
       
-      <div className="p-6 flex flex-col h-full relative">
+      <div className="p-6 flex flex-col h-full*2 relative">
         <div>
           <button className={`absolute top-0 left-2 p-2 inline-block text-center text-xs py-2 hover:text-red-500 ${isReported ? 'text-red-500 font-bold' : ''} hover:bg-opacity-50 rounded-md hover:cursor-pointer`}
             onClick={() => handleReport(resource.id)}>

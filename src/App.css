@@ -14,7 +14,8 @@
     --card-bg: #FFFFFF;
     --text-primary: #494948;
     --text-secondary: #6B7280;
-    --primary-accent: #00A3A3;
+    --primary-accent: #00a3a3;
+    --fading-accent: rgba(0, 163, 163, 0.345);
     --accent-orange: #F97316;
     --dark-green-badge: #102C26;
     --border-color: #E5E7EB;
@@ -123,6 +124,16 @@ body {
 @keyframes spin { 
     0% { transform: rotate(0deg); } 
     100% { transform: rotate(360deg); } 
+}
+
+.summary-content {
+    background-color: var(--filter-highlight-bg);
+    padding: 1rem;
+}
+
+.summary-content:hover {
+    cursor: pointer;
+    background-color: var(--fading-accent);
 }
 
 .suggestion-btn {

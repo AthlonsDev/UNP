@@ -9,11 +9,31 @@ import KnowledgeSnippet from './components/KnowledgeSnippet'
 import ResourceCard from './components/ResourceCard'
 import { useResources } from './hooks/useResources'
 import { performAISearch } from './hooks/useAISearch'
+import { startServer } from './services/api'
 import ManualContributeForm from './components/ManualContribute.jsx'
 import Auth from './components/auth.jsx'
 import LinkHealthCheck from './components/LinkCheck';
 
 import { getResources } from './services/api'
+
+  const startInstance = async () => {
+      try {
+          console.log('Starting server...');
+          setLoading(true);
+          const response =  await startServer();
+          console.log('Server response:', response);
+          if (response.ok) {
+              console.log('Server started successfully');
+              setLoading(false);
+          }
+      } catch (error) {
+          console.error('Error starting server:', error);
+      }
+  }
+
+  useEffect(() => {
+      startInstance();
+  }, []);
 
 function App() {
   const {
@@ -143,16 +163,16 @@ function App() {
 
     </div>
 
-    <div id='authcontainer' className={`place-self-end flex z-20 ${toggle ? '' : 'hidden'}`}>
+    {/* <div id='authcontainer' className={`place-self-end flex z-20 ${toggle ? '' : 'hidden'}`}>
       <div className='absolute top-15 right-0 z-10'>
         <Auth onAuthChange={handleCallback} />
       </div>
-    </div>
+    </div> */}
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8" onClick={hideLogin}>
 
-      <div className='absolute top-0 left-0 z-10'>
+      {/* <div className='absolute top-0 left-0 z-10'>
         <LinkHealthCheck />
-      </div>
+      </div> */}
 
       <Header />
 

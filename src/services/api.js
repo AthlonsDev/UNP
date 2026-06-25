@@ -3,15 +3,33 @@ import axios from "axios";
 
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+// const API_URL = import.meta.env.VITE_API_URL || "https://13.135.231.65";
+// const API_URL = import.meta.env.VITE_API_URL || "https://gxac4qj060.execute-api.eu-west-2.amazonaws.com/Stage01";
 export async function getRoot() {
   const response = await fetch(`${API_URL}/`);
   return await response.json();
 }
 
 export async function getResources() {
-  const response = await fetch(`${API_URL}/get_data`);
-  // console.log("Fetched resources:", response);
-  return await response.json();
+  const response = await fetch(`${API_URL}/get_data`, {
+    headers: { Accept: 'application/json' }
+  });
+
+  if (!response.ok) {
+    throw new Error(`get_data failed: ${response.status} ${response.statusText}`);
+  }
+
+  const text = await response.text();
+
+  if (!text || !text.trim()) {
+    return [];
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error('get_data returned non-JSON content');
+  }
 }
 
 export async function checkBadURL() {
@@ -42,34 +60,34 @@ export async function AISearch(prompt) {
 };
 
 export async function reportLink(id) {
-  const res = await fetch(`${API_URL}/report/${id}`, {
+  const res = await fetch(`${API_URL}/report`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ resourceId: id })
+    body: JSON.stringify({ id: id })
   });
   return await res.json();
 }
 
 export async function upvoteScore(id) {
-  const res = await fetch(`${API_URL}/upvote/${id}?score=1`, {
+  const res = await fetch(`${API_URL}/upvote`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ resourceId: id, userScore: 1 })
+    body: JSON.stringify({ id: id })
   });
   return await res.json();
 }
 
 export async function downvoteScore(id) {
-  const res = await fetch(`${API_URL}/downvote/${id}?score=-1`, {
+  const res = await fetch(`${API_URL}/downvote`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ resourceId: id, userScore: -1 })
+    body: JSON.stringify({ id: id })
   });
   return await res.json();
 }
@@ -143,11 +161,17 @@ export async function getBadLinks() {
 }
 
 
-
-
-
-
-
+export async function startServer() {
+  const response = await fetch(`${API_URL}/start`, {
+    method: "POST",
+  });
+  if (!response.ok) {
+    throw new Error('Failed to start server');
+  }
+  if (response.status === 200) {
+    return response;
+  }
+}
 
 
 export async function addContribution(url) {

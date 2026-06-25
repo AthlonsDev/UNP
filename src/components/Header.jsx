@@ -5,7 +5,7 @@ export default function Header(){
         UNP+ Portfolio Explorer
       </h1>
       <p className="mt-4 text-lg text-gray-100">
-        An interactive portal to explore the 126 tools, programmes, and guidance 
+        An interactive portal to explore the 100+ tools, programmes, and guidance 
         documents from Deliverable 5.2, designed to support cities in developing 
         Urban Nature Plans (UNPs).
       </p>

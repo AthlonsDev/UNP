@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import ContributeForm from './components/ContributeForm'
 import Filters from './components/Filters'
@@ -16,24 +16,7 @@ import LinkHealthCheck from './components/LinkCheck';
 
 import { getResources } from './services/api'
 
-  const startInstance = async () => {
-      try {
-          console.log('Starting server...');
-          setLoading(true);
-          const response =  await startServer();
-          console.log('Server response:', response);
-          if (response.ok) {
-              console.log('Server started successfully');
-              setLoading(false);
-          }
-      } catch (error) {
-          console.error('Error starting server:', error);
-      }
-  }
 
-  useEffect(() => {
-      startInstance();
-  }, []);
 
 function App() {
   const {
@@ -58,6 +41,26 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [toggle, setToggle] = useState(false);
   const [toggleForm, setToggleForm] = useState(false);
+
+
+  const startInstance = async () => {
+      try {
+          console.log('Starting server...');
+          setLoading(true);
+          const response =  await startServer();
+          console.log('Server response:', response);
+          if (response.ok) {
+              console.log('Server started successfully');
+              setLoading(false);
+          }
+      } catch (error) {
+          console.error('Error starting server:', error);
+      }
+  }
+
+  useEffect(() => {
+      startInstance();
+  }, []);
 
   const handleAISearch = async (query) => {
     const keywords = await performAISearch(query)

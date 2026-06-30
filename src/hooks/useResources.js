@@ -28,7 +28,7 @@ export function useResources() {
       const data = await getResources()
       setResources(data)
     } catch (err) {
-      setError(err.message)
+      // setError(err.message)
     } finally {
       setLoading(false)
     }

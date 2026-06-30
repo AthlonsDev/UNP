@@ -161,16 +161,15 @@ export async function getBadLinks() {
 }
 
 
-export async function startServer() {
-  const response = await fetch(`${API_URL}/start`, {
+export async function startServer(item) {
+  const response = await fetch(`${API_URL}/start/${item}`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ item: item })
   });
-  if (!response.ok) {
-    throw new Error('Failed to start server');
-  }
-  if (response.status === 200) {
-    return response;
-  }
+  return await response.json();
 }
 
 

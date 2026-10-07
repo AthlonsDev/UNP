@@ -9,7 +9,7 @@ import KnowledgeSnippet from './components/KnowledgeSnippet'
 import ResourceCard from './components/ResourceCard'
 import { useResources } from './hooks/useResources'
 import { performAISearch } from './hooks/useAISearch'
-import { startServer, getRoot } from './services/api'
+import { getRoot } from './services/api'
 import ManualContributeForm from './components/ManualContribute.jsx'
 import Auth from './components/auth.jsx'
 import LinkHealthCheck from './components/LinkCheck';
@@ -44,23 +44,6 @@ function App() {
   const [isLoading, setLoading] = useState(false);
 
 
-  const startInstance = async () => {
-
-        try {
-          console.log('Starting server...');
-          setLoading(true);
-          const response =  await startServer("i-0a84b8e8e39b0ea04");
-          console.log('Server response:', response);
-          if (response.ok) {
-              console.log('Server started successfully');
-              setLoading(false);
-          }
-        } catch (error) {
-          console.error('Error starting server:', error);
-          setLoading(false);
-        }
-        getRootData();
-  }
 
   const getRootData = async () => {
         const data = await getRoot();
@@ -70,10 +53,6 @@ function App() {
         }
   }
 
-  useEffect(() => {
-      console.log('App component mounted. Starting server...');
-      startInstance();
-  }, []);
 
   const handleAISearch = async (query) => {
     const keywords = await performAISearch(query)
@@ -170,9 +149,9 @@ function App() {
 
   return (
     <>
-      <div className={`fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-50 ${isLoading ? '' : 'hidden'}`}>
+      {/* <div className={`fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-50 ${isLoading ? '' : 'hidden'}`}>
         <h1 className="text-white text-2xl font-bold">Starting Server...</h1>
-      </div>
+      </div> */}
     <div id='login-container' className='place-self-end z-10'>
 
       <button className=" px-6 py-2 font-bold border border-white text-white rounded-md hover:opacity-80 transition-opacity hover:cursor-pointer hover:bg-sky-900 bg-sky-500 "

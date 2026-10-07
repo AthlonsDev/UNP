@@ -26,7 +26,15 @@ export function useResources() {
     try {
       setLoading(true)
       const data = await getResources()
-      setResources(data)
+      console.log('Resources loaded:', data)
+      // resources are nested, so before passing it to the state, we need to flatten it
+      if (Array.isArray(data)) {
+        console.log('Flattening resources...', data[0]['data'])
+        const flattenedData = data[0]['data']
+        setResources(flattenedData)
+      } else {
+        setResources(data)
+      }
     } catch (err) {
       // setError(err.message)
     } finally {

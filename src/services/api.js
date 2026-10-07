@@ -11,7 +11,7 @@ export async function getRoot() {
 }
 
 export async function getResources() {
-  const response = await fetch(`${API_URL}/get_data`, {
+  const response = await fetch(`${API_URL}/resources`, {
     headers: { Accept: 'application/json' }
   });
 
@@ -20,6 +20,7 @@ export async function getResources() {
   }
 
   const text = await response.text();
+  // console.log('Resources Loaded:', text)
 
   if (!text || !text.trim()) {
     return [];
@@ -59,38 +60,14 @@ export async function AISearch(prompt) {
   return await response.json();
 };
 
-export async function reportLink(id) {
+export async function manageResource(id, action) {
   const res = await fetch(`${API_URL}/report`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ id: id })
+    method: 'GET',
+    body: JSON.stringify({ id: id, action: action })
   });
   return await res.json();
 }
 
-export async function upvoteScore(id) {
-  const res = await fetch(`${API_URL}/upvote`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ id: id })
-  });
-  return await res.json();
-}
-
-export async function downvoteScore(id) {
-  const res = await fetch(`${API_URL}/downvote`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ id: id })
-  });
-  return await res.json();
-}
 
 export async function fillForm(query) {
   const response = await fetch(`${API_URL}/fill_form`, {
@@ -157,18 +134,6 @@ export async function replaceLink(link) {
 
 export async function getBadLinks() {
   const response = await fetch(`${API_URL}/bad_links`);
-  return await response.json();
-}
-
-
-export async function startServer(item) {
-  const response = await fetch(`${API_URL}/start/${item}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ item: item })
-  });
   return await response.json();
 }
 

@@ -1,6 +1,6 @@
 import { generateSvgBackground } from '../utils/svgPatterns.js'
 // import { updateUserScore } from '../services/api.js'
-import { getResources, upvoteScore, downvoteScore, reportLink } from '../services/api.js'
+import { getResources, manageResource } from '../services/api.js'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { int, set } from 'zod'
@@ -24,7 +24,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   const [isFeatured, setIsFeatured] = useState(false);
   const patternUrl = generateSvgBackground(resource.category)
   const icon = icons[resource.category] || '⭐'
-  const [score, setScore] = useState(resource.evaluation.user_score || 0);
+  const [score, setScore] = useState(0);
   const [hasVoted, setHasVoted] = useState(0); // set id of voted resource
   const [voteType, setVoteType] = useState(null); // 'upvote', 'downvote', or null
   const [isReported, setIsReported] = useState(false); // 'reported' or null
@@ -55,7 +55,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   const upvote = async () => {
     // alert(`You liked: ${resource.id}`)
     var _id = resource.id-1
-    const res = await upvoteScore(_id);
+    const res = await manageResource(_id, 'upvote');
     setScore(score + 1);
     setHasVoted(_id);
     setVoteType('upvote');
@@ -67,7 +67,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   const downvote = async () => {
     // alert(`You disliked: ${resource.id}`)
     var _id = resource.id-1
-    const res = await downvoteScore(_id);
+    const res = await manageResource(_id, 'downvote');
     setScore(score - 1);
     setHasVoted(_id);
     setVoteType('downvote');
@@ -75,7 +75,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   }
 
   const handleReport = async (id) => {
-    const res = await reportLink(id);
+    const res = await manageResource(id, 'report');
     alert('Thank you for reporting. We will review the link shortly.');
     console.log("Reported resource:", id);
     setIsReported(true);
@@ -178,8 +178,8 @@ export default function ResourceCard({ resource, index, keywords }) {
         />
         
         <div className="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500">
-          <p><strong>For:</strong> {resource.summaryBullets.for}</p>
-          <p><strong>Outcome:</strong> {resource.summaryBullets.outcome}</p>
+          {/* <p><strong>For:</strong> {resource.summaryBullets.for}</p>
+          <p><strong>Outcome:</strong> {resource.summaryBullets.outcome}</p> */}
         </div>
         
         <div className="mt-auto pt-6">

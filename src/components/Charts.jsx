@@ -56,9 +56,10 @@ export default function Charts({ resources, filteredResources }) {
     })
 
     categoryChartInstance.current = new ApexCharts(categoryChartRef.current, catChartOptions)
-    categoryChartInstance.current.render()
+    // categoryChartInstance.current.render()
 
     // Score Chart
+    if (resources.score) {
     const scoreBins = resources.reduce((acc, item) => {
       const score = item.evaluation.totalScore
       if (score >= 25) acc['25+ (Excellent)']++
@@ -66,13 +67,13 @@ export default function Charts({ resources, filteredResources }) {
       else if (score >= 20) acc['20-22 (Good)']++
       else acc['<20 (Standard)']++
       return acc
-    }, {
-      '25+ (Excellent)': 0,
-      '23-24 (Great)': 0,
-      '20-22 (Good)': 0,
-      '<20 (Standard)': 0
-    })
-
+      }, {
+        '25+ (Excellent)': 0,
+        '23-24 (Great)': 0,
+        '20-22 (Good)': 0,
+        '<20 (Standard)': 0
+      }) 
+    }
     const scoreChartOptions = getChartOptions({
       series: Object.values(scoreBins),
       chart: { 

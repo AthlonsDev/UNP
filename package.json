@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@google/genai": "^1.33.0",
     "@tailwindcss/vite": "^4.1.17",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -56,7 +55,7 @@
     "autoprefixer": "^10.4.22",
     "jsdom": "^26.1.0",
     "tailwindcss": "^4.1.17",
-    "vite": "^6.4.1",
+    "vite": "^6.4.4",
     "vitest": "^3.0.7"
   }
 }

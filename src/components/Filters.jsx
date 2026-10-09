@@ -29,6 +29,7 @@ export default function Filters({
   ]
 
   const handleAISearch = async () => {
+    console.log("Performing AI search for query:", searchQuery)
     if (!searchQuery.trim()) {
       setSearchFeedback('Please enter a search query.')
       return
@@ -38,6 +39,7 @@ export default function Filters({
     setSearchFeedback('Thinking...')
     
     try {
+      console.log("finding keywords for query:", searchQuery)
       const keywords = await onAISearch(searchQuery)
       setSemanticKeywords(keywords)
       setSearchFeedback(`Keywords found: ${keywords.join(', ')}`)

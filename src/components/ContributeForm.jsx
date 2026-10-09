@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { addContribution } from '../services/api'
 import '../App.css'
-import { updateResources } from '../services/api'
+import { addResources } from '../services/api'
 import { set } from 'zod'
 
 export default function ContributeForm() {
@@ -22,7 +22,7 @@ export default function ContributeForm() {
       // await addContribution(url)
       setLoading(true)
       console.log("Submitting contribution with URL:", url);
-      const response = await updateResources(url);
+      const response = await addResources(url);
       if (response) {
         setLoading(false);
         setSuccess(true);

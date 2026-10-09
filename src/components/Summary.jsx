@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { sumRes } from "../services/api";
+import { AI_summary } from "../services/AI_Engine.js";
 import { use } from "react";
 
 export default function Summary({ link }) {
@@ -11,7 +11,7 @@ export default function Summary({ link }) {
     const fetchSummary = async () => {
         setLoading(true);
         try {
-            const data = await sumRes(link);
+            const data = await AI_summary(link);
             console.log("Summary data from API:", data);
             setSummaryData(data);
         } catch (error) {

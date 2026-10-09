@@ -38,16 +38,21 @@ export async function checkBadURL() {
   return await response.json();
 }
 
-export async function updateResources(data) {
-  const response = await fetch(`${API_URL}/update_data`, {
+export async function addResources(data) {
+  const response = await fetch(`${API_URL}/addRes/`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ 'data': data })
+    body: JSON.stringify({ data }),
   });
-  return await response.json();
-};
+
+  if (!response.ok) {
+    throw new Error(`addResources failed: ${response.status}`);
+  }
+  console.log("Resource added successfully:", await response.json());
+  return { success: true };
+}
 
 export async function AISearch(prompt) {
   const response = await fetch(`${API_URL}/ai_search`, {
@@ -60,12 +65,16 @@ export async function AISearch(prompt) {
   return await response.json();
 };
 
-export async function manageResource(id, action) {
-  const res = await fetch(`${API_URL}/report`, {
-    method: 'GET',
-    body: JSON.stringify({ id: id, action: action })
+export async function manageResource(id, query) {
+
+  const params = { 'id': id, 'query': query }
+  console.log(`Managing resource with ID: ${id} and query: ${query}`);
+  const res = await fetch(`${API_URL}/manageResources/?id=${id}&query=${query}`, {
+    method: 'POST',
   });
-  return await res.json();
+  if( res.status === 200) {
+    return {"success": true}
+  }
 }
 
 

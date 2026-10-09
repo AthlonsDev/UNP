@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { fillForm } from '../services/api'
+import { addResources } from '../services/api'
 import '../App.css'
-import { updateResources } from '../services/api'
 import { HintCard } from './HintCard.jsx'
+import { AI_extract } from '../services/AI_Engine.js'
 
 
 export default function ManualContributeForm() {
@@ -12,6 +12,7 @@ export default function ManualContributeForm() {
   const [genError, setGenError] = useState(false)
   const [success, setSuccess] = useState(false)
   const [isHelp, setIsHelp] = useState(false);
+  const [rawData, setRawData] = useState(null)
   const loadingMessage = "Generating details using AI. This may take a moment..."
   const errorGenMessage = "AI generation failed. Please check the URL and try again."
 
@@ -23,8 +24,13 @@ export default function ManualContributeForm() {
     subcategory: '',
     format: '',
     payment: '',
-    unpSteps: '',
-    languages: ''
+    unpSteps: [''],
+    languages: '',
+    link: url,
+    evaluation: {
+      userScore: 0,
+      totalScore: 0
+    }
   })
 
   const handleSubmit = async (e) => {
@@ -36,31 +42,31 @@ export default function ManualContributeForm() {
     }
 
     try {
-      // await addContribution(url)
+      console.log("Submitting contribution with info:", info);
       setLoading(true)
-      console.log("Submitting contribution with URL:", url);
-      const response = await updateResources(info);
+      // const infoList = [info.name, info.description, info.justification, info.category, info.subcategory, info.format, info.payment, info.unpSteps, info.languages, info.evaluation.totalScore, info.evaluation.userScore]
+      const response = await addResources(info, "new");
       if (response) {
         setLoading(false);
         setSuccess(true);
         setError(false);
       }
-      setUrl('')
-      setInfo({
-        name: '',
-        description: '',
-        justification: '',
-        category: '',
-        subcategory: '',
-        format: '',
-        payment: '',
-        unpSteps: '',
-        languages: ''
-      })
+      // setUrl('')
+
+      // setInfo({
+      //   name: '',
+      //   description: '',
+      //   justification: '',
+      //   category: '',
+      //   subcategory: '',
+      //   format: '',
+      //   payment: '',
+      //   unpSteps: '',
+      //   languages: ''
+      // })
       
     } catch (error) {
       console.error('Error saving contribution:', error)
-      alert('An error occurred. Please try again.')
       setLoading(false);
       setSuccess(false);
       setError(true);
@@ -73,7 +79,7 @@ export default function ManualContributeForm() {
     // Call AI service to generate details based on URL
     setLoading(true);
     setGenError(false);
-    const generatedDetails = await fillForm(url);
+    const generatedDetails = await AI_extract(url);
     if (!generatedDetails) {
       setLoading(false);
       setGenError(true);
@@ -226,7 +232,7 @@ export default function ManualContributeForm() {
             />
             
           </div>
-            <div className="space-y-4">
+          <div className="space-y-4">
             {/* set label to the left adding bold font */}
             <label className='font-bold'>Languages</label>
             <input

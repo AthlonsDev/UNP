@@ -59,7 +59,6 @@ export default function Charts({ resources, filteredResources }) {
     // categoryChartInstance.current.render()
 
     // Score Chart
-    if (resources.score) {
     const scoreBins = resources.reduce((acc, item) => {
       const score = item.evaluation.totalScore
       if (score >= 25) acc['25+ (Excellent)']++
@@ -73,7 +72,7 @@ export default function Charts({ resources, filteredResources }) {
         '20-22 (Good)': 0,
         '<20 (Standard)': 0
       }) 
-    }
+    
     const scoreChartOptions = getChartOptions({
       series: Object.values(scoreBins),
       chart: { 
@@ -90,10 +89,10 @@ export default function Charts({ resources, filteredResources }) {
     scoreChartInstance.current.render()
 
     // Cleanup
-    return () => {
-      categoryChartInstance.current?.destroy()
-      scoreChartInstance.current?.destroy()
-    }
+    // return () => {
+    //   categoryChartInstance.current?.destroy()
+    //   scoreChartInstance.current?.destroy()
+    // }
   }, [resources])
 
   useEffect(() => {

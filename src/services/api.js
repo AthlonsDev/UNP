@@ -10,6 +10,12 @@ export async function getRoot() {
   return await response.json();
 }
 
+export async function getAPIKey() {
+  const response = await fetch(`${API_URL}/getKey`);
+  console.log("API Key response:", response);
+  return await response.json();
+}
+
 export async function getResources() {
   const response = await fetch(`${API_URL}/resources`, {
     headers: { Accept: 'application/json' }

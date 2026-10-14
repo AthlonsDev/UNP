@@ -62,13 +62,12 @@ function App() {
 
 
   const getRootData = async () => {
-        const data = await getRoot();
-        if (data.ok) {
-          console.log('Server is running and responding.');
-          setLoading(false);
-        }
+      const data = await getRoot();
+      if (data.ok) {
+        console.log('Server is running and responding.');
+        setLoading(false);
+      }
   }
-
 
   const handleAISearch = async (query) => {
     const keywords = await performAISearch(query)
@@ -89,14 +88,6 @@ function App() {
     setCurrentStepFilter(null)
   }
 
-  const handleGetResources = async () => {
-    getResources().then(data => {
-      console.log("Resources from App.jsx:", data);
-      setLoading(false);
-    }).catch(error => {
-      console.error("Error fetching resources in App.jsx:", error);
-    });
-  };
 
   const toggleContributeForm = () => {
     const formElement = document.getElementById('contributeformcontainer');

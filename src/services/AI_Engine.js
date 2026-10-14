@@ -5,6 +5,10 @@ import { getAPIKey } from './api.js';
 
 const GEMINI_API_KEY = await getAPIKey(); // Use AWS Secrets Manager to securely store and retrieve the API key, instead of hardcoding it in the code. This is a best practice for security and prevents accidental exposure of sensitive information. The API key should be stored in a secure location, such as AWS Secrets Manager, and retrieved at runtime using the appropriate SDK or library. This way, the API key is not exposed in the code or version control system, and can be rotated or revoked as needed without requiring code changes.
 // exposed API key for testing purposes only.
+
+// ***
+// TODO: Keep this system for testing purposes only, production should not call AI inference from frontend, move it to Lambda.
+// ***
 console.log("Retrieved API key:", GEMINI_API_KEY);
 const ai = new GoogleGenAI({apiKey: GEMINI_API_KEY});
 

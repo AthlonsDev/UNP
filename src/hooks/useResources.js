@@ -1,6 +1,7 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, cache } from 'react'
 import { getResources } from '../services/api'
 import { AI_checkLinks } from '../services/AI_Engine.js'
+import useSWR from 'swr'
 
 export function useResources() {
   const [resources, setResources] = useState([])
@@ -18,6 +19,7 @@ export function useResources() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [sortOption, setSortOption] = useState(null);
+  const [cachedResources, setCachedResources] = useState(null);
 
   useEffect(() => {
     loadResources()
@@ -26,21 +28,27 @@ export function useResources() {
   async function loadResources() {
     try {
       setLoading(true)
-      const data = await getResources()
-      // check and update links
+      const { error, data, isLoading } = await getResources()
+      if (error) {
+        setError(error)
+      }
+      if (data) {
+        setCachedResources(data)
+        if (Array.isArray(data)) {
+          // console.log('Flattening resources...', data[0]['data'])
+          const flattenedData = data[0]['data']
+          setResources(flattenedData)
 
-      // resources are nested, so before passing it to the state, we need to flatten it
-      if (Array.isArray(data)) {
-        // console.log('Flattening resources...', data[0]['data'])
-        const flattenedData = data[0]['data']
-        setResources(flattenedData)
-
-        console.log("Checking and updating links...");
-        const urls = flattenedData.map(item => item.link);
-        console.log("URLs to check:", urls);
+          console.log("Checking and updating links...");
+          const urls = flattenedData.map(item => item.link);
+          console.log("URLs to check:", urls);
         // const links = AI_checkLinks(urls);
-      } else {
-        setResources(data)
+        } else {
+          setResources(data)
+        }
+      }
+      if (isLoading) {
+        setLoading(true)
       }
     } catch (err) {
       // setError(err.message)

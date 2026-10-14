@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "apexcharts": "^5.3.6",
+    "aws-amplify": "^6.22.1",
     "axios": "^1.13.2",
     "install": "^0.13.0",
     "npm": "^11.7.0",

@@ -108,6 +108,7 @@ export async function sumRes(data) {
     },
     body: JSON.stringify({ 'url': data })
   });
+
   return await response.json();
 }
 
@@ -160,3 +161,20 @@ export async function addContribution(url) {
     return response;
 
   }
+
+
+export async function updateDatabaseWithReplacementLinks(replacementLinks) {
+  try {
+    const response = await fetch(`${API_URL}/update_links`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 'urls': replacementLinks }),
+    });
+    return await response.json();
+  } catch (error) {
+    console.error("Error updating database with replacement links:", error);
+    throw error;
+  }
+}

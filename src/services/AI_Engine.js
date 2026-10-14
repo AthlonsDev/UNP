@@ -1,6 +1,6 @@
 import {GoogleGenAI} from '@google/genai';
-import { eval_data } from './evaluation.js';
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+import { GetParameter } from 'aws-amplify';
+const GEMINI_API_KEY = ("GEMINI_API_KEY"); // Use AWS Secrets Manager to securely store and retrieve the API key, instead of hardcoding it in the code. This is a best practice for security and prevents accidental exposure of sensitive information. The API key should be stored in a secure location, such as AWS Secrets Manager, and retrieved at runtime using the appropriate SDK or library. This way, the API key is not exposed in the code or version control system, and can be rotated or revoked as needed without requiring code changes.
 // exposed API key for testing purposes only.
 const ai = new GoogleGenAI({apiKey: GEMINI_API_KEY});
 
@@ -20,10 +20,8 @@ export async function AI_search(query) {
         model: models[0],
         contents: prompt,
     });
-    // const result = response?.results?.[0]?.content?.text;
-    // console.log("AI search result:", result);
-
-    console.log("Raw Response: ", response?.candidates);
+    const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
+    console.log("AI extract result:", result);
 
     return result;
 }
@@ -72,14 +70,10 @@ export async function AI_extract(url) {
     const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
     console.log("AI extract result:", result);
 
-    // AI scoring system works but it takes too long, and also increases the use of tokens.
-    // better to use a manual algorithm to evaluate the data and return a score. It's quicker and less probabilistic.
-
     // TODO: 
-    // Add scoring algorithm
-    // Add submit new resource on Lambda
-    // Add AI Summary
-    // Check links and report
+    // Check links and report broken links takes too long to be done in Lambda
+    // it should be handled asynchronously in the background to avoid timeouts and slowdowns.
+    // since checks should be run periodically, it could be handled by aws events or a cron job.
     // Find new links/resources with AI search and add to database
     const parsedResponse = jsonHandler(result);
 
@@ -97,18 +91,50 @@ function jsonHandler(jsonString) {
 }
 
 export async function AI_summary(url) {
+    console.log("Performing AI summary for URL:", url);
     const prompt = `{Summarize the key information and insights from the resource found at ${url} in a clear and concise manner. Focus on the most important points and provide a brief overview of the content, highlighting any relevant data, findings, or recommendations related to urban nature-based solutions.}`
 
     const response = await ai.models.generateContent({
-        model: models[0],
+        model: models[1],
         contents: prompt,
     });
+
+    // console.log("AI summary response:", response);
 
     const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
     console.log("AI extract result:", result);
 
     return result;
 
+}
+
+export async function AI_checkLinks(urls) {
+    console.log("Checking links for validity and accessibility:");
+    const prompt = `{Check the following links for validity and accessibility: ${urls}. Return a JSON object with the following structure: { "validLinks": [list of valid links], "brokenLinks": [list of broken links] }}`
+
+    const response = await ai.models.generateContent({
+        model: models[1],
+        contents: prompt,
+    });
+
+    const result = response.candidates?.[0]?.content?.parts?.[0]?.text;
+    console.log("Raw response:", result);
+
+    const parsedResponse = jsonHandler(result);
+    if (parsedResponse) {
+        const brokenLinks = parsedResponse.brokenLinks || [];
+        console.log("Broken links found:", brokenLinks);
+        if (brokenLinks.length > 0) {
+            replaceBrokenLinks(brokenLinks).then(async (replacementLinks) => {
+                const updatedLinks = { "oldLinks": brokenLinks, "newLinks": replacementLinks };
+                console.log("Replacement links found:", updatedLinks);
+                // Update the database with the replacement links
+            //     await updateDatabaseWithReplacementLinks(updatedLinks);
+            });
+        }
+    }
+
+    return result;
 }
 
 export async function replaceBrokenLinks(urls) {

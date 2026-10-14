@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { getResources } from '../services/api'
+import { AI_checkLinks } from '../services/AI_Engine.js'
 
 export function useResources() {
   const [resources, setResources] = useState([])
@@ -26,12 +27,18 @@ export function useResources() {
     try {
       setLoading(true)
       const data = await getResources()
-      console.log('Resources loaded:', data)
+      // check and update links
+
       // resources are nested, so before passing it to the state, we need to flatten it
       if (Array.isArray(data)) {
-        console.log('Flattening resources...', data[0]['data'])
+        // console.log('Flattening resources...', data[0]['data'])
         const flattenedData = data[0]['data']
         setResources(flattenedData)
+
+        console.log("Checking and updating links...");
+        const urls = flattenedData.map(item => item.link);
+        console.log("URLs to check:", urls);
+        // const links = AI_checkLinks(urls);
       } else {
         setResources(data)
       }

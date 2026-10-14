@@ -22,9 +22,9 @@ export default function Charts({ resources, filteredResources }) {
 
   useEffect(() => {
     if (!resources.length) return
-
     // Category Chart
     const categoryCounts = resources.reduce((acc, item) => {
+      // console.log("Counting category:", item.evaluation.totalScore)
       acc[item.category] = (acc[item.category] || 0) + 1
       return acc
     }, {})
@@ -59,19 +59,22 @@ export default function Charts({ resources, filteredResources }) {
     // categoryChartInstance.current.render()
 
     // Score Chart
+    // if (!resources.evaluation?.totalScore) return
     const scoreBins = resources.reduce((acc, item) => {
-      const score = item.evaluation.totalScore
+      const score = item.evaluation?.totalScore || 0
       if (score >= 25) acc['25+ (Excellent)']++
       else if (score >= 23) acc['23-24 (Great)']++
       else if (score >= 20) acc['20-22 (Good)']++
       else acc['<20 (Standard)']++
       return acc
-      }, {
+    },
+      {
         '25+ (Excellent)': 0,
         '23-24 (Great)': 0,
         '20-22 (Good)': 0,
         '<20 (Standard)': 0
-      }) 
+      }
+      ) 
     
     const scoreChartOptions = getChartOptions({
       series: Object.values(scoreBins),
@@ -106,23 +109,25 @@ export default function Charts({ resources, filteredResources }) {
     
     const allCategories = [...new Set(resources.map(i => i.category))].sort()
     const newCategorySeries = allCategories.map(cat => categoryCounts[cat] || 0)
-    
-    categoryChartInstance.current.updateOptions({
-      plotOptions: {
-        radialBar: {
-          dataLabels: {
-            total: {
-              formatter: () => filteredResources.length
-            }
-          }
-        }
-      }
-    })
-    categoryChartInstance.current.updateSeries(newCategorySeries)
+    console.log("Updating category chart with series:", newCategorySeries)
+
+    // categoryChartInstance.current.updateOptions({
+    //   plotOptions: {
+    //     radialBar: {
+    //       dataLabels: {
+    //         total: {
+    //           formatter: () => filteredResources.length
+    //         }
+    //       }
+    //     }
+    //   }
+    // })
+    // console.log("Updating category chart with series:", newCategorySeries)
+    // categoryChartInstance.current.updateSeries(newCategorySeries)
 
     // Update Score Chart
     const scoreBins = filteredResources.reduce((acc, item) => {
-      const score = item.evaluation.totalScore
+      const score = item.evaluation?.totalScore || 0
       if (score >= 25) acc['25+ (Excellent)']++
       else if (score >= 23) acc['23-24 (Great)']++
       else if (score >= 20) acc['20-22 (Good)']++

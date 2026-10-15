@@ -58,6 +58,7 @@ function App() {
   const [toggle, setToggle] = useState(false);
   const [toggleForm, setToggleForm] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const [showCharts, setShowCharts] = useState(false);
 
 
 
@@ -219,18 +220,29 @@ function App() {
         setCurrentStepFilter={setCurrentStepFilter}
       />
       
-      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-screen">
-        <aside className="lg:col-span-1 sticky top-8 self-start overflow-y-auto">
-            <Charts 
-              resources={resources}
-              filteredResources={filteredResources}
-            />
-        </aside>
+      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8 overflow-y-hidden max-h-[2000px] z-index-5">
+
+        <div className="sticky-following-button">
+            <button className="contribute-btn mb-4 w-full" onClick={() => setShowCharts(!showCharts)}> Charts {showCharts ? 
+              <div className="flex items-center justify-center">
+                <ChevronUpIcon /> 
+              </div>
+              : 
+              <div className="flex items-center justify-center">
+                <ChevronDownIcon />
+              </div>}</button>
+            {showCharts && (
+              <Charts 
+                resources={resources}
+                filteredResources={filteredResources}
+              />
+            )}
+        </div>
         
         <div className="lg:col-span-2">
           <KnowledgeSnippet keywords={semanticKeywords} />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[2000px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[2000px] z-index-5">
             {filteredResources.map((resource, index) => (
               <ResourceCard 
                 key={resource.id}

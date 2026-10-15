@@ -111,19 +111,19 @@ export default function Charts({ resources, filteredResources }) {
     const newCategorySeries = allCategories.map(cat => categoryCounts[cat] || 0)
     console.log("Updating category chart with series:", newCategorySeries)
 
-    // categoryChartInstance.current.updateOptions({
-    //   plotOptions: {
-    //     radialBar: {
-    //       dataLabels: {
-    //         total: {
-    //           formatter: () => filteredResources.length
-    //         }
-    //       }
-    //     }
-    //   }
-    // })
-    // console.log("Updating category chart with series:", newCategorySeries)
-    // categoryChartInstance.current.updateSeries(newCategorySeries)
+    categoryChartInstance.current.updateOptions({
+      plotOptions: {
+        radialBar: {
+          dataLabels: {
+            total: {
+              formatter: () => filteredResources.length
+            }
+          }
+        }
+      }
+    })
+    console.log("Updating category chart with series:", newCategorySeries)
+    categoryChartInstance.current.updateSeries(newCategorySeries)
 
     // Update Score Chart
     const scoreBins = filteredResources.reduce((acc, item) => {

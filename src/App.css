@@ -107,6 +107,15 @@ body {
     transition: background-color 0.2s, color 0.2s;
 }
 
+.sticky-following-button {
+    position: sticky;
+    bottom: 1rem;
+    left: 50%;
+    z-index: 1000;
+    /* transform: translateY(50%); */
+    transition: all 0.3s ease;
+}
+
 @keyframes card-enter {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }

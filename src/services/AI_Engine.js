@@ -23,25 +23,54 @@ console.log("Retrieved API key:", GEMINI_API_KEY);
 const ai = new GoogleGenAI({apiKey: GEMINI_API_KEY});
 
 const models = [
-    "gemma-4-26b-a4b-it",
     "gemma-4-31b-it",
-    "gemma-3-27b-it",
-    "gemma-3-12b-it",
+    "gemma-4-26b-a4b-it",
     "gemini-3-flash-preview",
 ]
+
+async function modelFlow(prompt) {
+    try {
+        const response = await ai.models.generateContent({
+            model: models[2],
+            contents: prompt,
+        });
+        const result = response.candidates?.[0]?.content?.parts?.[0]?.text;
+        console.log("AI search result:", result);
+        return result;
+    } catch (error) {
+        console.error("Error performing AI search with model", models[2], ":", error);
+        // Fallback to smaller model
+        try {
+            const response = await ai.models.generateContent({
+                model: models[1],
+                contents: prompt,
+            });
+            const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
+            console.log("AI search result with fallback model:", result);
+            return result;
+        } catch (error) {
+            try {
+            const response = await ai.models.generateContent({
+                model: models[2],
+                contents: prompt,
+            });
+            const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
+            console.log("AI search result with fallback model:", result);
+            return result;
+            } catch (error) {
+                console.error("Error performing AI search with fallback model", models[2], ":", error);
+                return null;
+            }
+        }
+    }
+}
 
 // Don't really need LLM to perform search, just change it with client side Semantic Search.
 export async function AI_search(query) {
     console.log("Performing AI search for query:", query);
     const prompt = `{${query}. Extract the main search query and relevant keywords from this input. Return the result in JSON format with the following structure: ${{'query': 'main search query', 'keywords': ['keyword1', 'keyword2']}}`;
-    const response = await ai.models.generateContent({
-        model: models[0],
-        contents: prompt,
-    });
-    const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
-    console.log("AI extract result:", result);
-
-    return result;
+    // try with bigger model first, if it fails, fallback to smaller models
+    return await modelFlow(prompt);
 }
 
 export async function AI_extract(url) {
@@ -80,19 +109,7 @@ export async function AI_extract(url) {
             }
         . The response must be in JSON format and follow the structure defined above. Do not include any information that is not relevant to the user's question. Be clear and concise in your response.}`
 
-    const response = await ai.models.generateContent({
-        model: models[0],
-        contents: prompt,
-    });
-
-    const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
-    console.log("AI extract result:", result);
-
-    // TODO: 
-    // Check links and report broken links takes too long to be done in Lambda
-    // it should be handled asynchronously in the background to avoid timeouts and slowdowns.
-    // since checks should be run periodically, it could be handled by aws events or a cron job.
-    // Find new links/resources with AI search and add to database
+    const result = await modelFlow(prompt);
     const parsedResponse = jsonHandler(result);
 
     return parsedResponse;
@@ -112,15 +129,9 @@ export async function AI_summary(url) {
     console.log("Performing AI summary for URL:", url);
     const prompt = `{Summarize the key information and insights from the resource found at ${url} in a clear and concise manner. Focus on the most important points and provide a brief overview of the content, highlighting any relevant data, findings, or recommendations related to urban nature-based solutions.}`
 
-    const response = await ai.models.generateContent({
-        model: models[1],
-        contents: prompt,
-    });
+    const result = await modelFlow(prompt);
 
-    // console.log("AI summary response:", response);
-
-    const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
-    console.log("AI extract result:", result);
+    console.log("AI summary result:", result);
 
     return result;
 
@@ -130,13 +141,7 @@ export async function AI_checkLinks(urls) {
     console.log("Checking links for validity and accessibility:");
     const prompt = `{Check the following links for validity and accessibility: ${urls}. Return a JSON object with the following structure: { "validLinks": [list of valid links], "brokenLinks": [list of broken links] }}`
 
-    const response = await ai.models.generateContent({
-        model: models[1],
-        contents: prompt,
-    });
-
-    const result = response.candidates?.[0]?.content?.parts?.[0]?.text;
-    console.log("Raw response:", result);
+    const result = await modelFlow(prompt);
 
     const parsedResponse = jsonHandler(result);
     if (parsedResponse) {
@@ -160,13 +165,7 @@ export async function replaceBrokenLinks(urls) {
         that is currently active and provides similar information or functionality.\
         Choose a link that does not appear in ${urls}. return a list of replacement url for each ${urls} list.`
     
-    const response = await ai.models.generateContent({
-        model: models[0],
-        contents: prompt,
-    });
-
-    const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
-    console.log("AI extract result:", result);
+    const result = await modelFlow(prompt);
 
     return result;
 }

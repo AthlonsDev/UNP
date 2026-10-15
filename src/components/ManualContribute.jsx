@@ -13,7 +13,7 @@ export default function ManualContributeForm() {
   const [success, setSuccess] = useState(false)
   const [isHelp, setIsHelp] = useState(false);
   const [rawData, setRawData] = useState(null)
-  const loadingMessage = "Generating details using AI. This may take a moment..."
+  const [loadingMessage, setLoadingMessage] = useState("Generating details using AI. This may take a moment...")
   const errorGenMessage = "AI generation failed. Please check the URL and try again."
 
   const [info, setInfo] = useState({
@@ -80,6 +80,18 @@ export default function ManualContributeForm() {
     setLoading(true);
     setGenError(false);
     const generatedDetails = await AI_extract(url);
+    // TODO: Add message based on time passed, e.g., "This may take a moment..."
+    // const timer5s = setTimeout(() => {
+    //   setLoadingMessage("Still processing... Please wait.");
+    // }, 5000);
+    // const timer10s = setTimeout(() => {
+    //   setLoadingMessage("Switching to a different processing AI model...");
+    // }, 10000);
+    // // start a timer to clear the loading message after 15 seconds
+    // const timer15s = setTimeout(() => {
+    //   setLoadingMessage("This is taking longer than expected. Please check your URL and try again.");
+    // }, 15000);
+  
     if (!generatedDetails) {
       setLoading(false);
       setGenError(true);

@@ -22,8 +22,6 @@ const fetchAPIKey = async () => {
 const models = [
     "gemma-4-26b-a4b-it",
     "gemma-4-31b-it",
-    "gemma-3-27b-it",
-    "gemma-3-12b-it",
     "gemini-3-flash-preview",
 ]
 

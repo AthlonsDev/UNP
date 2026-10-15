@@ -60,15 +60,21 @@ export async function addResources(data) {
   return { success: true };
 }
 
-export async function AISearch(prompt) {
-  const response = await fetch(`${API_URL}/ai_search`, {
+export async function AISearch(prompt, source) {
+  console.log("Sending prompt to AI search:", prompt, "Source:", source);
+  const response = await fetch(`${API_URL}/ai_search/${source}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ 'prompt': prompt })
   });
-  return await response.json();
+  if (!response.ok) {
+    throw new Error(`AISearch failed: ${response.status}`);
+  }
+  const data = await response.json();
+  console.log("AI search response:", data);
+  return data;
 };
 
 export async function manageResource(id, query) {

@@ -56,7 +56,7 @@ function App() {
     sortOption,
   } = useResources()
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [toggleForm, setToggleForm] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -187,19 +187,19 @@ function App() {
       </div> */}
     <div id='login-container' className='place-self-end z-10'>
 
-      {/* <button className="profile-btn"
+      <button className="profile-btn"
         onClick={toggleLogin}
         id='login-button'>
         👤
-      </button> */}
+      </button>
 
     </div>
 
-    {/* <div id='authcontainer' className={`place-self-end flex z-20 ${toggle ? '' : 'hidden'}`}>
+    <div id='authcontainer' className={`place-self-end flex z-20 ${toggle ? '' : 'hidden'}`}>
       <div className='absolute top-15 right-0 z-10'>
         <Auth onAuthChange={handleCallback} />
       </div>
-    </div> */}
+    </div>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8" onClick={hideLogin}>
 
       {/* <div className='absolute top-0 left-0 z-10'>
@@ -215,8 +215,8 @@ function App() {
           onClick={toggleContributeForm}
           id='toggle-contribute-form-button'
         >
-          {toggleForm === false && <ChevronUpIcon/>}
-          {toggleForm === true && <ChevronDownIcon/>}
+          {toggleForm === false && 'Add Resources'}
+          {toggleForm === true && 'Close Form'}
         </button>
       }
       </div>
@@ -275,23 +275,6 @@ function App() {
             )}
         </div>
       )}
-{/* Mobile Layout */}
-        {/* <div className="sticky-following-button">
-            <button className="contribute-btn mb-4 w-full" onClick={() => setShowCharts(!showCharts)}> Charts {showCharts ? 
-              <div className="flex items-center justify-center">
-                <ChevronUpIcon /> 
-              </div>
-              : 
-              <div className="flex items-center justify-center">
-                <ChevronDownIcon />
-              </div>}</button>
-            {showCharts && (
-              <Charts 
-                resources={resources}
-                filteredResources={filteredResources}
-              />
-            )}
-        </div> */}
         
         <div className="lg:col-span-2">
           <KnowledgeSnippet keywords={semanticKeywords} />

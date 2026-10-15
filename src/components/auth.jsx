@@ -10,17 +10,23 @@ export default function Auth({ onAuthChange }) {
 
   const handleLogin = async () => {
 
-    const response = await authUser(username, password);
-    if (response) {
+    // const response = await authUser(username, password);
+    // if (response) {
+    //   setIsLoggedIn(true);
+    //   console.log("Login successful");
+    //   onAuthChange({ isLoggedIn: true });
+
+    // } else {
+    //   // Handle login failure (e.g., show error message)
+    //     console.log("Login failed:", response.message);
+    // }
+    // console.log("Logging in with:", username, password);
+
+    // setup dummy login for now, until backend is ready
+    
       setIsLoggedIn(true);
       console.log("Login successful");
       onAuthChange({ isLoggedIn: true });
-
-    } else {
-      // Handle login failure (e.g., show error message)
-        console.log("Login failed:", response.message);
-    }
-    console.log("Logging in with:", username, password);
   };
 
 

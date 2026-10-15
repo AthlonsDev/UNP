@@ -25,30 +25,24 @@ export function useResources() {
     loadResources()
   }, [])
 
-  async function loadResources() {
+async function loadResources() {
     try {
       setLoading(true)
-      const { error, data, isLoading } = await getResources()
-      if (error) {
-        setError(error)
-      }
-      if (data) {
-        setCachedResources(data)
-        if (Array.isArray(data)) {
-          // console.log('Flattening resources...', data[0]['data'])
-          const flattenedData = data[0]['data']
-          setResources(flattenedData)
+      const data = await getResources()
+      // check and update links
 
-          console.log("Checking and updating links...");
-          const urls = flattenedData.map(item => item.link);
-          console.log("URLs to check:", urls);
+      // resources are nested, so before passing it to the state, we need to flatten it
+      if (Array.isArray(data)) {
+        // console.log('Flattening resources...', data[0]['data'])
+        const flattenedData = data[0]['data']
+        setResources(flattenedData)
+
+        console.log("Checking and updating links...");
+        const urls = flattenedData.map(item => item.link);
+        console.log("URLs to check:", urls);
         // const links = AI_checkLinks(urls);
-        } else {
-          setResources(data)
-        }
-      }
-      if (isLoading) {
-        setLoading(true)
+      } else {
+        setResources(data)
       }
     } catch (err) {
       // setError(err.message)

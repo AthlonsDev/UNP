@@ -32,10 +32,14 @@ export default function ResourceCard({ resource, index, keywords }) {
 
   
   const highlightText = (text) => {
-    if (keywords.length === 0) return text
-    
+    const safeText = typeof text === 'string' ? text : ''
+
+    if (keywords.length === 0) return safeText
+
     const regex = new RegExp(`(${keywords.join('|')})`, 'gi')
-    return text.replace(regex, (match) => `<span class="highlight">${match}</span>`)
+    return safeText.replace(regex, match =>
+      `<span class="highlight">${match}</span>`
+    )
   }
 
   useEffect(() => {

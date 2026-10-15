@@ -29,23 +29,19 @@ async function loadResources() {
     try {
       setLoading(true)
       const data = await getResources()
-      // check and update links
 
-      // resources are nested, so before passing it to the state, we need to flatten it
-      if (Array.isArray(data)) {
-        // console.log('Flattening resources...', data[0]['data'])
-        const flattenedData = data[0]['data']
-        setResources(flattenedData)
+      const resourceData = Array.isArray(data)
+        ? Array.isArray(data[0]?.data)
+          ? data[0].data
+          : data
+        : Array.isArray(data?.data)
+          ? data.data
+          : []
 
-        console.log("Checking and updating links...");
-        const urls = flattenedData.map(item => item.link);
-        console.log("URLs to check:", urls);
-        // const links = AI_checkLinks(urls);
-      } else {
-        setResources(data)
-      }
+      setResources(resourceData.filter(item => item && typeof item === 'object'))
     } catch (err) {
-      // setError(err.message)
+      setError(err.message)
+      console.error('Failed to load resources:', err)
     } finally {
       setLoading(false)
     }
@@ -64,7 +60,7 @@ async function loadResources() {
       ].join(' ').toLowerCase()
 
       
-
+      
       const matchesSearch = semanticKeywords.length > 0
         ? semanticKeywords.some(kw => itemText.includes(kw.toLowerCase()))
         : true
@@ -72,13 +68,16 @@ async function loadResources() {
       const matchesCategory = filters.category 
         ? item.category === filters.category 
         : true
-
+      
+      const languages = Array.isArray(item.languages) ? item.languages : []
+      const unpSteps = Array.isArray(item.unpSteps) ? item.unpSteps : []
+      console.log("Filtering item:", item.name, "Languages:", languages, "UNP Steps:", unpSteps);
       const matchesLanguage = filters.language
-        ? item.languages.includes(filters.language) || item.languages.includes('Multilingual')
+        ? languages.includes(filters.language) || languages.includes('Multilingual')
         : true
 
       const matchesStep = currentStepFilter
-        ? item.unpSteps.includes(currentStepFilter)
+        ? unpSteps.includes(currentStepFilter)
         : true
 
       const matchesPayment = filters.payment

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { addResources } from '../services/api'
 import '../App.css'
 import { HintCard } from './HintCard.jsx'
-import { AI_extract } from '../services/AI_Engine.js'
+import { AISearch } from '../services/api'
 
 
 export default function ManualContributeForm() {
@@ -79,7 +79,7 @@ export default function ManualContributeForm() {
     // Call AI service to generate details based on URL
     setLoading(true);
     setGenError(false);
-    const generatedDetails = await AI_extract(url);
+    const generatedDetails = await AISearch(url, "new res");
     // TODO: Add message based on time passed, e.g., "This may take a moment..."
     // const timer5s = setTimeout(() => {
     //   setLoadingMessage("Still processing... Please wait.");

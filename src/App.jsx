@@ -34,6 +34,8 @@ const ChevronUpIcon = (p) => <I {...p}><path d="m6 15 6-6 6 6"/></I>
 const ChevronDownIcon = (p) => <I {...p}><path d="m6 9 6 6 6-6"/></I>
 
 
+
+
 function App() {
   const {
     resources,
@@ -60,7 +62,21 @@ function App() {
   const [isLoading, setLoading] = useState(false);
   const [showCharts, setShowCharts] = useState(false);
 
+  const [isDesktop, setIsDesktop] = useState(
+    () => window.innerWidth >= 900
+  )
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 900)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const getRootData = async () => {
       const data = await getRoot();
@@ -233,7 +249,7 @@ function App() {
 
 {/* Desktop Layout */}
 {/* TODO: check if device is desktop or mobile */}
-      {window.innerWidth >= 900 ? (
+      {isDesktop ? (
         
         <aside className="lg:col-span-1 sticky top-8 self-start overflow-y-auto">
           <Charts 

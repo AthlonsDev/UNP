@@ -35,6 +35,8 @@ export function useResources() {
       setLoading(false)
     }
   }
+  const languages = toArray(item.languages)
+  const unpSteps = toArray(item.unpSteps)
 
   const filteredResources = useMemo(() => {
     return resources.filter(item => {
@@ -56,11 +58,13 @@ export function useResources() {
         : true
 
       const matchesLanguage = filters.language
-        ? item.languages?.includes(filters.language) || item.languages?.includes('Multilingual')
+        ? languages.some(language => String(language) === String(filters.language)) ||
+          languages.some(language => String(language) === 'Multilingual')
         : true
 
       const matchesStep = currentStepFilter
-        ? item.unpSteps?.includes(currentStepFilter)
+        ? unpSteps.some(step => String(step) === String(currentStepFilter)) ||
+          unpSteps.some(step => String(step) === 'All')
         : true
 
       const matchesPayment = filters.payment
@@ -77,10 +81,10 @@ export function useResources() {
     [resources]
   )
 
-  const languages = useMemo(() => 
-    [...new Set(resources.flatMap(item => item.languages || []))].filter(Boolean).sort(),
-    [resources]
-  )
+  // const languages = useMemo(() => 
+  //   [...new Set(resources.flatMap(item => item.languages || []))].filter(Boolean).sort(),
+  //   [resources]
+  // )
 
   return {
     resources,

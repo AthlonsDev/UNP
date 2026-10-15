@@ -13,6 +13,7 @@ export default function UNPDiagram({ currentStepFilter, setCurrentStepFilter }) 
   ]
 
   const handleStepClick = (stepId) => {
+    console.log("Step clicked:", stepId, "Current filter:", currentStepFilter)
     setCurrentStepFilter(currentStepFilter === stepId ? null : stepId)
   }
 

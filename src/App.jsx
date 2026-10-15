@@ -126,6 +126,14 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    console.log(window.innerWidth)
+    if (window.innerWidth < 900) {
+      console.log("Mobile view detected. Hiding charts by default.");
+    } else {
+      console.log("Desktop view detected. Showing charts by default.");
+    }
+  }, [window]);
 
   if (loading) {
     return (
@@ -137,6 +145,7 @@ function App() {
       </div>
     )
   }
+
 
   if (error) {
     return (
@@ -220,8 +229,19 @@ function App() {
         setCurrentStepFilter={setCurrentStepFilter}
       />
       
-      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8 overflow-y-hidden max-h-[2000px] z-index-5">
+      <main className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-screen">
 
+{/* Desktop Layout */}
+{/* TODO: check if device is desktop or mobile */}
+      {window.innerWidth >= 900 ? (
+        
+        <aside className="lg:col-span-1 sticky top-8 self-start overflow-y-auto">
+          <Charts 
+            resources={resources}
+            filteredResources={filteredResources}
+          />
+        </aside>
+      ) : (
         <div className="sticky-following-button">
             <button className="contribute-btn mb-4 w-full" onClick={() => setShowCharts(!showCharts)}> Charts {showCharts ? 
               <div className="flex items-center justify-center">
@@ -238,6 +258,24 @@ function App() {
               />
             )}
         </div>
+      )}
+{/* Mobile Layout */}
+        {/* <div className="sticky-following-button">
+            <button className="contribute-btn mb-4 w-full" onClick={() => setShowCharts(!showCharts)}> Charts {showCharts ? 
+              <div className="flex items-center justify-center">
+                <ChevronUpIcon /> 
+              </div>
+              : 
+              <div className="flex items-center justify-center">
+                <ChevronDownIcon />
+              </div>}</button>
+            {showCharts && (
+              <Charts 
+                resources={resources}
+                filteredResources={filteredResources}
+              />
+            )}
+        </div> */}
         
         <div className="lg:col-span-2">
           <KnowledgeSnippet keywords={semanticKeywords} />

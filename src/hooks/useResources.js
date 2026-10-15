@@ -59,8 +59,6 @@ async function loadResources() {
         item.summaryBullets?.user
       ].join(' ').toLowerCase()
 
-      
-      
       const matchesSearch = semanticKeywords.length > 0
         ? semanticKeywords.some(kw => itemText.includes(kw.toLowerCase()))
         : true
@@ -71,13 +69,15 @@ async function loadResources() {
       
       const languages = Array.isArray(item.languages) ? item.languages : []
       const unpSteps = Array.isArray(item.unpSteps) ? item.unpSteps : []
-      console.log("Filtering item:", item.name, "Languages:", languages, "UNP Steps:", unpSteps);
+      // console.log("Filtering item:", item.name, "Languages:", languages, "UNP Steps:", unpSteps);
       const matchesLanguage = filters.language
-        ? languages.includes(filters.language) || languages.includes('Multilingual')
+        ? languages.some(language => String(language) === String(filters.language)) ||
+          languages.some(language => String(language) === 'Multilingual')
         : true
 
       const matchesStep = currentStepFilter
-        ? unpSteps.includes(currentStepFilter)
+        ? unpSteps.some(step => String(step) === String(currentStepFilter)) ||
+          unpSteps.some(step => String(step) === 'All')
         : true
 
       const matchesPayment = filters.payment

@@ -122,7 +122,7 @@ export default function Charts({ resources, filteredResources }) {
         }
       }
     })
-    console.log("Updating category chart with series:", newCategorySeries)
+    // console.log("Updating category chart with series:", newCategorySeries)
     categoryChartInstance.current.updateSeries(newCategorySeries)
 
     // Update Score Chart

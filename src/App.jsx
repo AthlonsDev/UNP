@@ -12,8 +12,8 @@ import { performAISearch } from './hooks/useAISearch'
 import { getRoot } from './services/api'
 import ManualContributeForm from './components/ManualContribute.jsx'
 import Auth from './components/auth.jsx'
-import LinkHealthCheck from './components/LinkCheck';
-
+import AISource from './components/AISource';
+import { semanticSearch } from './services/SemanticSearch';
 import { getResources } from './services/api'
 
 const base = {
@@ -61,12 +61,17 @@ function App() {
   const [toggleForm, setToggleForm] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [showCharts, setShowCharts] = useState(false);
-
+  const [filteredRes, setFilteredRes] = useState([]);
+  const [aiSource, setAISource] = useState(); // Default to WebAI
+  // const filteredResources = []
   const [isDesktop, setIsDesktop] = useState(
     () => window.innerWidth >= 900
   )
 
   useEffect(() => {
+
+
+
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 900)
     }
@@ -76,7 +81,15 @@ function App() {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
+
+
   }, [])
+
+  useEffect(() => {
+    console.log("Resources loaded:", resources);
+    // const resources = ["Urban Nature Plan tool A", "Sustainable City Guide"];
+    semanticSearch.indexDocuments(resources);
+  }, [resources]);
 
   const getRootData = async () => {
       const data = await getRoot();
@@ -87,9 +100,10 @@ function App() {
   }
 
   const handleAISearch = async (query) => {
-    const keywords = await performAISearch(query)
-    setSemanticKeywords(keywords)
-    return keywords
+    // const keywords = await performAISearch(query, aiSource)
+    const filteredRes = await semanticSearch.search(query);
+    console.log("Filtered results from AI search:", filteredRes);
+    setFilteredRes(filteredRes.map(item => item.document));
   }
 
   const handleCallback = (data) => {
@@ -143,7 +157,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(window.innerWidth)
+    console.log("Window width:", window.innerWidth);
     if (window.innerWidth < 900) {
       console.log("Mobile view detected. Hiding charts by default.");
     } else {
@@ -180,12 +194,18 @@ function App() {
     )
   }
 
+
+  const handleSourceSelect = (source) => {
+    console.log("Selected AI source:", source);
+    setAISource(source);
+    // You can add logic here to handle the selected source, e.g., update state or make API calls
+  }
+
   return (
     <>
-      {/* <div className={`fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-50 ${isLoading ? '' : 'hidden'}`}>
-        <h1 className="text-white text-2xl font-bold">Starting Server...</h1>
-      </div> */}
-    <div id='login-container' className='place-self-end z-10'>
+
+
+    <div id='login-container' className='place-self-end z-12'>
 
       <button className="profile-btn"
         onClick={toggleLogin}
@@ -202,9 +222,9 @@ function App() {
     </div>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8" onClick={hideLogin}>
 
-      {/* <div className='absolute top-0 left-0 z-10'>
-        <LinkHealthCheck />
-      </div> */}
+      <div className='absolute top-0 left-0  z-10'>
+        <AISource onSourceSelect={handleSourceSelect} />
+      </div>
 
       <Header />
 
@@ -231,7 +251,7 @@ function App() {
         semanticKeywords={semanticKeywords}
         setSemanticKeywords={setSemanticKeywords}
         totalCount={resources.length}
-        filteredCount={filteredResources.length}
+        filteredCount={filteredRes.length}
         onAISearch={handleAISearch}
         onClearFilters={handleClearFilters}
         categories={categories}
@@ -278,16 +298,27 @@ function App() {
         
         <div className="lg:col-span-2">
           <KnowledgeSnippet keywords={semanticKeywords} />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[2000px] z-index-5">
-            {filteredResources.map((resource, index) => (
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[2000px] z-index-5">
+            {filteredRes.length > 0 ? (
+              filteredRes.map((resource, index) => (
+                <ResourceCard 
+                  key={resource.id}
+                  resource={resource}
+                  index={index}
+                  keywords={semanticKeywords}
+                />
+              ))
+            ) : (
+            filteredResources.map((resource, index) => (
               <ResourceCard 
                 key={resource.id}
                 resource={resource}
                 index={index}
                 keywords={semanticKeywords}
               />
-            ))}
+            ))
+          )}
           </div>
           
           {filteredResources.length === 0 && (

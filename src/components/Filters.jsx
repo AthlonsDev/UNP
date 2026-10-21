@@ -16,6 +16,7 @@ export default function Filters({
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearching, setIsSearching] = useState(false)
   const [searchFeedback, setSearchFeedback] = useState('')
+  const [showMore, setShowMore] = useState(false)
 
   const languageMap = {'EN':'English', 'DE':'German', 'DK':'Danish', 'NL':'Dutch', 'FR':'French', 'ES':'Spanish', 'ZH':'Chinese', 'PT':'Portuguese', 'ID':'Indonesian', 'SE':'Swedish', 'Multilingual':'Multilingual'};
 
@@ -25,10 +26,16 @@ export default function Filters({
     'how do I co-create effectively',
     'how do I get political buy-in',
     'how do I ensure social justice is included',
-    'who do I need to get involved'
+    'who do I need to get involved',
+    'how do I embed nature targets into local master plans',
+    'how can nature-based enterprises help deliver my plan',
+    'how do I plan green infrastructure across city boundaries',
+    'how do I set up Reflexive Monitoring for my team',
+    'how do I start a citizen science monitoring project',
+    'how do I prevent green gentrification in vulnerable neighbourhoods'
   ]
 
-  const handleAISearch = async () => {
+  const handleAISearch = () => {
     console.log("Performing AI search for query:", searchQuery)
     if (!searchQuery.trim()) {
       setSearchFeedback('Please enter a search query.')
@@ -37,14 +44,18 @@ export default function Filters({
 
     setIsSearching(true)
     setSearchFeedback('Thinking...')
+    console.log("filtering resources: ", filteredCount)
+    if (filteredCount > 0) {
+      setSearchFeedback(`Resources found: ${filteredCount}. Showing top results.`)
+    }
     
     try {
       console.log("finding keywords for query:", searchQuery)
-      const keywords = await onAISearch(searchQuery)
+      const keywords = onAISearch(searchQuery)
       setSemanticKeywords(keywords)
       setSearchFeedback(`Keywords found: ${keywords.join(', ')}`)
     } catch (error) {
-      setSearchFeedback('AI search failed, using standard search.')
+      // setSearchFeedback('AI search failed, using standard search.')
       setSemanticKeywords(searchQuery.toLowerCase().split(' '))
     } finally {
       setIsSearching(false)
@@ -94,7 +105,7 @@ export default function Filters({
             Need inspiration? Try one of these:
           </p>
           <div className="flex flex-wrap gap-2">
-            {suggestions.map((suggestion, idx) => (
+            {suggestions.slice(0, showMore ? suggestions.length : 5).map((suggestion, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSuggestionClick(suggestion)}
@@ -103,6 +114,13 @@ export default function Filters({
                 {suggestion}
               </button>
             ))}
+              <button
+                key="More"
+                onClick={() => setShowMore(!showMore)}
+                className="suggestion-btn"
+              >
+                {showMore ? 'Show Less' : 'Show More'}
+              </button>
           </div>
         </div>
       </div>

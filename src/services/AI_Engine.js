@@ -151,25 +151,3 @@ export async function AI_checkLinks(urls) {
 
     return result;
 }
-
-export async function replaceBrokenLinks(urls) {
-    const prompt = `{Find me a useful online tool or resource related to {link}\
-        that is currently active and provides similar information or functionality.\
-        Choose a link that does not appear in ${urls}. return a list of replacement url for each ${urls} list.`
-    const apiKey = await fetchAPIKey();
-    const ai = new GoogleGenAI({apiKey: apiKey});
-    const response = await ai.models.generateContent({
-        model: models[0],
-        contents: prompt,
-    });
-
-    const result = response.candidates?.[0]?.content?.parts?.[1]?.text;
-    console.log("AI extract result:", result);
-
-    return result;
-}
-
-// TODO: Automatically find new resources from list of verified sources and add them to database.
-// TODO: Add a fallback to AWS Bedrock, in case GoogleAI is down or not working.
-
-

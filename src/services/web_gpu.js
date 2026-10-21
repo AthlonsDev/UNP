@@ -1,11 +1,15 @@
 // Check if the browser supports WebGPU
 import { pipeline } from '@huggingface/transformers';
-import { CreateMLCEngine, MLCEngine } from "@mlc-ai/web-llm";
+import { CreateMLCEngine, CreateWebWorkerMLCEngine, MLCEngine, WebWorkerMLCEngineHandler } from "@mlc-ai/web-llm";
 
-// 1. Check if browser supports WebGPU
-// 2. Check device compatibility and collect hw info
-// 3. Based on device info, load appropriate model for the device
-// 4. Initialize the model and set up the pipeline for inference (use web workers, or it will slow down UI)
+const workerHandler = new WebWorkerMLCEngineHandler();
+
+
+const models = [
+    "Llama-3.2-3B-Instruct-q4f16_1-MLC",
+    "Llama-3.2-1B-Instruct-q4f16_1-MLC",
+]
+
 
 export async function downloadModel(modelUrl, modelName) {
     // Initialize with a progress callback
@@ -13,23 +17,9 @@ export async function downloadModel(modelUrl, modelName) {
         console.log("Model loading progress:", progress);
     };
 
-    const models = [
-        "Llama-3.2-3B-Instruct-q4f16_1-MLC",
-        "Llama-3.2-1B-Instruct-q4f16_1-MLC",]
-
-    // Using CreateMLCEngine
-    const engine = await CreateMLCEngine(models[1], { initProgressCallback });
-
-    // Direct instantiation
-    const engineInstance = new MLCEngine({ initProgressCallback });
-    await engineInstance.reload(models[1]);
-
+    
 }
 
-// TODO: Check device compatibility and load model that runs well with it
-// Needs a list of models to use for different types of devices.
-// Add explainer page about sustainable AI maybe?
-// Improve the search system
 
 export async function initializeWebGPU() {
     if (!navigator.gpu) {
@@ -46,9 +36,18 @@ export async function initializeWebGPU() {
     const device = await adapter.requestDevice();
 
     console.log('WebGPU device initialized successfully!');
+
+    // get device info
+    const deviceInfo = {
+        name: adapter.name,
+        features: Array.from(adapter.features),
+        limits: adapter.limits,
+    };
+
+    console.log('WebGPU device info:', deviceInfo);
 }
 
-
+// Base Method to run inference on the model
 export const WebAI = async (query) => {
     const messages = [
         { role: "system", content: "You are a helpful AI assistant." },
@@ -61,4 +60,82 @@ export const WebAI = async (query) => {
 
     console.log(reply.choices[0].message);
     console.log(reply.usage);
+}
+
+export const AI_Extract = async (url) => {
+        const prompt = `{extract information from given URL: '|${url}'\
+        Follow this structure: \
+            name: String,
+            description: String,
+            justification: String,
+            payment: String,
+            format: String,
+            link: String,
+            category: String,
+            subcategory: String,
+            unpSteps: [Number],
+            summaryBullets: [String],
+            languages: [String],
+            link_reported: Number,
+            featured: String,
+            created_at: String,
+            updated_at: String,
+            evaluation_criteria: {
+                usability_easy_to_follow: Number(1-3),
+                usability_clear_keypoints: Number(1-3),
+                usability_non_expert_friendly: Number(1-3),
+                engagement: Number(1-3),
+                support: Number(1-3),
+                accreditation: Boolean,
+                complementary: Number(1-3),
+                unique: Number(1-3),
+                local_relevance: Number(1-3),
+                relevance: Number(1-3)
+            },
+            evaluation: {
+                user_score: 0,
+                totalScore: Number(sum of evaluation_criteria scores)
+            }
+        . The response must be in JSON format and follow the structure defined above. Do not include any information that is not relevant to the user's question. Be clear and concise in your response.}`
+
+    const messages = [
+        { role: "system", content: "You are a helpful AI assistant." },
+        { role: "user", content: prompt }
+    ];
+
+    const reply = await engine.chat.completions.create({
+        messages,
+    });
+
+    console.log(reply.choices[0].message);
+    console.log(reply.usage);
+}
+
+export async function AISummary(url) {
+    console.log("Generating summary for URL:", url);
+    const prompt = `{Summarize the key information and insights from the resource found at ${url} in a clear and concise manner. Focus on the most important points and provide a brief overview of the content, highlighting any relevant data, findings, or recommendations related to urban nature-based solutions.}`
+
+    const initProgressCallback = (progress) => {
+        console.log("Model loading progress:", progress);
+    };
+
+    // Using CreateMLCEngine
+    const engine = await CreateWebWorkerMLCEngine(
+        new Worker(new URL('../services/web_gpu.js', import.meta.url), { type: 'module' }),
+        models[1],
+    )
+
+
+    const messages = [
+        { role: "system", content: "You are a helpful AI assistant." },
+        { role: "user", content: prompt }
+    ];
+
+    const reply = await engine.chat.completions.create({
+        messages,
+    });
+
+    console.log(reply.choices[0].message);
+    console.log(reply.usage);
+    return reply.choices[0].message.content;
 }

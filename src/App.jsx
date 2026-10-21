@@ -86,9 +86,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log("Resources loaded:", resources);
-    // const resources = ["Urban Nature Plan tool A", "Sustainable City Guide"];
-    semanticSearch.indexDocuments(resources);
+    const indexingResources = async () => {
+      await semanticSearch.indexDocuments(resources);
+      console.log("Resources indexed for semantic search.");
+    }
+    indexingResources();
   }, [resources]);
 
   const getRootData = async () => {
@@ -242,7 +244,7 @@ function App() {
       </div>
 
       <div id='contributeformcontainer' className={`mb-8 transition delay-150 duration-300 ease-in-out ${!toggleForm ? 'hidden' : ''}`}>
-        <ManualContributeForm  onContributionAdded={reloadResources} />
+        <ManualContributeForm  onContributionAdded={reloadResources} source={aiSource} />
       </div>
 
       <Filters 
@@ -306,7 +308,6 @@ function App() {
                   key={resource.id}
                   resource={resource}
                   index={index}
-                  keywords={semanticKeywords}
                 />
               ))
             ) : (
@@ -316,6 +317,7 @@ function App() {
                 resource={resource}
                 index={index}
                 keywords={semanticKeywords}
+                AISource={aiSource}
               />
             ))
           )}

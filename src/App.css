@@ -84,27 +84,53 @@ body {
 }
 
 .profile-btn {
-    background-color: var(--primary-accent);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .contribute-btn {
-    background-color: var(--primary-accent);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-btn:hover, .contribute-btn:hover {
+    background-color: var(--primary-accent);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-btn:active, .contribute-btn:active {
+    transform: translateY(0);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .sticky-following-button {
@@ -130,6 +156,7 @@ body {
     border-radius: 0.375rem;
     color: white;
     border-color: var(--primary-accent);
+    cursor: pointer;
 }
 
 .aisource-container:hover {
@@ -163,6 +190,16 @@ body {
     background-color: var(--primary-accent);
     color: white;
     border-color: var(--primary-accent);
+}
+
+.aisource-warning {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    max-width: 300px;
+    background-color: #fef3c7cb; /* Light yellow background */
+    border-left: 4px solid #F59E0B; /* Darker yellow border */
+    color: #B45309; /* Dark yellow text */
+    font-size: 0.875rem; /* Small text size */
 }
 
 @keyframes card-enter {

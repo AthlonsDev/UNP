@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from "react";
 import { AISearch } from "../services/api.js";
+import { AISummary } from "../services/web_gpu.js";
 import { use } from "react";
 
-export default function Summary({ link }) {
+export default function Summary({ link, source }) {
     const [summaryData, setSummaryData] = useState(null);
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -10,14 +11,25 @@ export default function Summary({ link }) {
     
     const fetchSummary = async () => {
         setLoading(true);
-        try {
-            const data = await AISearch(link, "summary");
-            console.log("Summary data from API:", data);
-            setSummaryData(data);
-        } catch (error) {
-            console.error("Error fetching summary:", error);
-        } finally {
-            setLoading(false);
+        console.log("AI Source selected:", source);
+        if (source === "WebAI") {
+            try {
+                const data = await AISummary(link);
+                setSummaryData(data);
+            } catch (error) {
+                console.error("Error fetching summary from WebAI:", error);
+            }
+        }
+        else {
+            try {
+                const data = await AISearch(link, "summary");
+                console.log("Summary data from API:", data);
+                setSummaryData(data);
+            } catch (error) {
+                console.error("Error fetching summary:", error);
+            } finally {
+                setLoading(false);
+            }
         }
     };
 

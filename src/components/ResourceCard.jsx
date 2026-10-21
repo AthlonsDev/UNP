@@ -20,7 +20,7 @@ const icons = {
   'email': '📧',
 }
 
-export default function ResourceCard({ resource, index, keywords }) {
+export default function ResourceCard({ resource, index, AISource }) {
   const [isFeatured, setIsFeatured] = useState(false);
   const patternUrl = generateSvgBackground(resource.category)
   const icon = icons[resource.category] || '⭐'
@@ -31,17 +31,7 @@ export default function ResourceCard({ resource, index, keywords }) {
   const [flagged, setFlagged] = useState(false); // 'flagged' or null
 
   
-  const highlightText = (text) => {
-    const safeText = typeof text === 'string' ? text : ''
-
-    if (keywords.length === 0) return safeText
-
-    const regex = new RegExp(`(${keywords.join('|')})`, 'gi')
-    return safeText.replace(regex, match =>
-      `<span class="highlight">${match}</span>`
-    )
-  }
-
+  
   useEffect(() => {
     if (resource.featured === "featured") {
       setIsFeatured(true);
@@ -103,7 +93,7 @@ export default function ResourceCard({ resource, index, keywords }) {
       />
 
       <div>
-        <Summary link={resource.link} />
+        <Summary link={resource.link} source={AISource} />
       </div>
       
       <div className="p-6 flex flex-col h-full*2 relative">
@@ -167,8 +157,9 @@ export default function ResourceCard({ resource, index, keywords }) {
         <h4 
           className="text-xl font-bold pr-16"
           style={{ color: 'var(--primary-accent)' }}
-          dangerouslySetInnerHTML={{ __html: `${icon} ${highlightText(resource.name)}` }}
-        />
+        >
+          {`${icon} ${resource.name}`}
+        </h4>
 
         
         <div className="my-2">
@@ -178,8 +169,9 @@ export default function ResourceCard({ resource, index, keywords }) {
         
         <p 
           className="text-gray-600 text-sm mt-2 flex-grow"
-          dangerouslySetInnerHTML={{ __html: highlightText(resource.description) }}
-        />
+        >
+          {resource.description}
+        </p>
         
         <div className="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500">
           {/* <p><strong>For:</strong> {resource.summaryBullets.for}</p>

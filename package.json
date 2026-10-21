@@ -6,6 +6,8 @@
   "dependencies": {
     "@aws-sdk/client-ssm": "^3.1151.0",
     "@google/genai": "^2.27.0",
+    "@huggingface/transformers": "^4.3.1",
+    "@mlc-ai/web-llm": "^0.2.86",
     "@tailwindcss/vite": "^4.1.17",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

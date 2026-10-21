@@ -5,7 +5,7 @@ import { HintCard } from './HintCard.jsx'
 import { AISearch } from '../services/api'
 
 
-export default function ManualContributeForm() {
+export default function ManualContributeForm(source) {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -79,7 +79,13 @@ export default function ManualContributeForm() {
     // Call AI service to generate details based on URL
     setLoading(true);
     setGenError(false);
-    const generatedDetails = await AISearch(url, "new res");
+    let generatedDetails = null;
+    if (source === "WebAI") {
+      generatedDetails = await AI_Extract(url);
+    }
+    else {
+      generatedDetails = await AISearch(url, "new res");
+    }
     // TODO: Add message based on time passed, e.g., "This may take a moment..."
     // const timer5s = setTimeout(() => {
     //   setLoadingMessage("Still processing... Please wait.");

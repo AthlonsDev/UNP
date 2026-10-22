@@ -63,15 +63,13 @@ function App() {
   const [showCharts, setShowCharts] = useState(false);
   const [filteredRes, setFilteredRes] = useState([]);
   const [aiSource, setAISource] = useState(); // Default to WebAI
+  const [isStarted, setIsStarted] = useState(false);
   // const filteredResources = []
   const [isDesktop, setIsDesktop] = useState(
     () => window.innerWidth >= 900
   )
 
   useEffect(() => {
-
-
-
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 900)
     }
@@ -86,10 +84,13 @@ function App() {
   }, [])
 
   useEffect(() => {
-    
+    setIsStarted(false);
+    console.log("app ready: ", isStarted);
     const indexingResources = async () => {
       await semanticSearch.indexDocuments(resources);
       console.log("Resources indexed for semantic search.");
+      setIsStarted(true);
+      console.log("app ready: ", isStarted);
     }
     indexingResources();
   }, [resources]);
@@ -206,7 +207,14 @@ function App() {
 
   return (
     <>
-
+    {!isStarted && (
+      <div className="fullscreen-loading-overlay">
+        <div className="text-center py-16">
+          <div className="ai-loading-indicator active mx-auto mb-4" />
+          <p className="text-white text-lg">Loading...</p>
+        </div>
+      </div>
+    )}
 
     <div id='login-container' className='place-self-end z-12'>
 

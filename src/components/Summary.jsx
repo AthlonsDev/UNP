@@ -21,6 +21,7 @@ export default function Summary({ link, source }) {
             }
         }
         else {
+            console.log("getting summary from API");
             try {
                 const data = await AISearch(link, "summary");
                 console.log("Summary data from API:", data);

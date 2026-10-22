@@ -16,6 +16,8 @@ export default function AISource({ onSourceSelect }) {
     const [selectedSource, setSelectedSource] = useState(null);
     const [webGPUAvailable, setWebGPUAvailable] = useState(false);
     const [isWarningVisible, setIsWarningVisible] = useState(true);
+    const [downloadProgress, setDownloadProgress] = useState(0);
+    const [downloadStatus, setDownloadStatus] = useState("");
 
     const closeWarning = () => {
         setIsWarningVisible(false);
@@ -43,6 +45,25 @@ export default function AISource({ onSourceSelect }) {
         }
     }, [selectedSource, onSourceSelect]);
 
+    // handler to trigger the download
+    const handleSourceChange = async (source) => {
+        setSelectedSource(source);
+        if (source === 'WebAI' && webGPUAvailable) {
+            console.log("Starting model download for WebAI...");
+            setDownloadProgress(0); // Reset progress
+            try {
+                await downloadModel((report) => {
+                console.log("Model loading progress:", report);
+                setDownloadProgress(report.progress*100);
+                setDownloadStatus(report.text);
+                });
+            } catch (e) {
+                console.error("Download failed", e);
+            }
+        }
+        onSourceSelect(source);
+    };
+
     return (
         <div className="aisource-container">
             <div className="aisource-options">
@@ -50,15 +71,15 @@ export default function AISource({ onSourceSelect }) {
                 <select
                     className="aisource-select"
                     value={selectedSource || ''}
-                    onChange={(e) => setSelectedSource(e.target.value)}
+                    onChange={(e) => handleSourceChange(e.target.value)}
                 >
                     <option value="" disabled>Select AI Source</option>
                     <option value="WebAI">Use Local AI (More Sustainable)</option>
                     <option value="AISearch">Use Remote AI (Faster)</option>
                 </select>
                 {/* set progress bar for model download/init */}
-                {webGPUAvailable && selectedSource === 'WebAI' && (
-                    <DownloadModelProgress progress={50} />
+                {webGPUAvailable && selectedSource === 'WebAI' && downloadProgress < 100 && (
+                    <DownloadModelProgress progress={downloadProgress} />
                 )}
                 {isWarningVisible && selectedSource === 'WebAI' && (
                 <div className="aisource-warning">

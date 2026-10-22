@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import ApexCharts from 'apexcharts'
 
-export default function Charts({ resources, filteredResources }) {
+export default function Charts({ resources, filteredResources, onChartFilter }) {
   const categoryChartRef = useRef(null)
   const scoreChartRef = useRef(null)
   const categoryChartInstance = useRef(null)
@@ -37,6 +37,14 @@ export default function Charts({ resources, filteredResources }) {
       chart: { 
         type: 'radialBar', 
         height: 350,
+        events: {
+          dataPointSelection: (_event, _chartContext, config) => {
+            const category = allCategories[config.dataPointIndex]
+            if (category) {
+              onChartFilter?.({ type: 'category', value: category })
+            }
+          }
+        },
         ...getChartOptions().chart 
       },
       plotOptions: {
@@ -56,7 +64,7 @@ export default function Charts({ resources, filteredResources }) {
     })
 
     categoryChartInstance.current = new ApexCharts(categoryChartRef.current, catChartOptions)
-    // categoryChartInstance.current.render()
+    categoryChartInstance.current.render()
 
     // Score Chart
     // if (!resources.evaluation?.totalScore) return
@@ -81,6 +89,14 @@ export default function Charts({ resources, filteredResources }) {
       chart: { 
         type: 'polarArea', 
         height: 350,
+        events: {
+          dataPointSelection: (_event, _chartContext, config) => {
+            const scoreRange = Object.keys(scoreBins)[config.dataPointIndex]
+            if (scoreRange) {
+              onChartFilter?.({ type: 'score', value: scoreRange })
+            }
+          }
+        },
         ...getChartOptions().chart 
       },
       labels: Object.keys(scoreBins),
@@ -92,10 +108,12 @@ export default function Charts({ resources, filteredResources }) {
     scoreChartInstance.current.render()
 
     // Cleanup
-    // return () => {
-    //   categoryChartInstance.current?.destroy()
-    //   scoreChartInstance.current?.destroy()
-    // }
+    return () => {
+      categoryChartInstance.current?.destroy()
+      scoreChartInstance.current?.destroy()
+      categoryChartInstance.current = null
+      scoreChartInstance.current = null
+    }
   }, [resources])
 
   useEffect(() => {
@@ -150,10 +168,9 @@ export default function Charts({ resources, filteredResources }) {
           Resource Distribution by Type
         </h3>
         <p className="text-center text-gray-500 mb-4 text-sm px-2">
-          This chart shows the breakdown of the 126 resources by their primary type.
+          This chart shows the breakdown of the resources by their primary type.
         </p>
         <p className="text-center text-gray-500 mb-4 text-sm">
-          Showing {filteredResources.length} of {resources.length} resources.
         </p>
         <div ref={categoryChartRef}></div>
       </div>

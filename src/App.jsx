@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Header from './components/Header'
 import ContributeForm from './components/ContributeForm'
 import Filters from './components/Filters'
@@ -62,6 +62,7 @@ function App() {
   const [isLoading, setLoading] = useState(false);
   const [showCharts, setShowCharts] = useState(false);
   const [filteredRes, setFilteredRes] = useState([]);
+  const [chartFilter, setChartFilter] = useState(null);
   const [aiSource, setAISource] = useState(); // Default to WebAI
   const [isStarted, setIsStarted] = useState(false);
   // const filteredResources = []
@@ -121,7 +122,51 @@ function App() {
     setFilters({ category: '', language: '', payment: '' })
     setSemanticKeywords([])
     setCurrentStepFilter(null)
+    setChartFilter(null)
+    setFilteredRes([])
   }
+
+  const handleChartFilter = (nextFilter) => {
+    setChartFilter((currentFilter) => {
+      if (
+        currentFilter?.type === nextFilter.type &&
+        currentFilter?.value === nextFilter.value
+      ) {
+        return null
+      }
+
+      return nextFilter
+    })
+    setFilteredRes([])
+  }
+
+  const chartFilteredResources = useMemo(() => {
+    const resourcesToFilter = filteredRes.length > 0 ? filteredRes : filteredResources
+
+    if (!chartFilter) {
+      return resourcesToFilter
+    }
+
+    return resourcesToFilter.filter((resource) => {
+      if (chartFilter.type === 'category') {
+        return resource.category === chartFilter.value
+      }
+
+      const score = resource.evaluation?.totalScore || 0
+      switch (chartFilter.value) {
+        case '25+ (Excellent)':
+          return score >= 25
+        case '23-24 (Great)':
+          return score >= 23 && score < 25
+        case '20-22 (Good)':
+          return score >= 20 && score < 23
+        case '<20 (Standard)':
+          return score < 20
+        default:
+          return true
+      }
+    })
+  }, [chartFilter, filteredRes, filteredResources])
 
 
   const toggleContributeForm = () => {
@@ -286,6 +331,7 @@ function App() {
           <Charts 
             resources={resources}
             filteredResources={filteredResources}
+            onChartFilter={handleChartFilter}
           />
         </aside>
       ) : (
@@ -302,6 +348,7 @@ function App() {
               <Charts 
                 resources={resources}
                 filteredResources={filteredResources}
+                onChartFilter={handleChartFilter}
               />
             )}
         </div>
@@ -311,28 +358,17 @@ function App() {
           <KnowledgeSnippet keywords={semanticKeywords} />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-y-auto max-h-[2000px] z-index-5">
-            {filteredRes.length > 0 ? (
-              filteredRes.map((resource, index) => (
+            {chartFilteredResources.map((resource, index) => (
                 <ResourceCard 
                   key={resource.id}
                   resource={resource}
                   index={index}
+                  AISource={aiSource}
                 />
-              ))
-            ) : (
-            filteredResources.map((resource, index) => (
-              <ResourceCard 
-                key={resource.id}
-                resource={resource}
-                index={index}
-                keywords={semanticKeywords}
-                AISource={aiSource}
-              />
-            ))
-          )}
+            ))}
           </div>
           
-          {filteredResources.length === 0 && (
+          {chartFilteredResources.length === 0 && (
             <div className="text-center py-16 card-component overflow-y-auto">
               <p className="text-2xl font-semibold" style={{ color: 'var(--primary-accent)' }}>
                 No Resources Found

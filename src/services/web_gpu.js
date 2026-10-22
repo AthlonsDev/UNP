@@ -1,25 +1,44 @@
 // Check if the browser supports WebGPU
 import { pipeline } from '@huggingface/transformers';
-import { CreateMLCEngine, CreateWebWorkerMLCEngine, MLCEngine, WebWorkerMLCEngineHandler } from "@mlc-ai/web-llm";
+import { CreateWebWorkerMLCEngine } from "@mlc-ai/web-llm";
 
-const workerHandler = new WebWorkerMLCEngineHandler();
+const model = "Qwen2-0.5B-Instruct-q0f16-MLC";
 
+let enginePromise;
 
-const models = [
-    "Llama-3.2-3B-Instruct-q4f16_1-MLC",
-    "Llama-3.2-1B-Instruct-q4f16_1-MLC",
-]
+export function downloadModel(onProgress) {
+  if (!enginePromise) {
+    const worker = new Worker(
+      new URL("./web_llm_worker.js", import.meta.url),
+      { type: "module" }
+    );
 
+    enginePromise = CreateWebWorkerMLCEngine(
+      worker,
+      model,
+      {
+        initProgressCallback: (report) => {
+        //   console.log("Model loading progress:", report);
 
-export async function downloadModel(modelUrl, modelName) {
-    // Initialize with a progress callback
-    const initProgressCallback = (progress) => {
-        console.log("Model loading progress:", progress);
-    };
+          onProgress?.(report);
+        },
+      }
+    ).catch((error) => {
+      enginePromise = undefined;
+      throw error;
+    });
+  }
 
-    
+  return enginePromise;
 }
 
+export async function getWebLLMEngine() {
+  if (!enginePromise) {
+    throw new Error("WebLLM model has not been initialized");
+  }
+
+  return enginePromise;
+}
 
 export async function initializeWebGPU() {
     if (!navigator.gpu) {
@@ -47,12 +66,15 @@ export async function initializeWebGPU() {
     console.log('WebGPU device info:', deviceInfo);
 }
 
+
 // Base Method to run inference on the model
 export const WebAI = async (query) => {
     const messages = [
         { role: "system", content: "You are a helpful AI assistant." },
         { role: "user", content: query }
     ];
+
+    const engine = await getWebLLMEngine();
 
     const reply = await engine.chat.completions.create({
         messages,
@@ -98,6 +120,8 @@ export const AI_Extract = async (url) => {
             }
         . The response must be in JSON format and follow the structure defined above. Do not include any information that is not relevant to the user's question. Be clear and concise in your response.}`
 
+    const engine = await getWebLLMEngine();
+
     const messages = [
         { role: "system", content: "You are a helpful AI assistant." },
         { role: "user", content: prompt }
@@ -115,16 +139,7 @@ export async function AISummary(url) {
     console.log("Generating summary for URL:", url);
     const prompt = `{Summarize the key information and insights from the resource found at ${url} in a clear and concise manner. Focus on the most important points and provide a brief overview of the content, highlighting any relevant data, findings, or recommendations related to urban nature-based solutions.}`
 
-    const initProgressCallback = (progress) => {
-        console.log("Model loading progress:", progress);
-    };
-
-    // Using CreateMLCEngine
-    const engine = await CreateWebWorkerMLCEngine(
-        new Worker(new URL('../services/web_gpu.js', import.meta.url), { type: 'module' }),
-        models[1],
-    )
-
+    const engine = await getWebLLMEngine();
 
     const messages = [
         { role: "system", content: "You are a helpful AI assistant." },

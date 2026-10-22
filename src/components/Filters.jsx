@@ -6,6 +6,7 @@ export default function Filters({
   setFilters, 
   semanticKeywords, 
   setSemanticKeywords,
+  semanticSearchReady,
   totalCount,
   filteredCount,
   onAISearch,
@@ -96,11 +97,11 @@ export default function Filters({
           />
           <button
             onClick={handleAISearch}
-            disabled={isSearching}
+            disabled={!semanticSearchReady}
             className="text-white px-4 py-2 rounded-r-md hover:bg-opacity-80 transition-colors font-bold flex items-center justify-center hover:cursor-pointer hover:bg-sky-700 bg-sky-500"
             // style={{ backgroundColor: 'var(--primary-accent)' }}
           >
-            Search
+             {semanticSearchReady ? 'AI Search' : 'Preparing search...'}
             {isSearching && (
               <div className="ai-loading-indicator active ml-2" />
             )}

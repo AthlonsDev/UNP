@@ -104,6 +104,42 @@ function App() {
       }
   }
 
+
+  // useEffect(() => {
+  //   if (!resources || resources.length === 0) return;
+  //   // initialize worker
+  //   const worker = new Worker(
+  //     new URL('./services/indexing_worker.js', import.meta.url),
+  //     { type: 'module' }
+  //   )
+
+  //   console.log("Sending resources to worker:", worker);
+
+  //   // send data to  worker for indexing
+  //   worker.postMessage({ resources });
+
+  //   // Listen for results from the worker
+  //   worker.onmessage = (event) => {
+  //     const { status, error } = event.data;
+
+  //     if (status === 'complete') {
+  //       console.log("main thread: indexing finished successfully");
+  //       setIsStarted(true);
+
+  //     }
+  //     else if (status === 'message') {
+  //       console.error("main thread: error indexing resources in worker:", error);
+  //     }
+
+  //     // Terminate worker to free up memory
+  //     worker.terminate();
+  //   };
+
+  //   return () => worker.terminate(); // Cleanup on component unmount
+
+  // }, []);
+
+
   const handleAISearch = async (query) => {
     // const keywords = await performAISearch(query, aiSource)
     const filteredRes = await semanticSearch.search(query);
@@ -253,11 +289,8 @@ function App() {
   return (
     <>
     {!isStarted && (
-      <div className="fullscreen-loading-overlay">
-        <div className="text-center py-16">
-          <div className="ai-loading-indicator active mx-auto mb-4" />
-          <p className="text-white text-lg">Loading...</p>
-        </div>
+      <div className="search-index-status">
+        Preparing smart search...
       </div>
     )}
 
@@ -306,6 +339,7 @@ function App() {
         setFilters={setFilters}
         semanticKeywords={semanticKeywords}
         setSemanticKeywords={setSemanticKeywords}
+        semanticSearchReady={isStarted}
         totalCount={resources.length}
         filteredCount={filteredRes.length}
         onAISearch={handleAISearch}
@@ -314,6 +348,7 @@ function App() {
         languages={languages}
         sorting={sortOption}
         setSortOption={setSortOption}
+
       />
       
       <UNPDiagram 

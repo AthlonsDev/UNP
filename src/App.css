@@ -143,6 +143,7 @@ body {
 }
 
 .aisource-container {
+    
     position: fixed;
     top: 1rem;
     left: 1rem;
@@ -151,10 +152,11 @@ body {
 }
 
 .aisource-select {
-    background-color: var(--primary-accent);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
-    color: white;
     border-color: var(--primary-accent);
     cursor: pointer;
 }
@@ -172,6 +174,7 @@ body {
     margin-top: 0.5rem;
     cursor: pointer;
     border-radius: 0.375rem;
+    backdrop-filter: blur(8px);
 }
 
 .aisource-option {
@@ -184,6 +187,7 @@ body {
     border: 1px solid var(--border-color);
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    backdrop-filter: blur(8px);
 }
 
 

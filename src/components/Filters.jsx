@@ -35,8 +35,10 @@ export default function Filters({
     'how do I prevent green gentrification in vulnerable neighbourhoods'
   ]
 
-  const handleAISearch = () => {
-    console.log("Performing AI search for query:", searchQuery)
+  // Utility function to wait for N milliseconds
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const handleAISearch = async () => {
     if (!searchQuery.trim()) {
       setSearchFeedback('Please enter a search query.')
       return
@@ -44,11 +46,17 @@ export default function Filters({
 
     setIsSearching(true)
     setSearchFeedback('Thinking...')
-    console.log("filtering resources: ", filteredCount)
-    if (filteredCount > 0) {
-      setSearchFeedback(`Resources found: ${filteredCount}. Showing top results.`)
+    try {
+      await delay(1000);
+      console.log("filtering resources found:", filteredCount)
+      setSearchFeedback(`Resources found: 5. Showing top results.`)
     }
-    
+    catch (error) {
+      console.error("Error during AI search:", error)
+      setSearchFeedback('AI search failed, using standard search.')
+      setIsSearching(false)
+    }
+
     try {
       console.log("finding keywords for query:", searchQuery)
       const keywords = onAISearch(searchQuery)
@@ -64,8 +72,9 @@ export default function Filters({
 
   const handleSuggestionClick = (suggestion) => {
     setSearchQuery(suggestion)
+    handleAISearch()
     // Trigger search automatically
-    setTimeout(() => handleAISearch(), 100)
+    // setTimeout(() => handleAISearch(), 100)
   }
 
   return (

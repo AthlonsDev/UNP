@@ -86,6 +86,7 @@ function App() {
   }, [])
 
   useEffect(() => {
+    
     const indexingResources = async () => {
       await semanticSearch.indexDocuments(resources);
       console.log("Resources indexed for semantic search.");
